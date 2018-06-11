@@ -9,6 +9,7 @@ import { AUpdateInformationPageComponent } from './a-update-information-page/a-u
 import { AJobPostingPageComponent } from './a-job-posting-page/a-job-posting-page.component';
 import { AResumeGeneratorPageComponent } from './a-resume-generator-page/a-resume-generator-page.component';
 import { MainLoginPageComponent } from './main-login-page/main-login-page.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainLoginPageComponent } from './main-login-page/main-login-page.compon
     AUpdateInformationPageComponent,
     AJobPostingPageComponent,
     AResumeGeneratorPageComponent,
-    MainLoginPageComponent
+    MainLoginPageComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
