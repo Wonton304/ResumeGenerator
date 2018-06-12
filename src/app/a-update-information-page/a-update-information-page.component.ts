@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./a-update-information-page.component.css']
 })
 export class AUpdateInformationPageComponent implements OnInit {
-
+  overallDescription = "";
   constructor() { }
 
   ngOnInit() {
+  }
+
+  collectDescription(event:any){
+    console.log(event);
   }
 
 }
