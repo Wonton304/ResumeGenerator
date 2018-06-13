@@ -1,3 +1,131 @@
-<p>
-  e-create-posting-page works!
-</p>
+<body>
+  <div class="container-fluid">
+  <form>
+  <p>Please select an element of your job posting that you would like to change:</p>
+  <div *ngFor="let type of item">
+    <input
+    type="radio"
+    name = "ItemType"
+    value="{{type}}"
+    (change)="activityTypeChangedHandler($event)">
+  <i>{{type}}</i></div>
+
+
+<!--Company Information-->
+  <hr>
+  <p>Type: {{itemType}}</p>
+  <div class="form-group" *ngIf="visibleCompanyName">
+    <label for="exampleFormControlTextarea1">Company Name</label>
+    <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyName($event)"></textarea>
+  </div>
+  <div class="form-group" *ngIf="visibleAddress">
+    <label for="exampleFormControlTextarea1">Company Address</label>
+    <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyAddress($event)"></textarea>
+  </div>
+  <div class="form-group" *ngIf="visibleCity">
+    <label for="exampleFormControlTextarea1">City</label>
+    <textarea class="form-control" id="companyCity" rows="1" (input)="collectCompanyCity($event)"></textarea>
+  </div>
+  <div class="form-group" *ngIf="visibleCompanyProvince">
+    <label for="exampleFormControlTextarea1">Province</label>
+    <textarea class="form-control" id="companyProvince" rows="1" (input)="collectCompanyProvince($event)"></textarea>
+  </div>
+  <div class="form-group" *ngIf="visiblePostalCode">
+    <label for="exampleFormControlTextarea1">Postal Code</label>
+    <textarea class="form-control" id="companyPostalCode" rows="1" placeholder = "A1A 2B2" (input)="collectCompanyPostalCode($event)"></textarea>
+  </div>
+
+  <div class="form-group" *ngIf="visibleCompanyDescription">
+    <label for="exampleFormControlTextarea1">Company Description</label>
+    <textarea class="form-control"  id="companyDescription" (input)="collectCompanyDescription($event)" rows="3"></textarea>
+  </div>
+
+  <div class="form-group" *ngIf="visibleCompanyDomain">
+    <label for="exampleFormControlTextarea1">Company Domain</label>
+    <select class="form-control" id="companyDomain" (input)="collectCompanyDomain($event)">
+      <option>Health</option>
+      <option>Finance</option>
+      <option>Technology</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+
+<!--Job Posting Information-->
+<div class="form-group" *ngIf="visibleJobId">
+  <label for="exampleFormControlTextarea1">Unique Job ID</label>
+  <textarea class="form-control" id="jobId" rows="1" (input)="collectJobID($event)"></textarea>
+</div>
+
+<div class="form-group" *ngIf="visibleJobDesc">
+  <label for="exampleFormControlTextarea1">Job Description</label>
+  <textarea class="form-control" id="jobDesc" rows="3" (input)="collectJobDescription($event)"></textarea>
+</div>
+
+<div class="form-group" *ngIf="visibleField">
+  <label for="exampleFormControlTextarea1">Field</label>
+  <select class="form-control" id="jobField" (input)="collectJobField($event)">
+    <option>Software</option>
+    <option>Hardware</option>
+    <option>Firmware</option>
+    <option>QA</option>
+    <option>Project Management</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<div class="form-group" *ngIf="visiblePositionTitle">
+  <label for="exampleFormControlTextarea1">Position Title</label>
+  <textarea class="form-control" id="companyName" rows="1" (input)="collectJobTitle($event)"></textarea>
+</div>
+
+
+<!--Technical Skills Information-->
+<div class="form-group" *ngIf="visibleTechnologyName">
+  <label for="exampleFormControlTextarea1">Technology Name</label>
+  <textarea class="form-control" id="techName" rows="1" placeholder = "Java, C++, ..."(input)="collectTechName($event)"></textarea>
+</div>
+
+<div class="form-group" *ngIf="visibleTechnologyRole">
+  <label for="exampleFormControlTextarea1">Role</label>
+  <select class="form-control" id="techRole" (input)="collectTechRole($event)">
+    <option>Frontend</option>
+    <option>Backend</option>
+    <option>Web</option>
+    <option>Network</option>
+    <option>Firmware</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<div class="form-group" *ngIf="visibleProficiencyRequirements">
+  <label for="exampleFormControlTextarea1">Proficiency Requirements (Number of Years Experience)</label>
+  <select class="form-control" id="proficiencyRequirements" (input)="collectTechProficiency($event)">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5+</option>
+  </select>
+</div>
+
+<div class="form-group" *ngIf="visibleTechnologyType">
+  <label for="exampleFormControlTextarea1">Type of Technology</label>
+  <select class="form-control" id="techType" (input)="collectTechnologyType($event)">
+    <option>Language</option>
+    <option>IDE</option>
+    <option>Framework</option>
+    <option>Other</option>
+  </select>
+</div>
+</form>
+
+  <button type="button" class="btn btn-primary btn-lg btn-block"
+  (click)="addItem()">Update job information</button>
+
+  </div>
+
+
+
+  </body>
