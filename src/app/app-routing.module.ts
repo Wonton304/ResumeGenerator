@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     //initial route
     path: '',
-    // component property lets us specify which component resides at that path. 
+    // component property lets us specify which component resides at that path.
     component: MainLoginPageComponent
   },
   {
