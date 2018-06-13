@@ -18,11 +18,17 @@ export class MainLoginPageComponent implements OnInit {
   }
 
   revealHideApplicant() {
-    this.applicantIsHidden = true;
+    this.applicantIsHidden = !this.applicantIsHidden;
+    if (this.employerIsHidden == true){
+      this.employerIsHidden = false;
+    }
   }
 
   revealHideEmployer() {
-    this.employerIsHidden = true;
+    this.employerIsHidden = !this.employerIsHidden;
+    if (this.applicantIsHidden == true){
+      this.applicantIsHidden = false;
+    }
   }
 
 
