@@ -7,22 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLoginPageComponent implements OnInit {
 
-  applicantIsHidden:boolean;
-  employerIsHidden:boolean;
+  applicantIsHidden:boolean = false;
+  employerIsHidden:boolean = false;
   constructor() {
-    this.applicantIsHidden = false;
-    this.employerIsHidden = false;
+    // this.applicantIsHidden = false;
+    // this.employerIsHidden = false;
    }
 
   ngOnInit() {
   }
 
   revealHideApplicant() {
-    this.applicantIsHidden = !this.applicantIsHidden;
+    this.applicantIsHidden = true;
   }
 
   revealHideEmployer() {
-    this.employerIsHidden = !this.employerIsHidden;
+    this.employerIsHidden = true;
   }
 
 
