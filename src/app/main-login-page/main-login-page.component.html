@@ -1,29 +1,11 @@
-<!-- <!DOCTYPE html> -->
-<!-- <html>
-<head>
-  <title> Login Page </title>
-    <! <link rel="stylesheet" type="text/css" href="main-login-page.component.css"> -->
+<!-- <html> -->
+      <body>
 
-  <!-- </head> -->
-  <body>
-    <button type="button" (click)="revealHideApplicant()" >Applicant Login</button>
-  <div class="applicant-login-box" *ngIf="applicantIsHidden">
-  <!-- <img src="images/loginIcon.png" class="avatar"> -->
-      <h1>Login Here</h1>
-          <form>
-          <p>Email</p>
-          <input type="text" name="email" placeholder="Enter Email">
-          <input type="submit" name="UserSubmit" value="Login">
-
-          </form>
-
-
-      </div>
-      <button type="button" (click)="revealHideEmployer()" >Employer Login</button>
-
-      <div class="employer-login-box">
-      <!-- <img src="images/loginIcon.png" class="avatar"> -->
-          <h1>Login Here</h1>
+        <p> please select your purpose </p>
+        <button class="btn btn-default btn-lg btn-custom-lg" (click)="revealHideApplicant()" >Applicant Login</button>
+        <button class="btn btn-default btn-lg btn-custom-lg" (click)="revealHideEmployer()" >Employer Login</button>
+      <div class="applicant-login-box" *ngIf="applicantIsHidden">
+        <h1>Login Here</h1>
               <form>
               <p>Email</p>
               <input type="text" name="companyName" placeholder="Enter Company Name">
@@ -34,8 +16,20 @@
 
           </div>
 
+
+          <div class="employer-login-box" *ngIf="employerIsHidden">
+            <h1>Login Here</h1>
+
+                  <form>
+                  <p>Company Name</p>
+                  <input type="text" name="companyName" placeholder="Enter Company Name">
+                  <input type="submit" name="companySubmit" value="Login">
+
+                  </form>
+
+
+              </div>
+
   </body>
 
-
-<!--
-<script src="HomeScreen.js"></script> -->
+<!-- </html> -->
