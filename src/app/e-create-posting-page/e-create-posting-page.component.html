@@ -1,3 +1,4 @@
+<h1> Employer Information</h1> 
 <body>
   <div class="container-fluid">
   <form>
@@ -26,7 +27,7 @@
     <label for="exampleFormControlTextarea1">City</label>
     <textarea class="form-control" id="companyCity" rows="1" (input)="collectCompanyCity($event)"></textarea>
   </div>
-  <div class="form-group" *ngIf="visibleCompanyProvince">
+  <div class="form-group" *ngIf="visibleProvince">
     <label for="exampleFormControlTextarea1">Province</label>
     <textarea class="form-control" id="companyProvince" rows="1" (input)="collectCompanyProvince($event)"></textarea>
   </div>
