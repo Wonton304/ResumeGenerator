@@ -1,71 +1,96 @@
 <body>
-  
   <div class="container-fluid">
-  
-  
   <form>
+  <p>Select item type that you would like to add to your resume.</p>
+  <div *ngFor="let type of item">
+    <input 
+    type="radio"
+    name = "ItemType"
+    value="{{type}}"
+    (change)="activityTypeChangedHandler($event)"> 
+  <i>{{type}}</i></div>
+  <hr>
+  <div class="form-group" *ngIf="visibleExperienceType">
+      <p>You've selected {{experienceType}}</p>
+    <div *ngFor="let type of experienceTypeArray">
+      <input 
+      type="radio"
+      name = "ItemType"
+      value="{{type}}"
+      (change)="selectExperienceType($event)"> 
+    <i>{{type}}</i></div>
+    <hr></div>
+  <div class="form-group" *ngIf="visibleCategory">
+    <p>You've selected {{category}}</p>
+      <div *ngFor="let type of categoryArray">
+        <input 
+        type="radio"
+        name = "ItemType"
+        value="{{type}}"
+        (change)="collectCategory($event)"> 
+      <i>{{type}}</i></div>
+      <hr></div>
+    
+      <p>Type: {{itemType}}</p>
+
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Select Info Type</label>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="WorkExperience" checked>
-      <label class="form-check-label" for="exampleRadios1">
-        Work Experience
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="VolunteerExperience">
-      <label class="form-check-label" for="exampleRadios2">
-        Volunteer Experience
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="VolunteerExperience">
-      <label class="form-check-label" for="exampleRadios2">
-         Coding Projects
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Hobbies">
-      <label class="form-check-label" for="exampleRadios3">
-        Hobbies
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Awards">
-      <label class="form-check-label" for="exampleRadios3">
-        Awards
-      </label>
-    </div>
+    <label for="exampleFormControlTextarea1">Name</label>
+    <textarea class="form-control" id="activityName" rows="1" (input)="collectName($event)"></textarea>
   </div>
   
-  <label for="exampleFormControlSelect1">Example select</label>
-  <select class="form-control" id="exampleFormControlSelect1">
+  <div class="form-group" *ngIf="visibleDescription">
+    <label for="exampleFormControlTextarea1">ActivityDescription</label>
+    <textarea class="form-control"  id="activityDescription" (input)="collectDescription($event)" rows="3"></textarea>
+  </div>
+  
+  
+  <div class="form-group" *ngIf="visibleOrganization">
+    <label for="exampleFormControlInput1">organization</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google"
+    (input)= "collectOrganization($event)">
+  </div>
+
+  <div class="form-group" *ngIf="visibleLanguage">
+      <label for="exampleFormControlInput1">One Main Language Used</label>
+      <input  class="form-control" id="exampleFormControlInput1" placeholder="Java"
+      (input)= "collectLanguage($event)">
+    </div>
+
+    <div class="form-group" *ngIf="visibleDuration">
+        <label for="exampleFormControlInput1">Length of Involvment (Unit Months) </label>
+        <input  class="form-control" id="exampleFormControlInput1" placeholder="4"
+        (input)= "collectDuration($event)">
+      </div>
+  
+      <div class="form-group" *ngIf="visibleDateRecieved">
+          <label for="exampleFormControlInput1">Date of Reciving</label>
+          <input  class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY"
+          (input)= "collectDateRecieved($event)">
+        </div>
+ <div class="form-group" *ngIf="visibleRole">
+          <label for="exampleFormControlInput1">Role</label>
+          <input  class="form-control" id="exampleFormControlInput1" placeholder="Leader"
+          (input)= "collectRole($event)">
+        </div>
+
+  <div class="form-group" *ngIf="visibleComplexity">
+    <label for="exampleFormControlSelect1">Complexity of Project</label>
+  <select class="form-control" id="exampleFormControlSelect1" (input)="collectComplexity($event)">
     <option>1</option>
     <option>2</option>
     <option>3</option>
     <option>4</option>
     <option>5</option>
   </select>
-  
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Name</label>
-    <textarea class="form-control" id="activityName" rows="1"></textarea>
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">ActivityDescription</label>
-    <textarea class="form-control"  id="activityDescription" (input)="collectDescription($event)" rows="3"></textarea>
   </div>
   
   
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
   
   </form>
   
-  
+  <button type="button" class="btn btn-primary btn-lg btn-block"
+  (click)="addItem()">Add to resume</button>
+
   </div>
   
   

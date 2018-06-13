@@ -11,10 +11,18 @@ ul {
     margin: 0;
 }
 
-
 li a{
 
         color: #fff;
         padding: 20px;
         display: block;
 }
+
+
+li a .activated{
+
+    color: #2ff;
+    padding: 20px;
+    display: block;
+}
+
