@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AJobPostingPageComponent implements OnInit {
 
+  postings$ = Object;
   constructor() { }
 
   ngOnInit() {
