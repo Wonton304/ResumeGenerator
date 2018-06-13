@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLoginPageComponent implements OnInit {
 
-  constructor() { }
+  applicantIsHidden:boolean = false;
+  employerIsHidden:boolean = false;
+  constructor() {
+    // this.applicantIsHidden = false;
+    // this.employerIsHidden = false;
+   }
 
   ngOnInit() {
   }
+
+  revealHideApplicant() {
+    this.applicantIsHidden = true;
+  }
+
+  revealHideEmployer() {
+    this.employerIsHidden = true;
+  }
+
+
+//   function revealHideApplicant() {
+//     var x = document.getElementById("applicant-login-box");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
 
 }
