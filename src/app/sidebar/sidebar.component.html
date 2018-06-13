@@ -1,7 +1,8 @@
-<nav>
-  <ul>
-    <li>
-      <a routerLink="Update">
+<nav >
+    <div *ngIf="applicantOrEmployer; else notApplicant"> 
+       <ul>
+         <li>
+         <a routerLink="Update">
         <i class="material-icons">add_to_queue</i>
       </a>
     </li>
@@ -15,5 +16,27 @@
           <i class="material-icons">code</i>
         </a>
       </li>
-  </ul>
+    </ul>
+    </div>
+   <ng-template template #notApplicant> 
+    <ul> 
+    <li>
+        <a routerLink="Post">
+          <i class="material-icons">assignment_returned</i>
+        </a>
+      </li>
+      <li>
+        <a routerLink="Select">
+          <i class="material-icons">account_box</i>
+        </a>
+      </li>
+    </ul>
+  </ng-template>
+     <ul>    
+       <li>
+        <a routerLink="">
+          <i class="material-icons">settings_power</i>
+        </a>
+      </li>
+ </ul>
 </nav>
