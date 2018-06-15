@@ -15,4 +15,6 @@ export class SidebarComponent implements OnInit {
   }
   applicantOrEmployer=true;
 
+  
+
 }
