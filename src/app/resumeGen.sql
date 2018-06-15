@@ -1,5 +1,6 @@
 drop table Location1;
 drop table Location3;
+
 drop table SituatedIn;
 drop table Location2;
 drop table Requires;
@@ -114,6 +115,7 @@ create table Location2
 
 			create table Applicant1(
 				applicantPhoneNumber varchar(30),
+				applicantProvince varchar(30),
 				applicantCity varchar(30)
 			);
 
@@ -125,6 +127,11 @@ create table Location2
 				personalDescription varchar(1000),
 				applicantPhoneNumber varchar(50)
 			);
+
+			create table Applicant3(
+				applicantPhoneNumber varchar(30),
+				applicantProvince varchar(30)
+			)
 
 
 			create table AppliesTo(
