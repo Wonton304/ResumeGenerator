@@ -13,7 +13,11 @@
               </form>
           </div>
 
-        <p>{{holder}}</p>
+          <ul>
+              <li *ngFor="let temp of add">
+               {{temp.address}}
+              </li>
+            </ul>
           <div class="employer-login-box" *ngIf="employerIsHidden">
             <h1>Login Here</h1>
 

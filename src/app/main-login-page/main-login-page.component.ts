@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-main-login-page',
@@ -12,23 +11,25 @@ export class MainLoginPageComponent implements OnInit {
   applicantIsHidden:boolean = false;
   employerIsHidden:boolean = false;
 
-  
+  allowable:string="";
+  add:string;
+  postalCode:any;
   applicantEmail:string ="";
   holder;
-  constructor(private http: Http) {
-    http.get('http://www.ugrad.cs.ubc.ca/~s3z0b/dist/ResumeGenerator/ServerConnect.php').subscribe(data => {
+  constructor(private http: HttpClient) {
+    /*http.request('http://www.ugrad.cs.ubc.ca/~s3z0b/dist/ResumeGenerator/ServerConnect.php').subscribe(data => {
       
     console.log(data);
       this.holder = data;
-    });
+    });*/
    }
 
   ngOnInit() {
-    this.verify();
+    this.showConfig() ;
   }
 
   verify(){
- // this.http.get('http://localhost/serverConnect.php');
+ 
       
   }
 
@@ -50,14 +51,17 @@ export class MainLoginPageComponent implements OnInit {
     this.verify();
   }
 
+  getConfig() {
+    return this.http.get('http://www.ugrad.cs.ubc.ca/~s3z0b/dist/ResumeGenerator/ServerConnect.php', {responseType: 'text'});
+  }
+ 
 
-//   function revealHideApplicant() {
-//     var x = document.getElementById("applicant-login-box");
-//     if (x.style.display === "none") {
-//         x.style.display = "block";
-//     } else {
-//         x.style.display = "none";
-//     }
-// }
+  showConfig() { 
+    this.getConfig().subscribe(response => console.log(response.toString()))
+
+    this.getConfig().subscribe(response => this.add = JSON.parse(response.toString()));
+     // .subscribe((data: string) => this.allowable =data.toString());
+  
+    }
 
 }
