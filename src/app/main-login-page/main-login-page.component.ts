@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-main-login-page',
@@ -6,15 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-login-page.component.css']
 })
 export class MainLoginPageComponent implements OnInit {
-
+  hideSidebar:boolean = true;
   applicantIsHidden:boolean = false;
   employerIsHidden:boolean = false;
-  constructor() {
-    // this.applicantIsHidden = false;
-    // this.employerIsHidden = false;
+
+  allowable:string="";
+  add:string;
+  postalCode:any;
+  applicantEmail:string ="";
+  holder;
+  constructor(private http: HttpClient) {
+    /*http.request('http://www.ugrad.cs.ubc.ca/~s3z0b/dist/ResumeGenerator/ServerConnect.php').subscribe(data => {
+      
+    console.log(data);
+      this.holder = data;
+    });*/
    }
 
   ngOnInit() {
+    this.showConfig() ;
+  }
+
+  verify(){
+ 
+      
   }
 
   revealHideApplicant() {
@@ -22,6 +38,9 @@ export class MainLoginPageComponent implements OnInit {
     if (this.employerIsHidden == true){
       this.employerIsHidden = false;
     }
+
+
+    
   }
 
   revealHideEmployer() {
@@ -29,16 +48,20 @@ export class MainLoginPageComponent implements OnInit {
     if (this.applicantIsHidden == true){
       this.applicantIsHidden = false;
     }
+    this.verify();
   }
 
+  getConfig() {
+    return this.http.get('http://www.ugrad.cs.ubc.ca/~s3z0b/dist/ResumeGenerator/ServerConnect.php', {responseType: 'text'});
+  }
+ 
 
-//   function revealHideApplicant() {
-//     var x = document.getElementById("applicant-login-box");
-//     if (x.style.display === "none") {
-//         x.style.display = "block";
-//     } else {
-//         x.style.display = "none";
-//     }
-// }
+  showConfig() { 
+    this.getConfig().subscribe(response => console.log(response.toString()))
+
+    this.getConfig().subscribe(response => this.add = JSON.parse(response.toString()));
+     // .subscribe((data: string) => this.allowable =data.toString());
+  
+    }
 
 }
