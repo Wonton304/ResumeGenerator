@@ -54,29 +54,13 @@ export class MainLoginPageComponent implements OnInit {
   }
 
 
+  
   showConfig() {
-    this.getConfig().subscribe(response =>
+    this.getConfig().subscribe(response =>{
       for(var index in response.split(",")){
           var singleObject = response.split(",")[index];
-          console.log(JSON.parse(singleObject);
+          console.log(JSON.parse(singleObject));
       }
-    }); //this.result = response     console.log(JSON.parse(response.toString()))
-
-    // console.log(response);
-//     myArray = JSON.parse(this.result);
-//     for(var index in myArray){
-//       var singleObject = myArray[index];
-//       var keys = Object.keys[singleObject];
-//       for(var j in keys){
-//             console.log("Value of key"+j+"is"+keys[j]+"in Object"+index);
-//       }
-// }
-
-
-
-    // this.getConfig().subscribe(response => this.add = JSON.parse(response.toString()));
-     // .subscribe((data: string) => this.allowable =data.toString());
-
+    });
     }
-
 }
