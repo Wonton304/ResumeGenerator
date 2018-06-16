@@ -1,8 +1,8 @@
 <!-- <html> -->
       <body>
-        <p> please select your purpose </p>
-        <button class="btn btn-default btn-lg btn-custom-lg" (click)="revealHideApplicant()" >Applicant Login</button>
-        <button class="btn btn-default btn-lg btn-custom-lg" (click)="revealHideEmployer()" >Employer Login</button>
+        <p> Please login with your user type:</p>
+        <button class="applicantButton" (click)="revealHideApplicant()" >Applicant Login</button>
+        <button class="employerButton" (click)="revealHideEmployer()" >Employer Login</button>
       <div class="applicant-login-box" *ngIf="applicantIsHidden">
         <h1>Login Here</h1>
               <form>
