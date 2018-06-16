@@ -1,0 +1,166 @@
+.btn.btn-custom-lg{
+
+  transform: translate(177%,700%);
+}
+.applicantButton{
+  border: none;
+  outline: none;
+  height: 60px;
+  background: #c18918;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  transform: translate(-50%,300%);
+  top: 50%;
+  left: 43%;
+  position: absolute;
+}
+
+.applicantButton:hover
+{
+  cursor: pointer;
+background: #39dc79;
+color: #000;
+}
+
+.employerButton:hover
+{
+  cursor: pointer;
+background: #39dc79;
+color: #000;
+}
+.employerButton{
+  border: none;
+  outline: none;
+  height: 60px;
+  background: #c18918;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  transform: translate(-50%,300%);
+  top: 50%;
+  left: 57%;
+  position: absolute;
+}
+
+
+.applicant-login-box{
+    width: 329px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-80%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.employer-login-box{
+    width: 329px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-80%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+.employer-login-box h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.applicant-login-box h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.applicant-login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.employer-login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.applicant-login-box input[type="text"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+.employer-login-box input[type="text"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.applicant-login-box input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #c18918;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.employer-login-box input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #c18918;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.applicant-login-box input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #39dc79;
+    color: #000;
+
+}
+
+.employer-login-box input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #39dc79;
+    color: #000;
+
+}

@@ -1,3 +1,31 @@
-<p>
-  main-login-page works!
-</p>
+<!-- <html> -->
+      <body>
+        <p> please select your purpose </p>
+        <button class="btn btn-default btn-lg btn-custom-lg" (click)="revealHideApplicant()" >Applicant Login</button>
+        <button class="btn btn-default btn-lg btn-custom-lg" (click)="revealHideEmployer()" >Employer Login</button>
+      <div class="applicant-login-box" *ngIf="applicantIsHidden">
+        <h1>Login Here</h1>
+              <form>
+              <p>Email</p>
+              <input type="text" name="applicantEmail" placeholder="Enter Applicant Email" >
+              <input type="submit" name="applicantSubmit" value="Login" >
+
+              </form>
+          </div>
+
+          <ul>
+              <li *ngFor="let temp of add">
+               {{temp.address}}
+              </li>
+            </ul>
+          <div class="employer-login-box" *ngIf="employerIsHidden">
+            <h1>Login Here</h1>
+
+                  <form>
+                  <p>Company Name</p>
+                  <input type="text" name="companyName" placeholder="Enter Company Name">
+                  <input type="submit" name="companySubmit" value="Login" (click)="verify()">
+
+                  </form>
+              </div>
+  </body>
