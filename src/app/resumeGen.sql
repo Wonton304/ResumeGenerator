@@ -1684,3 +1684,4 @@ INSERT INTO HaveAward VALUES('Honour roll', '2002-6-2', 'Elizabeth_7867@alumni.u
 INSERT INTO HaveExperience VALUES('Elizabeth_7867@alumni.ubc.ca', 'UBC Acapella', 'Lead Singer');
 INSERT INTO HaveProject VALUES('Elizabeth_7867@alumni.ubc.ca', 'Cookie Clicker', 'JavaScript');
 INSERT INTO AppliesTo VALUES('1vz66', 'Elizabeth_7867@alumni.ubc.ca');
+ 
