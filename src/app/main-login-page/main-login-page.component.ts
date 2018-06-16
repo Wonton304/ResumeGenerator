@@ -55,10 +55,10 @@ export class MainLoginPageComponent implements OnInit {
 
 
   showConfig() {
-    this.getConfig().subscribe(response =>
+    this.getConfig().subscribe(response =>{
       for(var index in response.split(",")){
           var singleObject = response.split(",")[index];
-          console.log(JSON.parse(singleObject);
+          console.log(JSON.parse(singleObject));
       }
     }); //this.result = response     console.log(JSON.parse(response.toString()))
 
