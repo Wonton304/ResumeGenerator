@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataServiceService } from '../data-service.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-main-login-page',
@@ -16,22 +17,26 @@ export class MainLoginPageComponent implements OnInit {
   postalCode:any;
   applicantEmail:string ="";
   holder;
-  result:Array<Object>;; //hailin
+  result:Array<Object>;
 
-  constructor(private http: HttpClient) {
-    /*http.request('http://www.ugrad.cs.ubc.ca/~s3z0b/dist/ResumeGenerator/ServerConnect.php').subscribe(data => {
-
-    console.log(data);
-      this.holder = data;
-    });*/
+  constructor(private serverService: DataServiceService ) {
    }
 
   ngOnInit() {
-    this.showConfig() ;
+   this.get();
   }
 
-  verify(){
-
+  get(){
+    this.serverService.connectStore().subscribe(
+      (response: Response )=>{
+        const data = response.json();
+        for(const Location of data){
+          Location.ADDRESS = 'Address is ' + Location.ADDRESS;
+        }
+        console.log(data)
+      },
+      (error) => console.log(error)
+    );
   }
 
   revealHideApplicant() {
@@ -46,21 +51,9 @@ export class MainLoginPageComponent implements OnInit {
     if (this.applicantIsHidden == true){
       this.applicantIsHidden = false;
     }
-    this.verify();
-  }
-
-  getConfig() {
-    return this.http.get('http://www.ugrad.cs.ubc.ca/~g6b1b/ServerConnect.php', {responseType: 'text'});
   }
 
 
-  showConfig() {
-    this.getConfig().subscribe(response =>{
-      for(var index in response.split(",")){
-          var singleObject = response.split(",")[index];
-          console.log(JSON.parse(singleObject));
-      }
-    });
-    }
+
 
 }
