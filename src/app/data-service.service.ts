@@ -26,7 +26,7 @@ export class DataServiceService {
   }
 
   insertNewApplicant(description){
-    
+    return this.http.post('../api/loginPageApplicant.php', description);
   }
 
   generateResume (postID){
