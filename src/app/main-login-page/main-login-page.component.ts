@@ -177,7 +177,7 @@ submitCompanyInfo(){
     JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode, COMPANYNAME: this.companyName,
     COMPANYDESCRIPTION: this.companyDescription, COMPANYDOMAIN: this.companyDomain}))
   .subscribe(
-    (response) =>console.log(response),
+    (response) => console.log(response),
     (error) =>console.log
   );
 }

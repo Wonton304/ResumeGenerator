@@ -15,17 +15,16 @@ export class DataServiceService {
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
   }
 
-
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
   }
 
   insertNewCompany(companyInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageEmployer.php', applicantInfo);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageEmployer.php', companyInfo);
   }
 
   insertNewApplicant(applicantInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageApplicant.php', companyInfo);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageApplicant.php', applicantInfo);
   }
 
   generateResume (postID){
