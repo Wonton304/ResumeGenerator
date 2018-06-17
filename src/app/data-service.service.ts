@@ -15,17 +15,14 @@ export class DataServiceService {
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
   }
 
-<<<<<<< HEAD
+
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
   }
-=======
   insertNewCompany(description){
     const headers = new Headers ({'Content-Type': 'application/json'});
     return this.http.post('../api/loginPageEmployer.php', description);
   }
-
->>>>>>> b34d91ee5bce216003fd268717792cc81099639c
 
   generateResume (postID){
     //return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
