@@ -21,6 +21,8 @@ export class AUpdateInformationPageComponent implements OnInit {
   language:string="";
   category:string="";
 
+  applicantEmail:string="";
+
   visibleDescription:boolean = false;
   visibleDateRecieved:boolean = false;
   visibleDuration:boolean = false;
@@ -146,9 +148,14 @@ export class AUpdateInformationPageComponent implements OnInit {
     console.log(this.role);
   }
 
+  collectApplicantEmail(event:any){
+    this.applicantEmail = event.target.value;
+    console.log(this.applicantEmail);
+  }
+
   addItem(){
     // awaiting for format decision
-    
+
   }
 
 }
