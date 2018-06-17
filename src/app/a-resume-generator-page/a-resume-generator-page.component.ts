@@ -27,20 +27,42 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   collectId (event:any){
     this.jobPostingId=event.target.value;
+    console.log("id: "+this.jobPostingId);
   }
 
   collectEmail(event:any){
     this.email=event.target.value;
+    console.log("email: "+this.email);
+  }
+
+  getHobbies(){
+    this.includeHobbies = !this.includeHobbies;
+
+  }
+
+  getExperiences(){
+    this.includeExperiences = !this.includeExperiences;
+  }
+
+  getAwards(){
+
+  }
+
+  getCodingProjects(){
+
   }
 
   buildResume(){
+
+
 //send info to php
   this.serverService.connectResumeGen(
     JSON.stringify({EMAIL:this.email,JOBID:this.jobPostingId}))
-  .subscribe(
-    serverService => this.generatedResume$ = serverService,
-    (error) =>console.log(error)
-  );
+    .subscribe(
+      serverService => this.generatedResume$ = serverService,
+      (response) => console.log(response),
+      (error) =>console.log(error)
+    );
     this.resumeGenerated=true;
   }
 
