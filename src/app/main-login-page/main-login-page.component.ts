@@ -15,7 +15,7 @@ export class MainLoginPageComponent implements OnInit {
   allowable:string="";
   add:string;
   postalCode:any;
-  applicantEmail:string ="";
+  // applicantEmail:string ="";
   holder;
 
   //fields for Location entity
@@ -192,6 +192,4 @@ submitApplicantInfo(){
     (error) =>console.log
   );
   }
-}
-
 }
