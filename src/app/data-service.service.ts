@@ -55,22 +55,22 @@ export class DataServiceService {
     //return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
   }
 
-  createHobby(hobbyName){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/hobby.php', hobbyName);
+  createHobby(hobby){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insert-hobby.php', hobby);
   }
 
 
   createProjectInfo(codingProjectInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', codingProjectInfo);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/Insert-CodingProject.php', codingProjectInfo);
   }
 
   createExperienceInfo(experienceInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', experienceInfo);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insert-Experience.php', experienceInfo);
   }
 
   // need updates
   createAward(award){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', award);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/Insert-Awards.php', award);
   }
 
   // must include id to select individual !
