@@ -2,19 +2,27 @@
   header("Access-Control-Request-Method: *");
   header("Access-Control-Request-Headers: *");
   header("Access-Control-Allow-Origin: *");
-// Create connection to Oracle
+
+$json = $HTTP_RAW_POST_DATA;
+echo $json;
+$obj = json_decode($json);
+
+$jobid = $obj->JOBID;
+
+// Create connection to Oracle 
 $conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $join = "SELECT DISTINCT Applicant2.applicantName, HaveProject.language
 from Applicant2 inner join HaveProject on Applicant2.applicantEmail = HaveProject.applicantEmail
 where Applicant2.applicantEmail in (select AP.applicantEmail
                                     from AppliesTo AP
-                                    where AP.id = '5cd07')
+                                    where AP.id = :jobid)
      and HaveProject.language in (select R.technologyName
                                   from Requires R
-                                  where R.id = '5cd07')";
+                                  where R.id = :jobid)";
 
 $stid = oci_parse($conn, $join);
+oci_bind_by_name($stid, ':jobid', $jobid);
 $result = oci_execute($stid);
 //to remember the entire json string
 $json = array();
