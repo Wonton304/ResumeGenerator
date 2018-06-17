@@ -29,6 +29,7 @@ oci_bind_by_name($stid1, ':minimumProficiency', $minimumProficieny);
 oci_bind_by_name($stid1, ':technologyType', $technologyType);
 oci_execute($stid1);
 
-
+OCICommit($conn);
+oci_close($conn);
 
 ?>
