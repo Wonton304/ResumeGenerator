@@ -22,8 +22,10 @@ export class AUpdateInformationPageComponent implements OnInit {
   language:string="";
   category:string="";
 
+  
   applicantEmail:string="";
 
+  visibleEmail:boolean = false;
   visibleTitle:boolean = false; 
   visibleDescription:boolean = false;
   visibleDateRecieved:boolean = false;
@@ -47,6 +49,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.itemType=event.target.value;
 
     if(this.itemType === "CodingProjects"){
+      this.visibleEmail = true;
       this.visibleDuration = false;
       this.visibleDateRecieved = false;
       this.visibleOrganization = false;
@@ -60,6 +63,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     }
 
     if(this.itemType === "Hobbies"){
+      this.visibleEmail = true;
       this.visibleDuration = false;
       this.visibleDateRecieved = false;
       this.visibleOrganization = false;
@@ -74,6 +78,7 @@ export class AUpdateInformationPageComponent implements OnInit {
 
 
     if(this.itemType === "Awards"){
+      this.visibleEmail = true;
       this.visibleDuration = false;
       this.visibleDateRecieved = true;
       this.visibleOrganization = false;
@@ -88,6 +93,7 @@ export class AUpdateInformationPageComponent implements OnInit {
 
 
     if(this.itemType === "Experience"){
+      this.visibleEmail = true;
       this.visibleDuration = true;
       this.visibleDateRecieved = false;
       this.visibleOrganization = true;
@@ -161,44 +167,69 @@ export class AUpdateInformationPageComponent implements OnInit {
     console.log(this.applicantEmail);
   }
 
+  /*  $hobbyNameUpdate =$obj->HOBBYNAME;
+  $applicantEmail = $obj->APPLICANTEMAIL; */
+
   addItem(){
    if( this.itemType==='Hobbies'){
-    this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title}))
+    this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title, APPLICANTEMAIL:this.applicantEmail}))
     .subscribe(  
       (response) =>console.log(response),
       (error) => console.log(error)
     );
    }
 
+   /**  $awardNameUpdate =$obj->AWARDNAME;
+  $awardDescriptionUpdate = $obj->AWARDDESCRIPTION;
+  $dateReceivedUpdate = $obj->DATERECEIVED;
+  $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if( this.itemType === 'Awards'){
-    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved}))
+    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
     .subscribe(  
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-
    }
 
    if(this.itemType === "Experience"){
-     if(this.experienceType=== "WorkExperience"){
-      this.serverService.createExperienceInfo(JSON.stringify({EX:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved}))
-    .subscribe(  
+ 
+      this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
+      DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription, 
+    APPLICANTEMAIL:this.applicantEmail}))
+      .subscribe(  
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-     }else{
-
-
-     }
+     
+     /**
+  $organizationUpdate =$obj->ORGANIZATION;
+  $experienceRoleUpdate = $obj->EXPERIENCEROLE;
+  $durationUpdate = $obj->DURATION;
+  $experienceTypeUpdate = $obj->EXPERIENCETYPE;
+  $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
+  $applicantEmailInsert = $obj->APPLICANTEMAIL;
+ */
   }
 
+  /**
+  $categoryUpdate =$obj->CATEGORY; //category is one of personal or academic right?
+  $projectNameUpdate = $obj->PROJECTNAME;
+  $projectDescriptionUpdate = $obj->PROJECTDESCRIPTION;
+  $languageUpdate = $obj->LANGUAGE;
+  $complexityUpdate = $obj->COMPLEXITY;
+  $applicantEmailInsert = $obj->APPLICANTEMAIL; */
+  
   if(this.itemType === "CodingProjects"){
-    if(this.experienceType=== "Personal"){
-
-    }else{
-
-
-    }
+   
+      this.serverService.createProjectInfo(JSON.stringify({
+        CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,LANGUAGE:this.language,COMPLEXITY:this.complexity,
+        APPLICANTEMAIL:this.applicantEmail
+      }))
+      .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
+  
   }
     
   }

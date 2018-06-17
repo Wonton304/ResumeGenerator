@@ -1,3 +1,4 @@
+<h1> Applicant Information </h1>
 <body>
   <div class="container-fluid">
   <form>
@@ -33,7 +34,7 @@
 
       <p>Type: {{itemType}}</p>
 
-      <div class="form-group">
+      <div class="form-group" *ngIf="visibleEmail">
         <label for="exampleFormControlTextarea1">Applicant Email</label>
         <textarea class="form-control" id="email" rows="1" (input)="collectApplicantEmail($event)"></textarea>
       </div>

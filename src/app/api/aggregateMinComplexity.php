@@ -1,10 +1,20 @@
 <?php
- header("Access-Control-Request-Method: *");
-  header("Access-Control-Request-Headers: *");
-  header("Access-Control-Allow-Origin: *");
-// Create connection to Oracle
-$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+header("Access-Control-Request-Method: *");
+header("Access-Control-Request-Headers: *");
+header("Access-Control-Allow-Origin: *");
 
+$json = $HTTP_RAW_POST_DATA;
+
+$obj = json_decode($json);
+$json='';
+echo $json;
+
+// Create connection to Oracle
+$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+<<<<<<< HEAD:src/app/api/aggregateComplexity.php
+=======
+
+>>>>>>> 99993cb0633d2598729a9cf8faca796877d61b16:src/app/api/aggregateMinComplexity.php
 
 
 $aggregate = 'SELECT min(complexity) FROM CodingProject1';
@@ -30,4 +40,7 @@ echo $response;
 // Fetch each row in an associative array
 
 //0cy27
+
+OCICommit($conn);
+oci_close($conn);
 ?>

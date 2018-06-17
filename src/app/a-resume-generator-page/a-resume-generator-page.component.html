@@ -13,8 +13,87 @@
 
     <label>Input the Job ID here.</label>
     <div class="input-group">
-      <input (input)="collectId($event)" placeholder="Job ID eg. 123456" >
+      <input (input)="collectId($event)" placeholder="123456" >
+    </div>
+    <label>Input your email here.</label>
+    <div class="input-group">
+      <input (input)="collectEmail($event)" placeholder="jameskan@gmail.com" >
     </div>
  <button type="submit" class="btn btn-primary" (click)="buildResume()">Build My Resume</button>
+<br>
+ <div class="btn-group" role="group" aria-label="Basic example">
+   <button type="button" class="btn btn-secondary" (click) = "getHobbies()">Include Your Hobbies</button>
+   <button type="button" class="btn btn-secondary" (click) = "getExperiences()">Include Your Experiences</button>
+   <button type="button" class="btn btn-secondary" (click) = "getAwards()">Include Your Awards</button>
+   <button type="button" class="btn btn-secondary" (click) = "getCodingProjects()">Include Your Coding Projects</button>
+ </div>
 
+ <div class = "vanillaapplicant"> <!--*ngIf="resumeGenerated"-->
+   <!-- this one will show applicant information as well as matching, missing requirements for the job -->
+   <ul > <!--*ngFor="let applicant of generatedResume$" -->
+       <li>
+           <ul>
+               <li> Your Name: <strong>{{applicant.APPLICANTNAME}}</strong></li>
+               <li> Your Email: <strong>{{ applicant.APPLICANTEMAIL}}</strong> </li>
+               <li> Your Address: <strong> {{ applicant.APPLICANTADDRESS}}</strong> </li>
+               <li> Your City: <strong> {{ applicant.APPLICANTCITY}}</strong> </li>
+               <li> Your Province: <strong> {{ applicant.APPLICANTPROVINCE}}</strong> </li>
+               <li> Your GitHub Account: <strong> {{ applicant.GITHUBACCOUNT}}</strong> </li>
+               <li> Your Phone Number: <strong> {{ applicant.APPLICANTPHONENUMBER}}</strong> </li>
+               <li> Your Personal Description: <strong> {{ applicant.PERSONALDESCRIPTION}}</strong> </li>
+               <hr>
+           </ul>
+       </li>
+   </ul>
+ <div class = "codingproject" *ngIf="includeCodingProjects">
+   <ul ><!--*ngFor="let project of generatedCodingProjects$"-->
+       <li>
+           <ul>
+               <li> Project Name: <strong>{{project.PROJECTNAME}}</strong></li>
+               <li> Project Language: <strong>{{ project.LANGUAGE}}</strong> </li>
+               <li> Project Description: <strong> {{ project.PROJECTDESCRIPTION}}</strong> </li>
+               <li> Project Complexity: <strong>{{ project.COMPLEXITY}}</strong> </li>
+               <li> Project Category: <strong>{{ project.CATEGORY}}</strong> </li>
+               <hr>
+           </ul>
+       </li>
+   </ul>
+ </div>
+ <div class = "experience" *ngIf="includeExperiences">
+   <ul ><!--*ngFor="let experience of generatedExperiences$"-->
+       <li>
+           <ul>
+               <li> Experience Organization: <strong>{{experience.ORGANIZATION}}</strong></li>
+               <li> Experience Role: <strong>{{ experience.EXPERIENCEROLE}}</strong> </li>
+               <li> Experience Description: <strong> {{ experience.EXPERIENCEDURATION}}</strong> </li>
+               <li> Experience Duration: <strong>{{ experience.DURATION}}</strong> </li>
+               <li> Experience Type: <strong>{{ experience.EXPERIENCETYPE}}</strong> </li>
+               <hr>
+           </ul>
+       </li>
+   </ul>
+ </div>
+ <div class = "award" *ngIf="includeAwards">
+   <ul ><!--*ngFor="let award of generatedAwards$"-->
+       <li>
+           <ul>
+               <li> Award Name: <strong>{{award.AWARDNAME}}</strong></li>
+               <li> Award Description: <strong>{{ award.AWARDDESCRIPTION}}</strong> </li>
+               <li> Award Date Received: <strong> {{ award.DATERECEIVED}}</strong> </li>
+               <hr>
+           </ul>
+       </li>
+   </ul>
+ </div>
+ <div class = "hobby" *ngIf="includeHobbies">
+ <ul > <!--*ngFor="let hobby of generatedHobbies$"-->
+     <li>
+         <ul>
+             <li> Hobby Name: <strong>{{hobby.HOBBYNAME}}</strong></li>
+             <hr>
+         </ul>
+     </li>
+ </ul>
+</div>
+ </div>
 </body>

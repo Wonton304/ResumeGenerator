@@ -116,21 +116,56 @@ collectCompanyName(event:any){
     updateInfo(){
       // awaiting for format decision
       if(this.itemType === "Technical Requirements"){
-        //TODO: handle adding technology requirement event
-        //can have 1+ technical requirements for each job! Must update accordingly.
-      }
-      else{
-        //if not technical requirements, update as normal
-        //LOCATION JSON
-        // this.serverService.updateJobDescription(JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode}))
-        // .subscribe(
-        //   (response) =>console.log(response),
-        //   (error) =>console.log
-        // );
+        this.serverService.updateTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
+          TECHNOLOGYTYPE:this.technologyType}),this.jobId)
+          .subscribe(  
+          (response) =>console.log(response),
+          (error) => console.log(error)
+        );
+      }else{
+        
+        this.serverService.updateJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
+          DESCRIPTION:this.jobDescription,
+          COMPANYNAME:this.companyName}),this.jobId)
+          .subscribe(  
+          (response) =>console.log(response),
+          (error) => console.log(error)
+        );
+
       }
     }
 
-    insertInfo(){
 
+/*$id = $obj->ID;
+$technologyName = $obj->TECHNOLOGYNAME;
+$technologyRole = $obj->TECHNOLOGYROLE;
+$minimumProficieny = $obj->MINIMUMPROFICIENCY;
+$technologyType = $obj->TECHNOLOGYTYPE;*/
+
+    insertInfo(){
+       if(this.itemType === "Technical Requirements"){
+    this.serverService.createTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
+      TECHNOLOGYTYPE:this.technologyType}))
+      .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
+      }else{
+        /*$field = $obj->FIELD;
+$positionTitle = $obj->POSITIONTITLE;
+$id = $obj->ID;
+$description = $obj->DESCRIPTION;
+$companyName = $obj->COMPANYNAME;
+ */
+        this.serverService.createJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
+          DESCRIPTION:this.jobDescription,
+          COMPANYNAME:this.companyName}),this.companyName)
+          .subscribe(  
+          (response) =>console.log(response),
+          (error) => console.log(error)
+        );
+
+
+      }
     }
 }

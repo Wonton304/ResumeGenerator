@@ -11,6 +11,18 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   jobPostingId:string = "";
   generatedResume$:Object;
+  generatedHobbies$:Object;
+  generatedAwards$:Object;
+  generatedExperiences$:Object;
+  generatedCodingProjects$:Object;
+  email:string="";
+
+  resumeGenerated:boolean=false;
+
+  includeHobbies:boolean=false;
+  includeExperiences:boolean=false;
+  includeAwards:boolean=false;
+  includeCodingProjects:boolean=false;
 
   constructor(private serverService: DataServiceService) { }
 
@@ -19,6 +31,67 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   collectId (event:any){
     this.jobPostingId=event.target.value;
+    console.log("id: "+this.jobPostingId);
+  }
+
+  collectEmail(event:any){
+    this.email=event.target.value;
+    console.log("email: "+this.email);
+  }
+
+  getHobbies(){
+    this.includeHobbies = !this.includeHobbies;
+    console.log("hobbie: "+this.includeHobbies);
+    this.serverService.getHobbies(
+      JSON.stringify({EMAIL:this.email}))
+      .subscribe(
+        serverService => this.generatedHobbies$ = serverService,
+        (response) => console.log(response),
+      );
+  }
+
+  getExperiences(){
+    this.includeExperiences = !this.includeExperiences;
+    console.log("exp: "+this.includeExperiences);
+    this.serverService.getExperiences(
+      JSON.stringify({EMAIL:this.email}))
+      .subscribe(
+        serverService => this.generatedExperiences$ = serverService,
+        (response) => console.log(response),
+      );
+  }
+
+  getAwards(){
+    this.includeAwards = !this.includeAwards;
+    console.log("awards: "+this.includeAwards);
+    this.serverService.getAwards(
+      JSON.stringify({EMAIL:this.email}))
+      .subscribe(
+        serverService => this.generatedAwards$ = serverService,
+        (response) => console.log(response),
+      );
+  }
+
+  getCodingProjects(){
+    this.includeCodingProjects = !this.includeCodingProjects;
+    console.log("cp: "+this.includeCodingProjects);
+    this.serverService.getCodingProjects(
+      JSON.stringify({EMAIL:this.email}))
+      .subscribe(
+        serverService => this.generatedCodingProjects$ = serverService,
+        (response) => console.log(response),
+      );
+  }
+
+  buildResume(){
+//send info to php
+  this.serverService.connectResumeGen(
+    JSON.stringify({EMAIL:this.email,JOBID:this.jobPostingId}))
+    .subscribe(
+      serverService => this.generatedResume$ = serverService,
+      (response) => console.log(response),
+    );
+    this.resumeGenerated=true;
   }
 
   // calls script

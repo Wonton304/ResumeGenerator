@@ -16,3 +16,28 @@ form{
     top: 50px;
 }
 
+.btn-group{
+  margin:0 auto;
+  display: block;
+  margin-top:5%;
+}
+
+.vanillaapplicant{
+  color :	#F08080;
+}
+
+.codingproject{
+  color :	#FF8C00;
+}
+
+.experience{
+  color :	#3CB371;
+}
+
+.award{
+  color :	#4169E1;
+}
+
+.hobby{
+  color :	#663399;
+}
