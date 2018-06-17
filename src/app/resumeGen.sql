@@ -1084,7 +1084,7 @@ INSERT INTO CodingProject1 VALUES('Android Studio', 'GetData', 3, 'generates dat
 INSERT INTO CodingProject1 VALUES('Bootstrap', 'InMyFridge', 2, 'checks what recipes you can make with fridge ingredients', 'personal');
 INSERT INTO CodingProject1 VALUES('Kotlin', 'Bobo', 1, 'displays pictures of dogs', 'academic');
 INSERT INTO CodingProject1 VALUES('jUnit', 'Coconutty', 2, 'displays coconut recipes', 'personal');
-INSERT INTO CodingProject1 VALUES('C#', 'Snake Game', 1, 'classic arcade snake game', 'personal');
+INSERT INTO CodingProject1 VALUES('C++', 'Snake Game', 1, 'classic arcade snake game', 'personal');
 INSERT INTO CodingProject1 VALUES('Python', 'Potato Farm', 1, 'game where you help farm potatoes', 'personal');
 INSERT INTO CodingProject1 VALUES('R', 'Honesty', 2, 'anonymous forum', 'personal');
 INSERT INTO CodingProject1 VALUES('MATLAB', 'Breadmaker', 2, 'bakery builder game', 'personal');
@@ -1244,7 +1244,7 @@ INSERT INTO Applicant2 VALUES('Elizabeth Lestrange', 'Elizabeth_9602@alumni.ubc.
 INSERT INTO HaveHobby VALUES('Elizabeth_9602@alumni.ubc.ca', 'other');
 INSERT INTO HaveAward VALUES('Sportsmanship', '1981-10-3', 'Elizabeth_9602@alumni.ubc.ca');
 INSERT INTO HaveExperience VALUES('Elizabeth_9602@alumni.ubc.ca', 'SUS', 'VP Internal');
-INSERT INTO HaveProject VALUES('Elizabeth_9602@alumni.ubc.ca', 'Snake Game', 'C#');
+INSERT INTO HaveProject VALUES('Elizabeth_9602@alumni.ubc.ca', 'Snake Game', 'C++');
 INSERT INTO AppliesTo VALUES('5cd07', 'Elizabeth_9602@alumni.ubc.ca');
 INSERT INTO Applicant1 VALUES('902-459-2840', 'Halifax');
 INSERT INTO Applicant3 VALUES('902-459-2840', 'Nova Scotia');
@@ -1580,7 +1580,7 @@ INSERT INTO Applicant2 VALUES('Brianna Willis', 'Brianna_7155@alumni.ubc.ca', '8
 INSERT INTO HaveHobby VALUES('Brianna_7155@alumni.ubc.ca', 'singing');
 INSERT INTO HaveAward VALUES('Silver medal', '1988-2-28', 'Brianna_7155@alumni.ubc.ca');
 INSERT INTO HaveExperience VALUES('Brianna_7155@alumni.ubc.ca', 'SAP', 'DevOps');
-INSERT INTO HaveProject VALUES('Brianna_7155@alumni.ubc.ca', 'Snake Game', 'C#');
+INSERT INTO HaveProject VALUES('Brianna_7155@alumni.ubc.ca', 'Snake Game', 'C++');
 INSERT INTO AppliesTo VALUES('5gi34', 'Brianna_7155@alumni.ubc.ca');
 INSERT INTO Applicant1 VALUES('514-454-1682', 'Montreal');
 INSERT INTO Applicant3 VALUES('514-454-1682', 'Quebec');

@@ -6,6 +6,7 @@ import { AJobPostingPageComponent} from './a-job-posting-page/a-job-posting-page
 import { ECreatePostingPageComponent} from './e-create-posting-page/e-create-posting-page.component';
 import { ESelectingApplicantPageComponent} from './e-selecting-applicant-page/e-selecting-applicant-page.component';
 import { MainLoginPageComponent} from './main-login-page/main-login-page.component';
+import { EJobPostingPageComponent } from './e-job-posting-page/e-job-posting-page.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'Select',
     component: ESelectingApplicantPageComponent
+  },
+  {
+    path: 'PostingEmployer',
+    component: EJobPostingPageComponent
   },
 ];
 

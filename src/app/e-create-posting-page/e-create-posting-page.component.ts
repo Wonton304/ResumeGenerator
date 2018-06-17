@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-e-create-posting-page',
@@ -6,20 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./e-create-posting-page.component.css']
 })
 export class ECreatePostingPageComponent implements OnInit {
-  item:string[] = ["Company Information", "Job Posting Information", "Technical Requirements"];
+  item:string[] = ["Job Posting Information", "Technical Requirements"];
   itemType:string="";
-
-  //fields for Location entity
-  eAddress:string="";
-  // eCountry:string=""; NOTE: design choice is for countries to be in Canada
-  eCity:string="";
-  eProvince:string="";
-  ePostalCode:string="";
-
-  //fields for Company entity
-  companyName:string="";
-  companyDescription:string="";
-  companyDomain:string = ""; // is one of ["Health","Finance","Technology","Other"];
 
   //fields for JobPosting entity
   jobId:string="";
@@ -34,15 +23,6 @@ export class ECreatePostingPageComponent implements OnInit {
   technologyType:string = "";// is one of ["Language", "IDE", "Framework", "Other"];
 
   //visibility fields, will change with different items selected
-  visibleAddress:boolean=false;
-  visibleCity:boolean=false;
-  visibleProvince:boolean=false;
-  visiblePostalCode:boolean=false;
-
-  visibleCompanyName:boolean=false;
-  visibleCompanyDescription:boolean=false;
-  visibleCompanyDomain:boolean=false;
-
   visibleJobId:boolean=false;
   visibleJobDesc:boolean=false;
   visibleField:boolean=false;
@@ -53,7 +33,7 @@ export class ECreatePostingPageComponent implements OnInit {
   visibleProficiencyRequirements:boolean=false;
   visibleTechnologyType:boolean=false;
 
-  constructor() { }
+  constructor(private serverService: DataServiceService) { }
 
   ngOnInit() {
   }
@@ -61,32 +41,7 @@ export class ECreatePostingPageComponent implements OnInit {
   activityTypeChangedHandler(event:any){
     this.itemType=event.target.value;
 
-    if(this.itemType === "Company Information"){
-      this.visibleAddress=true;
-      this.visibleCity=true;
-      this.visibleProvince=true;
-      this.visiblePostalCode=true;
-      this.visibleCompanyName=true;
-      this.visibleCompanyDescription=true;
-      this.visibleCompanyDomain=true;
-      this.visibleJobId=false;
-      this.visibleJobDesc=false;
-      this.visibleField=false;
-      this.visiblePositionTitle=false;
-      this.visibleTechnologyRole=false;
-      this.visibleTechnologyName=false;
-      this.visibleProficiencyRequirements=false;
-      this.visibleTechnologyType=false;
-    }
-
     if(this.itemType === "Job Posting Information"){
-      this.visibleAddress=false;
-      this.visibleCity=false;
-      this.visibleProvince=false;
-      this.visiblePostalCode=false;
-      this.visibleCompanyName=false;
-      this.visibleCompanyDescription=false;
-      this.visibleCompanyDomain=false;
       this.visibleJobId=true;
       this.visibleJobDesc=true;
       this.visibleField=true;
@@ -98,13 +53,6 @@ export class ECreatePostingPageComponent implements OnInit {
     }
 
     if(this.itemType === "Technical Requirements"){
-      this.visibleAddress=false;
-      this.visibleCity=false;
-      this.visibleProvince=false;
-      this.visiblePostalCode=false;
-      this.visibleCompanyName=false;
-      this.visibleCompanyDescription=false;
-      this.visibleCompanyDomain=false;
       this.visibleJobId=false;
       this.visibleJobDesc=false;
       this.visibleField=false;
@@ -115,41 +63,6 @@ export class ECreatePostingPageComponent implements OnInit {
       this.visibleTechnologyType=true;
     }
   }
-//Collectors for Company Information
-    collectCompanyAddress(event:any){
-      this.eAddress = event.target.value;
-      console.log(this.eAddress);
-    }
-
-    collectCompanyCity(event:any){
-      this.eCity = event.target.value;
-      console.log(this.eCity);
-    }
-
-    collectCompanyProvince(event:any){
-      this.eProvince = event.target.value;
-      console.log(this.eProvince);
-    }
-
-    collectCompanyPostalCode(event:any){
-      this.ePostalCode = event.target.value;
-      console.log(this.ePostalCode);
-    }
-
-    collectCompanyName(event:any){
-      this.companyName = event.target.value;
-      console.log(this.companyName);
-    }
-
-    collectCompanyDescription(event:any){
-      this.companyDescription = event.target.value;
-      console.log(this.companyDescription);
-    }
-
-    collectCompanyDomain(event:any){
-      this.companyDomain = event.target.value;
-      console.log(this.companyDomain);
-    }
 
 //Collectors for Job Posting
     collectJobID(event:any){
@@ -193,7 +106,7 @@ export class ECreatePostingPageComponent implements OnInit {
       console.log(this.technologyType);
     }
 
-    addItem(){
+    updateInfo(){
       // awaiting for format decision
       if(this.itemType === "Technical Requirements"){
         //TODO: handle adding technology requirement event
@@ -201,6 +114,16 @@ export class ECreatePostingPageComponent implements OnInit {
       }
       else{
         //if not technical requirements, update as normal
+        //LOCATION JSON
+        // this.serverService.updateJobDescription(JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode}))
+        // .subscribe(
+        //   (response) =>console.log(response),
+        //   (error) =>console.log
+        // );
       }
+    }
+
+    insertInfo(){
+
     }
 }

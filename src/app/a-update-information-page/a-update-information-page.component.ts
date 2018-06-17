@@ -28,7 +28,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   visibleRole:boolean = false;
   visibleComplexity:boolean = false;
   visibleLanguage:boolean = false;
-  visibleCategory:boolean = false; 
+  visibleCategory:boolean = false;
   visibleExperienceType:boolean = false;
 
 
@@ -44,7 +44,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleDuration = false;
       this.visibleDateRecieved = false;
       this.visibleOrganization = false;
-      this.visibleRole = false; 
+      this.visibleRole = false;
       this.visibleDescription = true;
       this.visibleComplexity = true;
       this.visibleCategory = true;
@@ -56,7 +56,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleDuration = false;
       this.visibleDateRecieved = false;
       this.visibleOrganization = false;
-      this.visibleRole = false; 
+      this.visibleRole = false;
       this.visibleDescription = false;
       this.visibleComplexity = false;
       this.visibleCategory = false;
@@ -64,12 +64,12 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleExperienceType = false;
     }
 
-    
+
     if(this.itemType === "Awards"){
       this.visibleDuration = false;
       this.visibleDateRecieved = true;
       this.visibleOrganization = false;
-      this.visibleRole = false; 
+      this.visibleRole = false;
       this.visibleDescription = true;
       this.visibleComplexity = false;
       this.visibleCategory = false;
@@ -77,12 +77,12 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleExperienceType = false;
     }
 
-    
+
     if(this.itemType === "Experience"){
       this.visibleDuration = true;
       this.visibleDateRecieved = false;
       this.visibleOrganization = true;
-      this.visibleRole = true; 
+      this.visibleRole = true;
       this.visibleDescription = true;
       this.visibleComplexity = false;
       this.visibleCategory = false;
@@ -90,7 +90,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleExperienceType = true;
     }
 
- 
+
 
 
   }
@@ -148,6 +148,7 @@ export class AUpdateInformationPageComponent implements OnInit {
 
   addItem(){
     // awaiting for format decision
+    
   }
 
 }

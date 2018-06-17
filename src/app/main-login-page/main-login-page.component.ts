@@ -17,13 +17,25 @@ export class MainLoginPageComponent implements OnInit {
   postalCode:any;
   applicantEmail:string ="";
   holder;
-  result:Array<Object>;
+
+  //fields for Location entity
+  eAddress:string="";
+  // eCountry:string=""; NOTE: design choice is for countries to be in Canada
+  eCity:string="";
+  eProvince:string="";
+  ePostalCode:string="";
+
+  //fields for Company entity
+  companyName:string="";
+  companyDescription:string="";
+  companyDomain:string = ""; // is one of ["Health","Finance","Technology","Other"];
+  visibleCompanyName:boolean=false;
 
   constructor(private serverService: DataServiceService ) {
    }
 
   ngOnInit() {
-   //this.get();
+
   }
 /*
   get(){
@@ -52,6 +64,43 @@ export class MainLoginPageComponent implements OnInit {
       this.applicantIsHidden = false;
     }
   }
+
+  //Collectors for Company Information
+      collectCompanyAddress(event:any){
+        this.eAddress = event.target.value;
+        console.log(this.eAddress);
+      }
+
+      collectCompanyCity(event:any){
+        this.eCity = event.target.value;
+        console.log(this.eCity);
+      }
+
+      collectCompanyProvince(event:any){
+        this.eProvince = event.target.value;
+        console.log(this.eProvince);
+      }
+
+      collectCompanyPostalCode(event:any){
+        this.ePostalCode = event.target.value;
+        console.log(this.ePostalCode);
+      }
+
+      collectCompanyName(event:any){
+        this.companyName = event.target.value;
+        console.log(this.companyName);
+      }
+
+      collectCompanyDescription(event:any){
+        this.companyDescription = event.target.value;
+        console.log(this.companyDescription);
+      }
+
+      collectCompanyDomain(event:any){
+        this.companyDomain = event.target.value;
+        console.log(this.companyDomain);
+      }
+
 
 
 
