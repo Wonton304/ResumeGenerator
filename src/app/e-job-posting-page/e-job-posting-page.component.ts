@@ -19,20 +19,13 @@ export class EJobPostingPageComponent implements OnInit {
 
  get(){
    this.serverService.connectJobPostings().subscribe(
-     /*
-     (response: Response )=>{
-       const data = response.json();
-      for(const Location of data){
-         Location.ADDRESS = 'Address is ' + Location.ADDRESS;
-       } 
-       console.log(data);
-       serverService => this.posting$ = serverService
-     }
-     */
-    serverService => this.posting$ = serverService,
+     serverService => this.posting$ = serverService,
      (error) => console.log(error)
    );
  }
 
+ delelete(){
+
+ }
 
 }

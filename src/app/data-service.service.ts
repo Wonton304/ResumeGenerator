@@ -11,22 +11,44 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
   }
 
+  connectResumeGen(resumeInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php', resumeInfo);
+  }
+
+//TODO: make these scripts
+
+  getHobbies(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getHobbies.php'), email);
+  }
+
+  getExperiences(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getExperiences.php'), email);
+  }
+
+  getAwards(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getAwards.php'), email);
+  }
+
+  getCodingProjects(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getCodingProjects.php'), email);
+  }
+
+// up to here
+
   updateJobDescription(description){
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
   }
-
 
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
   }
 
-  insertNewCompany(description){
-    const headers = new Headers ({'Content-Type': 'application/json'});
-    return this.http.post('../api/loginPageEmployer.php', description);
+  insertNewCompany(companyInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageEmployer.php', companyInfo);
   }
 
-  insertNewApplicant(description){
-    return this.http.post('../api/loginPageApplicant.php', description);
+  insertNewApplicant(applicantInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageApplicant.php', applicantInfo);
   }
 
   generateResume (postID){
@@ -66,5 +88,9 @@ export class DataServiceService {
 // update needed
   createTechnicalRequirement(content){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+  }
+
+  deleteEmployerJobPosting(postingId){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deletePosting.php', postingId);
   }
 }

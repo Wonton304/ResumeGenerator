@@ -13,8 +13,32 @@
 
     <label>Input the Job ID here.</label>
     <div class="input-group">
-      <input (input)="collectId($event)" placeholder="Job ID eg. 123456" >
+      <input (input)="collectId($event)" placeholder="123456" >
+    </div>
+    <label>Input your email here.</label>
+    <div class="input-group">
+      <input (input)="collectEmail($event)" placeholder="jameskan@gmail.com" >
     </div>
  <button type="submit" class="btn btn-primary" (click)="buildResume()">Build My Resume</button>
+<br>
+ <div class="btn-group" role="group" aria-label="Basic example">
+   <button type="button" class="btn btn-secondary" (click) = "getHobbies()">Include Your Hobbies</button>
+   <button type="button" class="btn btn-secondary" (click) = "getExperiences()">Include Your Experiences</button>
+   <button type="button" class="btn btn-secondary" (click) = "getAwards()">Include Your Awards</button>
+   <button type="button" class="btn btn-secondary" (click) = "getCodingProjects()">Include Your Coding Projects</button>
+ </div>
 
+ <!-- <div class="showPostings" *ngIf="resumeGenerated">
+   <ul>
+       <li *ngFor='field post of generatedResume$'>
+           <ul>
+               <li> Applicant Name: <strong>{{post.COMPANYNAME}}</strong></li>
+               <li> Hobbies: <strong>{{ post.ID}}</strong> </li>
+               <li> Field: <strong> {{ post.FIELD}}</strong>      Position:<strong> {{ post.POSITIONTITLE }}</strong> </li>
+               <li> {{ post.DESCRIPTION }}   <button (click)="delete()"> Delete Posting </button></li>
+               <hr>
+           </ul>
+       </li>
+   </ul>
+ </div> -->
 </body>
