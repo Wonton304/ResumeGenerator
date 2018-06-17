@@ -11,6 +11,14 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   jobPostingId:string = "";
   generatedResume$:Object;
+  email:string="";
+
+  resumeGenerated:boolean=false;
+
+  includeHobbies:boolean=false;
+  includeExperiences:boolean=false;
+  includeAwards:boolean=false;
+  includeCodingProjects:boolean=false;
 
   constructor(private serverService: DataServiceService) { }
 
@@ -19,6 +27,21 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   collectId (event:any){
     this.jobPostingId=event.target.value;
+  }
+
+  collectEmail(event:any){
+    this.email=event.target.value;
+  }
+
+  buildResume(){
+//send info to php
+  this.serverService.connectResumeGen(
+    JSON.stringify({EMAIL:this.email,JOBID:this.jobPostingId}))
+  .subscribe(
+    serverService => this.generatedResume$ = serverService,
+    (error) =>console.log(error)
+  );
+    this.resumeGenerated=true;
   }
 
   // calls script
