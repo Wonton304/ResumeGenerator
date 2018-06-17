@@ -3,47 +3,52 @@
   <form>
   <p>Select item type that you would like to add to your resume.</p>
   <div *ngFor="let type of item">
-    <input 
+    <input
     type="radio"
     name = "ItemType"
     value="{{type}}"
-    (change)="activityTypeChangedHandler($event)"> 
+    (change)="activityTypeChangedHandler($event)">
   <i>{{type}}</i></div>
   <hr>
   <div class="form-group" *ngIf="visibleExperienceType">
       <p>You've selected {{experienceType}}</p>
     <div *ngFor="let type of experienceTypeArray">
-      <input 
+      <input
       type="radio"
       name = "ItemType"
       value="{{type}}"
-      (change)="selectExperienceType($event)"> 
+      (change)="selectExperienceType($event)">
     <i>{{type}}</i></div>
     <hr></div>
   <div class="form-group" *ngIf="visibleCategory">
     <p>You've selected {{category}}</p>
       <div *ngFor="let type of categoryArray">
-        <input 
+        <input
         type="radio"
         name = "ItemType"
         value="{{type}}"
-        (change)="collectCategory($event)"> 
+        (change)="collectCategory($event)">
       <i>{{type}}</i></div>
       <hr></div>
-    
+
       <p>Type: {{itemType}}</p>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Applicant Email</label>
+        <textarea class="form-control" id="email" rows="1" (input)="collectApplicantEmail($event)"></textarea>
+      </div>
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Name</label>
     <textarea class="form-control" id="activityName" rows="1" (input)="collectName($event)"></textarea>
   </div>
-  
+
   <div class="form-group" *ngIf="visibleDescription">
     <label for="exampleFormControlTextarea1">ActivityDescription</label>
     <textarea class="form-control"  id="activityDescription" (input)="collectDescription($event)" rows="3"></textarea>
   </div>
-  
-  
+
+
   <div class="form-group" *ngIf="visibleOrganization">
     <label for="exampleFormControlInput1">organization</label>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google"
@@ -61,7 +66,7 @@
         <input  class="form-control" id="exampleFormControlInput1" placeholder="4"
         (input)= "collectDuration($event)">
       </div>
-  
+
       <div class="form-group" *ngIf="visibleDateRecieved">
           <label for="exampleFormControlInput1">Date of Reciving</label>
           <input  class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY"
@@ -83,16 +88,16 @@
     <option>5</option>
   </select>
   </div>
-  
-  
-  
+
+
+
   </form>
-  
+
   <button type="button" class="btn btn-primary btn-lg btn-block"
   (click)="addItem()">Add to resume</button>
 
   </div>
-  
-  
-  
+
+
+
   </body>

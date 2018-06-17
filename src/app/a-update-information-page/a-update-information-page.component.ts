@@ -22,6 +22,8 @@ export class AUpdateInformationPageComponent implements OnInit {
   language:string="";
   category:string="";
 
+  applicantEmail:string="";
+
   visibleDescription:boolean = false;
   visibleDateRecieved:boolean = false;
   visibleDuration:boolean = false;
@@ -149,7 +151,13 @@ export class AUpdateInformationPageComponent implements OnInit {
     console.log(this.role);
   }
 
+  collectApplicantEmail(event:any){
+    this.applicantEmail = event.target.value;
+    console.log(this.applicantEmail);
+  }
+
   addItem(){
+<<<<<<< HEAD
    if( this.itemType==='Hobbies'){
     this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title}))
     .subscribe(  
@@ -181,6 +189,10 @@ export class AUpdateInformationPageComponent implements OnInit {
     }
   }
     
+=======
+    // awaiting for format decision
+
+>>>>>>> e4613fc2f535b29a34b39cb98ebc86a844150b6a
   }
 
 }
