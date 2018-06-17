@@ -26,7 +26,7 @@ $insertHaveProject = "INSERT INTO HaveProject VALUES(:applicantEmailInsert, :pro
 
 // $select= "SELECT hobbyName from Hobby where Hobby.hobbyName = 'booooo'"; //testing
 
-$stidProject = oci_parse($conn, $insertAward);
+$stidProject = oci_parse($conn, $insertCodingProject);
 oci_bind_by_name($stidProject, ':languageUpdate', $languageUpdate);
 oci_bind_by_name($stidProject, ':projectNameUpdate', $projectNameUpdate);
 oci_bind_by_name($stidProject, ':projectDescriptionUpdate', $projectDescriptionUpdate);
@@ -34,7 +34,7 @@ oci_bind_by_name($stidProject, ':complexityUpdate', $complexityUpdate);
 oci_bind_by_name($stidProject, ':categoryUpdate', $categoryUpdate);
 oci_execute($stidProject);
 
-$stidHaveProject = oci_parse($conn, $insertHaveAward);
+$stidHaveProject = oci_parse($conn, $insertHaveProject);
 oci_bind_by_name($stidHaveProject, ':projectNameUpdate', $projectNameUpdate);
 oci_bind_by_name($stidHaveProject, ':applicantEmailInsert', $applicantEmailInsert);
 oci_bind_by_name($stidHaveProject, ':languageUpdate', $languageUpdate);
