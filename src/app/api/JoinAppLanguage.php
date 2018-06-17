@@ -10,8 +10,8 @@ $json='';
 echo $json;
 $jobid = $obj->JOBID;
 
-// Create connection to Oracle 
-$conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+// Create connection to Oracle
+$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $join = "SELECT DISTINCT Applicant2.applicantName, HaveProject.language
 from Applicant2 inner join HaveProject on Applicant2.applicantEmail = HaveProject.applicantEmail
