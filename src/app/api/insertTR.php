@@ -14,7 +14,7 @@ $conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 $id = $obj->ID;
 $technologyName = $obj->TECHNOLOGYNAME;
 $technologyRole = $obj->TECHNOLOGYROLE;
-$minimumProficieny = $obj->MINIMUMPROFICIENCY;
+$minimumProficiency = $obj->MINIMUMPROFICIENCY;
 $technologyType = $obj->TECHNOLOGYTYPE;
 
 $insert1 = "INSERT INTO RequiredTechnology VALUES(:technologyName, :technologyRole, :minimumProficiency, :technologyType)";
