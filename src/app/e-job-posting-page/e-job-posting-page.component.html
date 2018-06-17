@@ -4,7 +4,7 @@
         <ul>
             <li> Company: <strong>{{post.COMPANYNAME}}</strong> PostID: <strong>{{ post.ID}}</strong> </li>
             <li> Field: <strong> {{ post.FIELD}}</strong>      Position:<strong> {{ post.POSITIONTITLE }}</strong> </li>
-            <li> {{ post.DESCRIPTION }} </li>
+            <li> {{ post.DESCRIPTION }}   <button (click)="delete()"> Delete Posting </button></li>
             <hr>
         </ul>
     </li>

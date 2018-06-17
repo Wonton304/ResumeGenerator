@@ -67,4 +67,8 @@ export class DataServiceService {
   createTechnicalRequirement(content){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
   }
+
+  deleteEmployerJobPosting(postingId){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deletePosting.php', postingId);
+  }
 }
