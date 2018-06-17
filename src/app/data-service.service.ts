@@ -12,7 +12,7 @@ export class DataServiceService {
   }
 
   connectResumeGen(resumeInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php'), resumeInfo);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php', resumeInfo);
   }
 
   updateJobDescription(description){
