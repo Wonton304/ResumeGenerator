@@ -203,8 +203,11 @@ export class ECreatePostingPageComponent implements OnInit {
       else{
         //if not technical requirements, update as normal
         //LOCATION JSON
-        this.serverService.updateJobDescription(JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode})));
-        console.log('sent');
+        this.serverService.updateJobDescription(JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode}))
+        .subscribe(
+          (response) =>console.log(response),
+          (error) =>console.log
+        );
       }
     }
 }

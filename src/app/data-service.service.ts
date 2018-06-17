@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
+import { Http , Headers} from '@angular/http';
 
 @Injectable()
 export class DataServiceService {
@@ -15,8 +15,9 @@ export class DataServiceService {
 
 
 
-  updateJobDescription(description: any[]){
-    return this.http.post('http://www.ugrad.cs.ubc.ca/~g6b1b/UpdateHobby.php', description)
+  updateJobDescription(description){
+    const headers = new Headers ({'Content-Type': 'application/json'});
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
   }
 
 
