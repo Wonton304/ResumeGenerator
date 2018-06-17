@@ -89,7 +89,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
     JSON.stringify({EMAIL:this.email,JOBID:this.jobPostingId}))
     .subscribe(
       serverService => this.generatedResume$ = serverService,
-      (response) => console.log(response)
+      (response) => console.log(response),
     );
     this.resumeGenerated=true;
   }
