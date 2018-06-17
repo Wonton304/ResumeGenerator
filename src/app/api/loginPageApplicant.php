@@ -17,7 +17,7 @@ $personalDescription = $obj->PERSONDESCRIPTION;
 $phoneNumber = $obj->NUMBER;
 
 // Create connection to Oracle
-$conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $insert1 = "INSERT INTO Applicant VALUES(:applicantName, :applicantEmail, :applicantAddress, :applicantCity,
 :githubAccount, :personalDescription, :phoneNumber)";

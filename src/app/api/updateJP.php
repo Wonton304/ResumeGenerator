@@ -16,7 +16,7 @@ $companyName = $obj->COMPANYNAME;
 
 
 // Create connection to Oracle
-$conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $update1 = "UPDATE JobPostingPosts
             SET field = :field, positionTitle = :positionTitle, description = :description
