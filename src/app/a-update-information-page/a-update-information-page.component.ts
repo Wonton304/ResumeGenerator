@@ -181,22 +181,34 @@ export class AUpdateInformationPageComponent implements OnInit {
 
    if(this.itemType === "Experience"){
      if(this.experienceType=== "WorkExperience"){
-      this.serverService.createExperienceInfo(JSON.stringify({EX:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved}))
-    .subscribe(  
+      this.serverService.createExperienceInfo(JSON.stringify({}))
+      .subscribe(  
       (response) =>console.log(response),
       (error) => console.log(error)
     );
      }else{
-
+      this.serverService.createExperienceInfo(JSON.stringify({}))
+      .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
 
      }
   }
 
   if(this.itemType === "CodingProjects"){
     if(this.experienceType=== "Personal"){
-
+      this.serverService.createProjectInfo(JSON.stringify({}))
+      .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
     }else{
-
+      this.serverService.createProjectInfo(JSON.stringify({}))
+      .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
 
     }
   }

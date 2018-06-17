@@ -42,8 +42,25 @@ export class DataServiceService {
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', experienceInfo);
   }
 
+  // need updates 
   createAward(award){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', award);
   }
 
+  // must include id to select individual ! 
+  updateJobPosting(content, id){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+  }
+// update needed
+  updateTechnicalRequirement(content, id){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+  }
+// update needed
+  createJobPosting(content, id){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+  }
+// update needed
+  createTechnicalRequirement(content){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+  }
 }
