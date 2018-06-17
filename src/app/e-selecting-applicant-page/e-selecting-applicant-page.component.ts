@@ -31,8 +31,6 @@ export class ESelectingApplicantPageComponent implements OnInit {
           (serverService) => this.candidates$ = serverService,
           (error) => console.log(error)
         );
-
-        console.log("thisisresult:" + this.candidates$);
   }
 
 }

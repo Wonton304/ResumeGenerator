@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-a-update-information-page',
@@ -31,11 +32,13 @@ export class AUpdateInformationPageComponent implements OnInit {
   visibleCategory:boolean = false;
   visibleExperienceType:boolean = false;
 
+  constructor(private serverService: DataServiceService ) { }
 
-  constructor() { }
 
   ngOnInit() {
-  }
+  
+   }
+
 
   activityTypeChangedHandler(event:any){
     this.itemType=event.target.value;
@@ -147,7 +150,36 @@ export class AUpdateInformationPageComponent implements OnInit {
   }
 
   addItem(){
-    // awaiting for format decision
+   if( this.itemType==='Hobbies'){
+    this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title}))
+    .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
+   }
+
+   if( this.itemType === 'Awards'){
+
+
+   }
+
+   if(this.itemType === "Experience"){
+     if(this.experienceType=== "WorkExperience"){
+
+     }else{
+
+
+     }
+  }
+
+  if(this.itemType === "CodingProjects"){
+    if(this.experienceType=== "Personal"){
+
+    }else{
+
+
+    }
+  }
     
   }
 

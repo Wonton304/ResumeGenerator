@@ -19,6 +19,7 @@ export class DataServiceService {
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
   }
+  
   insertNewCompany(description){
     const headers = new Headers ({'Content-Type': 'application/json'});
     return this.http.post('../api/loginPageEmployer.php', description);
@@ -31,5 +32,15 @@ export class DataServiceService {
   createHobby(hobbyName){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/hobby.php', hobbyName);
   }
+  
+
+  createProjectInfo(codingProjectInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', codingProjectInfo);
+  }
+
+  createExperienceInfo(experienceInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', experienceInfo);
+  }
+
   
 }
