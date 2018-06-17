@@ -33,5 +33,7 @@ oci_bind_by_name($stid2, ':id', $id);
 oci_bind_by_name($stid2, ':technologyName', $technologyName);
 oci_execute($stid2);
 
+OCICommit($conn);
+oci_close($conn);
 
 ?>
