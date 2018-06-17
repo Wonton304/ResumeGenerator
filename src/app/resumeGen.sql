@@ -1580,7 +1580,7 @@ INSERT INTO Applicant2 VALUES('Brianna Willis', 'Brianna_7155@alumni.ubc.ca', '8
 INSERT INTO HaveHobby VALUES('Brianna_7155@alumni.ubc.ca', 'singing');
 INSERT INTO HaveAward VALUES('Silver medal', '1988-2-28', 'Brianna_7155@alumni.ubc.ca');
 INSERT INTO HaveExperience VALUES('Brianna_7155@alumni.ubc.ca', 'SAP', 'DevOps');
-INSERT INTO HaveProject VALUES('Brianna_7155@alumni.ubc.ca', 'Snake Game', 'C#');
+INSERT INTO HaveProject VALUES('Brianna_7155@alumni.ubc.ca', 'Snake Game', 'C++');
 INSERT INTO AppliesTo VALUES('5gi34', 'Brianna_7155@alumni.ubc.ca');
 INSERT INTO Applicant1 VALUES('514-454-1682', 'Montreal');
 INSERT INTO Applicant3 VALUES('514-454-1682', 'Quebec');
