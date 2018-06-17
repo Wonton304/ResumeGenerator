@@ -24,6 +24,7 @@ export class AUpdateInformationPageComponent implements OnInit {
 
   applicantEmail:string="";
 
+  visibleTitle:boolean = false; 
   visibleDescription:boolean = false;
   visibleDateRecieved:boolean = false;
   visibleDuration:boolean = false;
@@ -55,6 +56,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleCategory = true;
       this.visibleLanguage = true;
       this.visibleExperienceType = false;
+      this.visibleTitle = true;
     }
 
     if(this.itemType === "Hobbies"){
@@ -67,6 +69,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleCategory = false;
       this.visibleLanguage = false;
       this.visibleExperienceType = false;
+      this.visibleTitle = true;
     }
 
 
@@ -80,6 +83,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleCategory = false;
       this.visibleLanguage = false;
       this.visibleExperienceType = false;
+      this.visibleTitle = true;
     }
 
 
@@ -93,6 +97,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       this.visibleCategory = false;
       this.visibleLanguage = false;
       this.visibleExperienceType = true;
+      this.visibleTitle = false;
     }
 
 
@@ -157,7 +162,6 @@ export class AUpdateInformationPageComponent implements OnInit {
   }
 
   addItem(){
-<<<<<<< HEAD
    if( this.itemType==='Hobbies'){
     this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title}))
     .subscribe(  
@@ -167,13 +171,21 @@ export class AUpdateInformationPageComponent implements OnInit {
    }
 
    if( this.itemType === 'Awards'){
-
+    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved}))
+    .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
 
    }
 
    if(this.itemType === "Experience"){
      if(this.experienceType=== "WorkExperience"){
-
+      this.serverService.createExperienceInfo(JSON.stringify({EX:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved}))
+    .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
      }else{
 
 
@@ -189,10 +201,6 @@ export class AUpdateInformationPageComponent implements OnInit {
     }
   }
     
-=======
-    // awaiting for format decision
-
->>>>>>> e4613fc2f535b29a34b39cb98ebc86a844150b6a
   }
 
 }
