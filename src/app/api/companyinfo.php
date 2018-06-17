@@ -10,6 +10,10 @@ $json = $HTTP_RAW_POST_DATA;
 $obj = json_decode($json);
 $json='';
 echo $json;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99993cb0633d2598729a9cf8faca796877d61b16
 $companyName = $obj->COMPANYNAME;
 $companyDescription = $obj->COMPANYDESCRIPTION;
 $companyDomain = $obj->COMPANYDOMAIN;
@@ -19,7 +23,7 @@ $province = $obj->PROVINCE;
 $city = $obj->CITY;
 
 // Create connection to Oracle
-$conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $insert1 = "INSERT INTO Company VALUES(:companyName, :companyDescription, :companyDomain)";
 

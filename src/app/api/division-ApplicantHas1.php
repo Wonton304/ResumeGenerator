@@ -4,7 +4,6 @@ header("Access-Control-Request-Headers: *");
 header("Access-Control-Allow-Origin: *");
 
 $json = $HTTP_RAW_POST_DATA;
-
 $obj = json_decode($json);
 $json='';
 echo $json;
@@ -17,19 +16,17 @@ $conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 
-$division= "SELECT R.technologyName
-            from Requires R
-            where R.id =:jobidDiv
-            intersect
+$division = "SELECT R.technologyName from Requires R where R.id = :jobidDiv intersect
             select distinct H.language
             from HaveProject H
-            where H.applicantEmail =: applicantEmailDiv";
+            where H.applicantEmail = :applicantEmailDiv";
 
 
 $stid = oci_parse($conn, $division);
-$result = oci_execute($stid);
 oci_bind_by_name($stid, ':jobidDiv', $jobidDiv);
 oci_bind_by_name($stid, ':applicantEmailDiv', $applicantEmailDiv);
+
+$result = oci_execute($stid);
 
 
 while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {

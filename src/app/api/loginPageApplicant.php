@@ -77,4 +77,6 @@ oci_execute($stid5);
 
 // echo $response;
 
+OCICommit($conn);
+oci_close($conn);
 ?>
