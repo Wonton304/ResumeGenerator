@@ -1,3 +1,11 @@
-<p>
-  e-job-posting-page works!
-</p>
+<p>Employer Job Postings</p>
+<ul>
+    <li *ngFor='let post of posting$'>
+        <ul>
+            <li> Company: <strong>{{post.COMPANYNAME}}</strong> PostID: <strong>{{ post.ID}}</strong> </li>
+            <li> Field: <strong> {{ post.FIELD}}</strong>      Position:<strong> {{ post.POSITIONTITLE }}</strong> </li>
+            <li> {{ post.DESCRIPTION }} </li>
+            <hr>
+        </ul>
+    </li>
+</ul>
