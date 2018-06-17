@@ -10,10 +10,7 @@ $json = $HTTP_RAW_POST_DATA;
 $obj = json_decode($json);
 $json='';
 echo $json;
-<<<<<<< HEAD
-=======
 
->>>>>>> 99993cb0633d2598729a9cf8faca796877d61b16
 $companyName = $obj->COMPANYNAME;
 $companyDescription = $obj->COMPANYDESCRIPTION;
 $companyDomain = $obj->COMPANYDOMAIN;
