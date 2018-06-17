@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-a-update-information-page',
@@ -21,6 +22,8 @@ export class AUpdateInformationPageComponent implements OnInit {
   language:string="";
   category:string="";
 
+  applicantEmail:string="";
+
   visibleDescription:boolean = false;
   visibleDateRecieved:boolean = false;
   visibleDuration:boolean = false;
@@ -31,11 +34,13 @@ export class AUpdateInformationPageComponent implements OnInit {
   visibleCategory:boolean = false;
   visibleExperienceType:boolean = false;
 
+  constructor(private serverService: DataServiceService ) { }
 
-  constructor() { }
 
   ngOnInit() {
-  }
+  
+   }
+
 
   activityTypeChangedHandler(event:any){
     this.itemType=event.target.value;
@@ -146,9 +151,48 @@ export class AUpdateInformationPageComponent implements OnInit {
     console.log(this.role);
   }
 
+  collectApplicantEmail(event:any){
+    this.applicantEmail = event.target.value;
+    console.log(this.applicantEmail);
+  }
+
   addItem(){
-    // awaiting for format decision
+<<<<<<< HEAD
+   if( this.itemType==='Hobbies'){
+    this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title}))
+    .subscribe(  
+      (response) =>console.log(response),
+      (error) => console.log(error)
+    );
+   }
+
+   if( this.itemType === 'Awards'){
+
+
+   }
+
+   if(this.itemType === "Experience"){
+     if(this.experienceType=== "WorkExperience"){
+
+     }else{
+
+
+     }
+  }
+
+  if(this.itemType === "CodingProjects"){
+    if(this.experienceType=== "Personal"){
+
+    }else{
+
+
+    }
+  }
     
+=======
+    // awaiting for format decision
+
+>>>>>>> e4613fc2f535b29a34b39cb98ebc86a844150b6a
   }
 
 }

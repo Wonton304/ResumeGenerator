@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-//import { Observable } from 'rxjs';
 
 
 @Component({

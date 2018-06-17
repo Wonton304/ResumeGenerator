@@ -39,8 +39,8 @@ export class MainLoginPageComponent implements OnInit {
   personalDescription:string="";
   phoneNumber:string="";
 
-  firstTimeEmployer:boolean = true;
-  firstTimeApplicant:boolean = true;
+  firstTimeEmployer:boolean = false;
+  firstTimeApplicant:boolean = false;
 
 
   constructor(private serverService: DataServiceService ) {
