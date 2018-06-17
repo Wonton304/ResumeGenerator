@@ -19,19 +19,7 @@ export class DataServiceService {
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
   }
-<<<<<<< HEAD
   
-=======
-
-  insertNewApplicant(applicantInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageApplicant.php', applicantInfo);
-  }
-
-  insertNewCompany(companyInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageEmployer.php', companyInfo);
-  }
-
->>>>>>> e4613fc2f535b29a34b39cb98ebc86a844150b6a
   insertNewCompany(description){
     const headers = new Headers ({'Content-Type': 'application/json'});
     return this.http.post('../api/loginPageEmployer.php', description);
@@ -44,7 +32,6 @@ export class DataServiceService {
   createHobby(hobbyName){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/hobby.php', hobbyName);
   }
-<<<<<<< HEAD
   
 
   createProjectInfo(codingProjectInfo){
@@ -55,8 +42,8 @@ export class DataServiceService {
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', experienceInfo);
   }
 
-  
-=======
+  createAward(award){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', award);
+  }
 
->>>>>>> e4613fc2f535b29a34b39cb98ebc86a844150b6a
 }
