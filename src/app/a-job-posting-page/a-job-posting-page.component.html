@@ -2,8 +2,8 @@
 <ul>
     <li *ngFor='let post of posting$'>
         <ul>
-            <li> Company: {{post.COMPANYNAME}}   PostID: {{ post.ID}} </li> 
-            <li> Field:  {{ post.FIELD}}      Position: {{ post.POSITIONTITLE }} </li>
+            <li> Company: <strong>{{post.COMPANYNAME}}</strong> PostID: <strong>{{ post.ID}}</strong> </li>
+            <li> Field: <strong> {{ post.FIELD}}</strong>      Position:<strong> {{ post.POSITIONTITLE }}</strong> </li>
             <li> {{ post.DESCRIPTION }} </li>
             <hr>
         </ul>
