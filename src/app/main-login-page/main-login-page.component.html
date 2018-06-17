@@ -1,6 +1,6 @@
 <!-- <html> -->
       <body>
-        <p> Please login with your user type:</p>
+        <h1> Please login with your user type:</h1>
         <button class="applicantButton" (click)="revealHideApplicant()" >Applicant Login</button>
         <button class="employerButton" (click)="revealHideEmployer()" >Employer Login</button>
       <div class="applicant-login-box" *ngIf="applicantIsHidden">
@@ -13,60 +13,100 @@
               </form>
           </div>
 
-          <ul>
-              <li *ngFor="let temp of add">
-               {{temp.address}}
-              </li>
-            </ul>
-          <div class="employer-login-box" *ngIf="employerIsHidden">
-            <h1>Login Here</h1>
+    <div class="employer-login-box" *ngIf="employerIsHidden">
+      <h1>Login Here</h1>
 
-                  <form>
-                  <p>Company Name</p>
-                  <input type="text" name="companyName" placeholder="Enter Company Name">
-                  <input type="submit" name="companySubmit" value="Login" (click)="verify()">
+            <form>
+            <p>Company Name</p>
+            <input type="text" name="companyName" placeholder="Enter Company Name">
+            <input type="submit" name="companySubmit" value="Login" (click)="login()">
 
-                  </form>
-              </div>
+            </form>
+        </div>
 
-              <!--Company Information-->
-                <hr>
-                <p>Type: {{itemType}}</p>
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">Company Name</label>
-                  <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyName($event)"></textarea>
-                </div>
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">Company Address</label>
-                  <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyAddress($event)"></textarea>
-                </div>
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">City</label>
-                  <textarea class="form-control" id="companyCity" rows="1" (input)="collectCompanyCity($event)"></textarea>
-                </div>
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">Province</label>
-                  <textarea class="form-control" id="companyProvince" rows="1" (input)="collectCompanyProvince($event)"></textarea>
-                </div>
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">Postal Code</label>
-                  <textarea class="form-control" id="companyPostalCode" rows="1" placeholder = "A1A 2B2" (input)="collectCompanyPostalCode($event)"></textarea>
-                </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" autofocus="true" (click) = "doesntHasAccount()">New account</button>
+          <button type="button" class="btn btn-secondary" (click) = "hasAccount()">Existing account</button>
+        </div>
+<div class="form-group" *ngIf="employerIsHidden">
+  <br>
+  <!--Company Information-->
+  <br>
+  <h2 *ngIf="firstTimeEmployer"> Please enter your information here: </h2>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">Company Name</label>
+      <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyName($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">Company Address</label>
+      <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyAddress($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">City</label>
+      <textarea class="form-control" id="companyCity" rows="1" (input)="collectCompanyCity($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">Province</label>
+      <textarea class="form-control" id="companyProvince" rows="1" (input)="collectCompanyProvince($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">Postal Code</label>
+      <textarea class="form-control" id="companyPostalCode" rows="1" placeholder = "A1A 2B2" (input)="collectCompanyPostalCode($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">Company Description</label>
+      <textarea class="form-control"  id="companyDescription" (input)="collectCompanyDescription($event)" rows="3"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeEmployer">
+      <label for="exampleFormControlTextarea1">Company Domain</label>
+      <select class="form-control" id="companyDomain" (input)="collectCompanyDomain($event)">
+        <option>Health</option>
+        <option>Finance</option>
+        <option>Technology</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <button type="button" title="Submit company info to database" class="btn btn-primary btn-lg btn-block" *ngIf="firstTimeEmployer"
+    (click)="submitCompanyInfo()">Submit Form</button>
+</div>
 
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">Company Description</label>
-                  <textarea class="form-control"  id="companyDescription" (input)="collectCompanyDescription($event)" rows="3"></textarea>
-                </div>
+<div class="form-group" *ngIf="applicantIsHidden">
+  <br>
+  <!--Company Information-->
+  <br>
+  <h2 *ngIf="firstTimeApplicant"> Please enter your information here: </h2>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">Name</label>
+      <textarea class="form-control" id="name" rows="1" (input)="collectApplicantName($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">Email</label>
+      <textarea class="form-control" id="email" rows="1" (input)="collectApplicantEmail($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">Home Address</label>
+      <textarea class="form-control" id="address" rows="1" (input)="collectApplicantAddress($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">City</label>
+      <textarea class="form-control" id="city" rows="1" (input)="collectApplicantCity($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">Github Account</label>
+      <textarea class="form-control" id="githubAccount" rows="1" (input)="collectGithubAccount($event)"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">Personal Description</label>
+      <textarea class="form-control"  id="personalDescription" (input)="collectPersonalDescription($event)" rows="3"></textarea>
+    </div>
+    <div class="form-group" *ngIf="firstTimeApplicant">
+      <label for="exampleFormControlTextarea1">Phone Number</label>
+      <textarea class="form-control" id="phoneNumber" placeholder="6041234567" rows="1" (input)="collectPhoneNumber($event)"></textarea>
+    </div>
+    <button type="button" title="Submit applicant info to database" class="btn btn-primary btn-lg btn-block" *ngIf="firstTimeApplicant"
+    (click)="submitApplicantInfo()">Submit Form</button>
+</div>
 
-                <div class="form-group" *ngIf="visibleCompanyName">
-                  <label for="exampleFormControlTextarea1">Company Domain</label>
-                  <select class="form-control" id="companyDomain" (input)="collectCompanyDomain($event)">
-                    <option>Health</option>
-                    <option>Finance</option>
-                    <option>Technology</option>
-                    <option>Other</option>
-                  </select>
-                </div>
 
 
   </body>

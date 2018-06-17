@@ -9,7 +9,7 @@ import { Response } from '@angular/http';
 })
 export class MainLoginPageComponent implements OnInit {
   hideSidebar:boolean = true;
-  applicantIsHidden:boolean = false;
+  applicantIsHidden:boolean = true;
   employerIsHidden:boolean = false;
 
   allowable:string="";
@@ -29,7 +29,19 @@ export class MainLoginPageComponent implements OnInit {
   companyName:string="";
   companyDescription:string="";
   companyDomain:string = ""; // is one of ["Health","Finance","Technology","Other"];
-  visibleCompanyName:boolean=false;
+
+  //fields for Applicant entity
+  applicantName:string="";
+  applicantEmail:string="";
+  applicantAddress:string="";
+  applicantCity:string="";
+  githubAccount:string="";
+  personalDescription:string="";
+  phoneNumber:string="";
+
+  firstTimeEmployer:boolean = true;
+  firstTimeApplicant:boolean = true;
+
 
   constructor(private serverService: DataServiceService ) {
    }
@@ -64,6 +76,10 @@ export class MainLoginPageComponent implements OnInit {
       this.applicantIsHidden = false;
     }
   }
+
+login(){
+  //TODO: do something upon login
+}
 
   //Collectors for Company Information
       collectCompanyAddress(event:any){
@@ -101,8 +117,73 @@ export class MainLoginPageComponent implements OnInit {
         console.log(this.companyDomain);
       }
 
+      collectApplicantName(event:any){
+        this.applicantName = event.target.value;
+        console.log(this.applicantName);
+      }
 
+      collectApplicantEmail(event:any){
+        this.applicantEmail = event.target.value;
+        console.log(this.applicantEmail);
+      }
 
+      collectApplicantAddress(event:any){
+        this.applicantAddress = event.target.value;
+        console.log(this.applicantAddress);
+      }
 
+      collectApplicantCity(event:any){
+        this.applicantCity = event.target.value;
+        console.log(this.applicantCity);
+      }
+
+      collectGithubAccount(event:any){
+        this.githubAccount = event.target.value;
+        console.log(this.githubAccount);
+      }
+
+      collectPersonalDescription(event:any){
+        this.personalDescription = event.target.value;
+        console.log(this.personalDescription);
+      }
+
+      collectPhoneNumber(event:any){
+        this.phoneNumber = event.target.value;
+        console.log(this.phoneNumber);
+      }
+
+hasAccount(){
+  //if on emplyer page and u have account set false
+  if(this.employerIsHidden == true){
+    this.firstTimeEmployer = false;
+  }
+  else{
+    this.firstTimeApplicant = false;
+  }
+
+}
+
+doesntHasAccount(){
+  if(this.employerIsHidden == true){
+    this.firstTimeEmployer=true;
+  }
+  else{
+    this.firstTimeApplicant = true;
+  }
+}
+
+submitCompanyInfo(){
+  this.serverService.updateJobDescription(
+    JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode, COMPANYNAME: this.companyName,
+    COMPANYDESCRIPTION: this.companyDescription, COMPANYDOMAIN: this.companyDomain}))
+  .subscribe(
+    (response) =>console.log(response),
+    (error) =>console.log
+  );
+}
+
+submitApplicantInfo(){
+
+}
 
 }

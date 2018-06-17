@@ -10,6 +10,7 @@ export class ECreatePostingPageComponent implements OnInit {
   item:string[] = ["Job Posting Information", "Technical Requirements"];
   itemType:string="";
 
+  companyName:string="";
   //fields for JobPosting entity
   jobId:string="";
   field:string = ""; // is one of ["Software", "Hardware", "Firmware", "QA", "Project Management", "Other"];
@@ -23,6 +24,7 @@ export class ECreatePostingPageComponent implements OnInit {
   technologyType:string = "";// is one of ["Language", "IDE", "Framework", "Other"];
 
   //visibility fields, will change with different items selected
+  visibleCompanyName:boolean=true;
   visibleJobId:boolean=false;
   visibleJobDesc:boolean=false;
   visibleField:boolean=false;
@@ -65,6 +67,11 @@ export class ECreatePostingPageComponent implements OnInit {
   }
 
 //Collectors for Job Posting
+collectCompanyName(event:any){
+  this.companyName = event.target.value;
+  console.log(this.companyName);
+}
+
     collectJobID(event:any){
       this.jobId = event.target.value;
       console.log(this.jobId);
