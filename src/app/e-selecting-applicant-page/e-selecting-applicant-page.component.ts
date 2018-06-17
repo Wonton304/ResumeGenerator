@@ -1,15 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-e-selecting-applicant-page',
   templateUrl: './e-selecting-applicant-page.component.html',
   styleUrls: ['./e-selecting-applicant-page.component.css']
 })
-export class ESelectingApplicantPageComponent implements OnInit {
 
-  constructor() { }
+export class ESelectingApplicantPageComponent implements OnInit {
+  jobPostingId:string='';
+  candidates$:Object;
+
+  constructor(private serverService: DataServiceService ) { }
+
 
   ngOnInit() {
+  
+   }
+
+   
+
+  collectId (event:any){
+    this.jobPostingId=event.target.value;
+  }
+  
+   selectApplicant (){
+    this.serverService.connectApplicants(JSON.stringify({JOBID:this.jobPostingId}))
+        .subscribe(
+          (serverService) => this.candidates$ = serverService,
+          (error) => console.log(error)
+        );
+
+        console.log("thisisresult:" + this.candidates$);
   }
 
 }

@@ -5,17 +5,27 @@ import { Http , Headers} from '@angular/http';
 @Injectable()
 export class DataServiceService {
 
-  constructor(private httpClient: HttpClient
-  , private http: Http) { }
-
+  constructor(private httpClient: HttpClient, private http: Http) { }
 
   connectJobPostings(){
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
   }
 
   updateJobDescription(description){
-    const headers = new Headers ({'Content-Type': 'application/json'});
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
+  }
+
+
+  connectApplicants(postId){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
+  }
+
+  insertNewApplicant(applicantInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageApplicant.php', applicantInfo);
+  }
+
+  insertNewCompany(companyInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/loginPageEmployer.php', companyInfo);
   }
 
   insertNewCompany(description){
@@ -23,5 +33,12 @@ export class DataServiceService {
     return this.http.post('../api/loginPageEmployer.php', description);
   }
 
+  generateResume (postID){
+    //return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
+  }
+
+  createHobby(hobbyName){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/hobby.php', hobbyName);
+  }
 
 }

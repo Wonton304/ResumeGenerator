@@ -1,3 +1,18 @@
-<p>
-  e-selecting-applicant-page works!
-</p>
+
+<body><label>Input the Job ID here to find Applicants Suitable.</label>
+<div class="input-group">
+  <input (input)="collectId($event)" placeholder="Job ID eg. 123456" >
+</div>
+<button type="submit" class="btn btn-primary" (click)="selectApplicant()">Find the applicants</button>
+
+<ul>
+  <li *ngFor='let applicant of candidates$'>
+      <ul>
+        <p> Candidate Name </p>
+         <li>{{ applicant.APPLICANTNAME }}</li>
+         <li>{{ applicant.LANGUAGE }}</li>
+      </ul>
+  </li>
+</ul>
+</body>
+

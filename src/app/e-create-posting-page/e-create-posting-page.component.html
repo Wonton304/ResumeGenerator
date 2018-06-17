@@ -14,11 +14,11 @@
 
 
 <!--Job Posting Information-->
-<div class="form-group" *ngIf="visibleCompanyName">
+<div class="form-group" *ngIf="visibleJobId">
   <label for="exampleFormControlTextarea1">Company Name</label>
   <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyName($event)"></textarea>
 </div>
-<div class="form-group" *ngIf="visibleJobId">
+<div class="form-group" *ngIf="visibleCompanyName">
   <label for="exampleFormControlTextarea1">Unique Job ID</label>
   <textarea class="form-control" id="jobId" rows="1" (input)="collectJobID($event)"></textarea>
 </div>

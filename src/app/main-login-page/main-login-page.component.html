@@ -24,7 +24,7 @@
             </form>
         </div>
 
-        <div class="btn-group" role="group" aria-label="Basic example">
+        <div class="btn-group" role="group" aria-label="Basic example" *ngIf = "applicantIsHidden || employerIsHidden">
           <button type="button" class="btn btn-secondary" autofocus="true" (click) = "doesntHasAccount()">New account</button>
           <button type="button" class="btn btn-secondary" (click) = "hasAccount()">Existing account</button>
         </div>

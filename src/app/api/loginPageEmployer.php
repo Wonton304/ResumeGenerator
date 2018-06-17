@@ -38,7 +38,7 @@ oci_bind_by_name($stid1, ':companyDomain', $companyDomain);
 oci_execute($stid1);
 
 $stid2 = oci_parse($conn, $insert2);
-oci_bind_by_name($stid2, ':address', $ADDRESS);
+oci_bind_by_name($stid2, ':address', $address);
 oci_bind_by_name($stid2, ':postalCode', $postalCode);
 oci_execute($stid2);
 

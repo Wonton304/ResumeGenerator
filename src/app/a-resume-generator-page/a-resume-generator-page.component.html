@@ -10,12 +10,11 @@
       <li>Paste that job ID below and let us work our magic!</li>
     </ol>
   </div>
-  <form>
-    <label for="jobID">Input the Job ID here.</label>
-    <div class="input-group">
-      <input placeholder="Job ID eg. 123456">
-      <span><button type="submit" class="btn btn-primary">Build My Resume</button></span>
-    </div>
 
-  </form>
+    <label>Input the Job ID here.</label>
+    <div class="input-group">
+      <input (input)="collectId($event)" placeholder="Job ID eg. 123456" >
+    </div>
+ <button type="submit" class="btn btn-primary" (click)="buildResume()">Build My Resume</button>
+
 </body>

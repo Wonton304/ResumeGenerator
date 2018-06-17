@@ -9,7 +9,7 @@ import { Response } from '@angular/http';
 })
 export class MainLoginPageComponent implements OnInit {
   hideSidebar:boolean = true;
-  applicantIsHidden:boolean = true;
+  applicantIsHidden:boolean = false;
   employerIsHidden:boolean = false;
 
   allowable:string="";
@@ -173,7 +173,7 @@ doesntHasAccount(){
 }
 
 submitCompanyInfo(){
-  this.serverService.updateJobDescription(
+  this.serverService.insertNewCompany(
     JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode, COMPANYNAME: this.companyName,
     COMPANYDESCRIPTION: this.companyDescription, COMPANYDOMAIN: this.companyDomain}))
   .subscribe(
@@ -183,7 +183,15 @@ submitCompanyInfo(){
 }
 
 submitApplicantInfo(){
-
+  this.serverService.insertNewApplicant(
+    JSON.stringify({NAME:this.applicantName, EMAIL:this.applicantEmail,
+      ADDRESS: this.applicantAddress, CITY: this.applicantCity, GITHUB: this.githubAccount,
+    PERSONDESCRIPTION: this.personalDescription, NUMBER: this.phoneNumber}))
+  .subscribe(
+    (response) =>console.log(response),
+    (error) =>console.log
+  );
+  }
 }
 
 }
