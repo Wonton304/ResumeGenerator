@@ -56,7 +56,7 @@ export class DataServiceService {
   }
 
   createHobby(hobby){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insert-hobby.php', hobby);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/Insert-Hobbies.php', hobby);
   }
 
 
