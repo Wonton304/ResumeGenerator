@@ -11,6 +11,7 @@ import { AResumeGeneratorPageComponent } from './a-resume-generator-page/a-resum
 import { MainLoginPageComponent } from './main-login-page/main-login-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http'; 
+import { DataServiceService } from './data-service.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,11 @@
 <p>Job Postings</p>
-<!--<ul>
-        <li >
-            <ul>
-                <p>Position Info</p>
-                <li>{{postings.id}}</li>
-                <li>{{postings.positionTitle}}</li>
-                <li>{{postings.field}}</li>
-            </ul>
-            <ul>
-                <p>About Company</p>
-                <li>{{postings.companyName}}</li>
-                <li>{{postings.companyDescription}}</li>
-                <li>{{postings.companyDomain}}</li>
-                <li>{{postings.country, postings.address,postings.city,postings.province, postings.postalCode}}</li>
-            </ul>
-            <ul>
-                <p>Required Technology</p>
-                <li>{{postings.technologyName}}</li>
-            </ul>
-        </li>
-    </ul> -->
+<ul>
+    <li *ngFor='let post of posting$'>
+        <ul>
+            <li> Company: {{post.COMPANYNAME}}   PostID: {{ post.ID}} </li> 
+            <li> Field:  {{ post.FIELD}}      Position: {{ post.POSITIONTITLE }} </li>
+            <li> {{ post.DESCRIPTION }} </li>
+            <hr>
+        </ul>
+    </li>
+</ul>
