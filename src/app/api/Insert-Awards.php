@@ -1,17 +1,17 @@
 <?php
-  header("Access-Control-Request-Method: *");
-  header("Access-Control-Request-Headers: *");
-  header("Access-Control-Allow-Origin: *");
-  $json = $HTTP_RAW_POST_DATA;
+header("Access-Control-Request-Method: *");
+header("Access-Control-Request-Headers: *");
+header("Access-Control-Allow-Origin: *");
+$json = $HTTP_RAW_POST_DATA;
 
-  $obj = json_decode($json);
-  $json='';
-  echo $json;
+$obj = json_decode($json);
+$json='';
+echo $json;
 
-  $awardNameUpdate =$obj->AWARDNAME;
-  $awardDescriptionUpdate = $obj->AWARDDESCRIPTION;
-  $dateReceivedUpdate = $obj->DATERECEIVED;
-  $applicantEmailInsert = $obj->APPLICANTEMAIL;
+$awardNameUpdate =$obj->AWARDNAME;
+$awardDescriptionUpdate = $obj->AWARDDESCRIPTION;
+$dateReceivedUpdate = $obj->DATERECEIVED;
+$applicantEmailInsert = $obj->APPLICANTEMAIL;
 
   // $hobbyNameUpdate ='booooo'; //testing
 // Create connection to Oracle

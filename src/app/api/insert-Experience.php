@@ -1,19 +1,19 @@
 <?php
-  header("Access-Control-Request-Method: *");
-  header("Access-Control-Request-Headers: *");
-  header("Access-Control-Allow-Origin: *");
-  $json = $HTTP_RAW_POST_DATA;
+header("Access-Control-Request-Method: *");
+header("Access-Control-Request-Headers: *");
+header("Access-Control-Allow-Origin: *");
+$json = $HTTP_RAW_POST_DATA;
 
-  $obj = json_decode($json);
-  $json='';
-  echo $json;
+$obj = json_decode($json);
+$json='';
+echo $json;
 
-  $organizationUpdate =$obj->ORGANIZATION;
-  $experienceRoleUpdate = $obj->EXPERIENCEROLE;
-  $durationUpdate = $obj->DURATION;
-  $experienceTypeUpdate = $obj->EXPERIENCETYPE;
-  $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
-  $applicantEmailInsert = $obj->APPLICANTEMAIL;
+$organizationUpdate =$obj->ORGANIZATION;
+$experienceRoleUpdate = $obj->EXPERIENCEROLE;
+$durationUpdate = $obj->DURATION;
+$experienceTypeUpdate = $obj->EXPERIENCETYPE;
+$experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
+$applicantEmailInsert = $obj->APPLICANTEMAIL;
 
 // Create connection to Oracle
 $conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
@@ -37,8 +37,8 @@ oci_bind_by_name($stidExperience, ':experienceDescriptionUpdate', $experienceDes
 oci_execute($stidExperience);
 
 $stidHaveExperience = oci_parse($conn, $insertHaveExperience);
-oci_bind_by_name($stidExperience, ':organizationUpdate', $organizationUpdate);
-oci_bind_by_name($stidExperience, ':experienceRoleUpdate', $experienceRoleUpdate);
+oci_bind_by_name($stidHaveExperience, ':organizationUpdate', $organizationUpdate);
+oci_bind_by_name($stidHaveExperience, ':experienceRoleUpdate', $experienceRoleUpdate);
 oci_bind_by_name($stidHaveExperience, ':applicantEmailInsert', $applicantEmailInsert);
 oci_execute($stidHaveExperience);
 
