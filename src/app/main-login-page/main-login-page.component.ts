@@ -23,11 +23,11 @@ export class MainLoginPageComponent implements OnInit {
    }
 
   ngOnInit() {
-   this.get();
+   //this.get();
   }
-
+/*
   get(){
-    this.serverService.connectStore().subscribe(
+    this.serverService.connectJobPostings().subscribe(
       (response: Response )=>{
         const data = response.json();
         for(const Location of data){
@@ -38,7 +38,7 @@ export class MainLoginPageComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-
+ */
   revealHideApplicant() {
     this.applicantIsHidden = !this.applicantIsHidden;
     if (this.employerIsHidden == true){

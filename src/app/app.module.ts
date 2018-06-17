@@ -10,7 +10,7 @@ import { AJobPostingPageComponent } from './a-job-posting-page/a-job-posting-pag
 import { AResumeGeneratorPageComponent } from './a-resume-generator-page/a-resume-generator-page.component';
 import { MainLoginPageComponent } from './main-login-page/main-login-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { HttpModule } from '@angular/http'; 
+import { HttpClientModule } from '@angular/common/http'; 
 import { DataServiceService } from './data-service.service';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { DataServiceService } from './data-service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

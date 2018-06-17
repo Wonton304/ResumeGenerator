@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class DataServiceService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
 
-  connectStore(){
-    
-    return this.http.request('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
+  connectJobPostings(){
+    return this.http.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
   }
+
+  
+
+  
 }
