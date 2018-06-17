@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-e-create-posting-page',
@@ -53,7 +54,7 @@ export class ECreatePostingPageComponent implements OnInit {
   visibleProficiencyRequirements:boolean=false;
   visibleTechnologyType:boolean=false;
 
-  constructor() { }
+  constructor(private serverService: DataServiceService) { }
 
   ngOnInit() {
   }
@@ -118,12 +119,12 @@ export class ECreatePostingPageComponent implements OnInit {
 //Collectors for Company Information
     collectCompanyAddress(event:any){
       this.eAddress = event.target.value;
-      console.log(this.eAddress);
+      console.log('address ' + this.eAddress);
     }
 
     collectCompanyCity(event:any){
       this.eCity = event.target.value;
-      console.log(this.eCity);
+      console.log('city ' +this.eCity);
     }
 
     collectCompanyProvince(event:any){
@@ -201,6 +202,9 @@ export class ECreatePostingPageComponent implements OnInit {
       }
       else{
         //if not technical requirements, update as normal
+        //LOCATION JSON
+        this.serverService.updateJobDescription(JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode})));
+        console.log('sent');
       }
     }
 }

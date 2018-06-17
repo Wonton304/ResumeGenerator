@@ -13,12 +13,11 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
   }
 
-  
+
 
   updateJobDescription(description: any[]){
-    return this.http.post('https://www.ugrad.cs.ubc.ca/~s3z0b/UpdateJobDescription.php', description)
-
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~g6b1b/UpdateHobby.php', description)
   }
 
-  
+
 }
