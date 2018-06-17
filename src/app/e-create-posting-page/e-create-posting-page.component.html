@@ -1,4 +1,4 @@
-<h1> Employer Information</h1> 
+<h1> Employer Information</h1>
 <body>
   <div class="container-fluid">
   <form>
@@ -10,46 +10,7 @@
     value="{{type}}"
     (change)="activityTypeChangedHandler($event)">
   <i>{{type}}</i></div>
-
-
-<!--Company Information-->
-  <hr>
-  <p>Type: {{itemType}}</p>
-  <div class="form-group" *ngIf="visibleCompanyName">
-    <label for="exampleFormControlTextarea1">Company Name</label>
-    <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyName($event)"></textarea>
-  </div>
-  <div class="form-group" *ngIf="visibleAddress">
-    <label for="exampleFormControlTextarea1">Company Address</label>
-    <textarea class="form-control" id="companyAdd" rows="1" (input)="collectCompanyAddress($event)"></textarea>
-  </div>
-  <div class="form-group" *ngIf="visibleCity">
-    <label for="exampleFormControlTextarea1">City</label>
-    <textarea class="form-control" id="companyCity" rows="1" (input)="collectCompanyCity($event)"></textarea>
-  </div>
-  <div class="form-group" *ngIf="visibleProvince">
-    <label for="exampleFormControlTextarea1">Province</label>
-    <textarea class="form-control" id="companyProvince" rows="1" (input)="collectCompanyProvince($event)"></textarea>
-  </div>
-  <div class="form-group" *ngIf="visiblePostalCode">
-    <label for="exampleFormControlTextarea1">Postal Code</label>
-    <textarea class="form-control" id="companyPostalCode" rows="1" placeholder = "A1A 2B2" (input)="collectCompanyPostalCode($event)"></textarea>
-  </div>
-
-  <div class="form-group" *ngIf="visibleCompanyDescription">
-    <label for="exampleFormControlTextarea1">Company Description</label>
-    <textarea class="form-control"  id="companyDescription" (input)="collectCompanyDescription($event)" rows="3"></textarea>
-  </div>
-
-  <div class="form-group" *ngIf="visibleCompanyDomain">
-    <label for="exampleFormControlTextarea1">Company Domain</label>
-    <select class="form-control" id="companyDomain" (input)="collectCompanyDomain($event)">
-      <option>Health</option>
-      <option>Finance</option>
-      <option>Technology</option>
-      <option>Other</option>
-    </select>
-  </div>
+  <br>
 
 
 <!--Job Posting Information-->
@@ -121,9 +82,10 @@
   </select>
 </div>
 </form>
-
-  <button type="button" class="btn btn-primary btn-lg btn-block"
-  (click)="addItem()">Update job information</button>
+  <button type="button" title="Insert new information into the database" class="btn btn-primary btn-lg btn-block"
+  (click)="insertInfo()">Insert information</button>
+  <button type="button" title="Update information already in the database" class="btn btn-primary btn-lg btn-block"
+  (click)="updateInfo()">Update information</button>
 
   </div>
 
