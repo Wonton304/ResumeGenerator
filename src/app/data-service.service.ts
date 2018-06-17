@@ -18,19 +18,19 @@ export class DataServiceService {
 //TODO: make these scripts
 
   getHobbies(email){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getHobbies.php'), email);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getHobbies.php', email);
   }
 
   getExperiences(email){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getExperiences.php'), email);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getExperiences.php', email);
   }
 
   getAwards(email){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getAwards.php'), email);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getAwards.php', email);
   }
 
   getCodingProjects(email){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getCodingProjects.php'), email);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getCodingProjects.php', email);
   }
 
 // up to here

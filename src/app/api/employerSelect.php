@@ -2,11 +2,11 @@
   header("Access-Control-Request-Method: *");
   header("Access-Control-Request-Headers: *");
   header("Access-Control-Allow-Origin: *");
+  $json = $HTTP_RAW_POST_DATA;
 
-$json = $HTTP_RAW_POST_DATA;
-echo $json;
-$obj = json_decode($json);
-
+  $obj = json_decode($json);
+  $json='';
+  echo $json;
 $jobid = $obj->JOBID;
 
 // Create connection to Oracle

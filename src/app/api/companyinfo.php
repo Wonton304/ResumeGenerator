@@ -6,8 +6,10 @@ header("Access-Control-Request-Headers: *");
 header("Access-Control-Allow-Origin: *");
 
 $json = $HTTP_RAW_POST_DATA;
-echo $json;
+
 $obj = json_decode($json);
+$json='';
+echo $json;
 $companyName = $obj->COMPANYNAME;
 $companyDescription = $obj->COMPANYDESCRIPTION;
 $companyDomain = $obj->COMPANYDOMAIN;

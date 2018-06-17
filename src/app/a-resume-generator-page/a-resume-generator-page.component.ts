@@ -47,7 +47,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
       .subscribe(
         serverService => this.generatedHobbies$ = serverService,
         (response) => console.log(response),
-        (error) =>console.log(error)
       );
   }
 
@@ -59,7 +58,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
       .subscribe(
         serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
-        (error) =>console.log(error)
       );
   }
 
@@ -71,7 +69,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
       .subscribe(
         serverService => this.generatedAwards$ = serverService,
         (response) => console.log(response),
-        (error) =>console.log(error)
       );
   }
 
@@ -83,7 +80,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
       .subscribe(
         serverService => this.generatedCodingProjects$ = serverService,
         (response) => console.log(response),
-        (error) =>console.log(error)
       );
   }
 

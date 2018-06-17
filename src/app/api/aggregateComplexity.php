@@ -3,8 +3,7 @@
   header("Access-Control-Request-Headers: *");
   header("Access-Control-Allow-Origin: *");
 // Create connection to Oracle
-$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-
+$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 $aggregate = 'SELECT min(complexity) FROM CodingProject1';
