@@ -12,6 +12,8 @@ import { MainLoginPageComponent } from './main-login-page/main-login-page.compon
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { DataServiceService } from './data-service.service';
+import { HttpModule } from '@angular/http';
+import { EJobPostingPageComponent } from './e-job-posting-page/e-job-posting-page.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { DataServiceService } from './data-service.service';
     AJobPostingPageComponent,
     AResumeGeneratorPageComponent,
     MainLoginPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    EJobPostingPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
