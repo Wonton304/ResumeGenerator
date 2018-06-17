@@ -15,6 +15,26 @@ export class DataServiceService {
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php'), resumeInfo);
   }
 
+//TODO: make these scripts
+
+  getHobbies(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getHobbies.php'), email);
+  }
+
+  getExperiences(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getExperiences.php'), email);
+  }
+
+  getAwards(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getAwards.php'), email);
+  }
+
+  getCodingProjects(email){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getCodingProjects.php'), email);
+  }
+
+// up to here
+
   updateJobDescription(description){
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
   }
