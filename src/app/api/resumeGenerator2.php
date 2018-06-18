@@ -10,7 +10,7 @@ $json='';
 echo $json;
 
 // Create connection to Oracle
-$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $applicantEmailSelect = $obj->APPLICANTEMAIL;
 $jobid = $obj->JOBID;

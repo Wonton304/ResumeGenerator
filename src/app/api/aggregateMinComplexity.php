@@ -10,11 +10,7 @@ $json='';
 echo $json;
 
 // Create connection to Oracle
-$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-<<<<<<< HEAD:src/app/api/aggregateComplexity.php
-=======
-
->>>>>>> 99993cb0633d2598729a9cf8faca796877d61b16:src/app/api/aggregateMinComplexity.php
+$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 $aggregate = 'SELECT min(complexity) FROM CodingProject1';

@@ -11,10 +11,8 @@
 $jobid = $obj->JOBID;
 
 // Create connection to Oracle
-<<<<<<< HEAD
-$conn = oci_connect("ora_e0w0b", "a22288161", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-=======
-$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+
+$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $join = "SELECT DISTINCT HaveProject.language, HaveProject.projectName
         from Applicant2 inner join HaveProject on Applicant2.applicantEmail = HaveProject.applicantEmail

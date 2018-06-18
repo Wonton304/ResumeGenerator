@@ -35,6 +35,7 @@ export class MainLoginPageComponent implements OnInit {
   applicantEmail:string="";
   applicantAddress:string="";
   applicantCity:string="";
+  applicantProvince:string="";
   githubAccount:string="";
   personalDescription:string="";
   phoneNumber:string="";
@@ -64,17 +65,23 @@ export class MainLoginPageComponent implements OnInit {
   }
  */
   revealHideApplicant() {
-    this.applicantIsHidden = !this.applicantIsHidden;
+    if(!this.firstTimeApplicant == true){
+      this.applicantIsHidden = !this.applicantIsHidden;
+    }
     if (this.employerIsHidden == true){
       this.employerIsHidden = false;
     }
+    this.firstTimeEmployer = false;
   }
 
   revealHideEmployer() {
-    this.employerIsHidden = !this.employerIsHidden;
+    if(!this.firstTimeEmployer == true){
+      this.employerIsHidden = !this.employerIsHidden;
+    };
     if (this.applicantIsHidden == true){
       this.applicantIsHidden = false;
     }
+    this.firstTimeApplicant = false;
   }
 
 login(){
@@ -137,6 +144,11 @@ login(){
         console.log(this.applicantCity);
       }
 
+      collectApplicantProvince(event:any){
+        this.applicantProvince = event.target.value;
+        console.log(this.applicantProvince);
+      }
+
       collectGithubAccount(event:any){
         this.githubAccount = event.target.value;
         console.log(this.githubAccount);
@@ -154,11 +166,14 @@ login(){
 
 hasAccount(){
   //if on emplyer page and u have account set false
-  if(this.employerIsHidden == true){
+  if(this.employerIsHidden == true || this.firstTimeEmployer == true){
     this.firstTimeEmployer = false;
+    this.employerIsHidden = true;
+
   }
-  else{
+  else if( this.applicantIsHidden == true || this.firstTimeApplicant == true){
     this.firstTimeApplicant = false;
+    this.applicantIsHidden = true;
   }
 
 }
@@ -166,9 +181,11 @@ hasAccount(){
 doesntHasAccount(){
   if(this.employerIsHidden == true){
     this.firstTimeEmployer=true;
+      this.employerIsHidden = false;
   }
-  else{
+  else if(this.applicantIsHidden == true){
     this.firstTimeApplicant = true;
+    this.applicantIsHidden = false;
   }
 }
 
@@ -184,9 +201,10 @@ submitCompanyInfo(){
 
 submitApplicantInfo(){
   this.serverService.insertNewApplicant(
-    JSON.stringify({NAME:this.applicantName, EMAIL:this.applicantEmail,
-      ADDRESS: this.applicantAddress, CITY: this.applicantCity, GITHUB: this.githubAccount,
-    PERSONDESCRIPTION: this.personalDescription, NUMBER: this.phoneNumber}))
+    JSON.stringify({APPLICANTNAME:this.applicantName, APPLICANTEMAIL:this.applicantEmail,
+      APPLICANTADDRESS: this.applicantAddress, APPLICANTCITY: this.applicantCity, APPLICANTPROVINCE: this.applicantProvince,
+      GITHUBACCOUNT: this.githubAccount,
+    PERSONDESCRIPTION: this.personalDescription, APPLICANTPHONENUMBER: this.phoneNumber}))
   .subscribe(
     (response) =>console.log(response),
     (error) =>console.log
