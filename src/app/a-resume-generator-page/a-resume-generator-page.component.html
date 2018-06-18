@@ -28,23 +28,26 @@
    <button type="button" class="btn btn-secondary" (click) = "getCodingProjects()">Include Your Coding Projects</button>
  </div>
 
- <div class = "vanillaapplicant"> <!--*ngIf="resumeGenerated"-->
+ <div class = "vanillaapplicant" *ngIf="resumeGenerated"> <!---->
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
-   <ul *ngFor="let applicant of generatedResume$" > <!---->
+   <ul *ngFor="let attribute of applicantInfo$">
        <li>
            <ul>
-               <li> Your Name: <strong>{{applicant.APPLICANTNAME}}</strong></li>
-               <li> Your Email: <strong>{{ applicant.APPLICANTEMAIL}}</strong> </li>
-               <li> Your Address: <strong> {{ applicant.APPLICANTADDRESS}}</strong> </li>
-               <li> Your City: <strong> {{ applicant.APPLICANTCITY}}</strong> </li>
-               <li> Your Province: <strong> {{ applicant.APPLICANTPROVINCE}}</strong> </li>
-               <li> Your GitHub Account: <strong> {{ applicant.GITHUBACCOUNT}}</strong> </li>
-               <li> Your Phone Number: <strong> {{ applicant.APPLICANTPHONENUMBER}}</strong> </li>
-               <li> Your Personal Description: <strong> {{ applicant.PERSONALDESCRIPTION}}</strong> </li>
+               <li> Your Name: <strong>{{attribute.APPLICANTNAME}}</strong></li>
+               <li> Your Email: <strong>{{ attribute.APPLICANTEMAIL}}</strong> </li>
+               <li> Your Address: <strong> {{ attribute.APPLICANTADDRESS}}</strong> </li>
+               <li> Your City: <strong> {{ attribute.APPLICANTCITY}}</strong> </li>
+               <li> Your Province: <strong> {{ attribute.APPLICANTPROVINCE}}</strong> </li>
+               <li> Your GitHub Account: <strong> {{ attribute.GITHUBACCOUNT}}</strong> </li>
+               <li> Your Phone Number: <strong> {{ attribute.APPLICANTPHONENUMBER}}</strong> </li>
+               <li> Your Personal Description: <strong> {{ attribute.PERSONALDESCRIPTION}}</strong> </li>
                <hr>
            </ul>
        </li>
    </ul>
+   <ul *ngFor="let hasReqs of applicantHas$">
+   </ul>
+ </div>
  <div class = "codingproject" *ngIf="includeCodingProjects">
    <ul *ngFor="let project of generatedCodingProjects$"><!---->
        <li>
@@ -95,5 +98,4 @@
      </li>
  </ul>
 </div>
- </div>
 </body>

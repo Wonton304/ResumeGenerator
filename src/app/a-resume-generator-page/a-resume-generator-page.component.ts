@@ -10,7 +10,9 @@ import { DataServiceService } from '../data-service.service';
 export class AResumeGeneratorPageComponent implements OnInit {
 
   jobPostingId:string = "";
-  generatedResume$:Object;
+  applicantInfo$:Object;
+  applicantHas$:Object;
+  applicantMissing$:Object;
   generatedHobbies$:Object;
   generatedAwards$:Object;
   generatedExperiences$:Object;
@@ -86,13 +88,22 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   buildResume(){
 //send info to php
-  this.serverService.connectResumeGen(
-    JSON.stringify({EMAIL:this.email,JOBID:this.jobPostingId}))
+console.log("building");
+  this.serverService.getApplicantHas(
+    JSON.stringify({APPLICANTEMAIL:this.email}))
     .subscribe(
-      serverService => this.generatedResume$ = serverService,
+      serverService => this.applicantHas$ = serverService,
       (response) => console.log(response),
     );
+    console.log("ette" + this.applicantHas$);
+    this.serverService.getApplicantHas(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+        serverService => this.applicantMissing$ = serverService,
+        (response) => console.log(response),
+      );
     this.resumeGenerated=true;
+      console.log("wat" + this.applicantMissing$);
   }
 
   // calls script
