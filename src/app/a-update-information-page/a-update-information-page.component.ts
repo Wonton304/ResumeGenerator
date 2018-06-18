@@ -113,7 +113,7 @@ export class AUpdateInformationPageComponent implements OnInit {
 
   collectCategory(event:any){
 
-  
+
     this.category = event.target.value;
     if(this.category.length > 100){
       alert("Character length exceeds 100");
@@ -189,7 +189,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   }
 
   collectRole(event:any){
-    
+
     this.role = event.target.value;
     if(this.role.length > 100){
       alert("Character length exceeds 100");
@@ -271,9 +271,9 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
   $complexityUpdate = $obj->COMPLEXITY;
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
-  if(this.itemType === 'CodingProjects'){
-     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language
-      != ""&& this.complexity != null) ? alert("Submitted!") : alert("Please fill in all fields!");
+  if(this.itemType === 'Coding Projects'){
+     (this.applicantEmail== null || this.applicantEmail == "" || this.category == "" || this.title == "" ||
+   this.overallDescription == "" || this.language == "" ||this.complexity == "") ?  alert("Please fill in all fields!") : alert("Submitted!");
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,
