@@ -4,12 +4,16 @@
   <button type="button" class="btn btn-secondary" (click) = "calcMin()"> Minimum Proficiency Requirements</button>
   <button type="button" class="btn btn-secondary" (click) = "calcMax()"> Maximum Proficiency Requirements</button>
   <button type="button" class="btn btn-secondary" (click) = "calcAvg()"> Average Proficiency Requirements</button>
+  <button type="button" class="btn btn-secondary" (click) = "getEasiest()"> Lowest Average Proficiency Requirements</button>
+  <button type="button" class="btn btn-secondary" (click) = "getHardest()"> Highest Average Proficiency Requirements</button>
 </div>
 <div>
   <br>
 <b class = "display" *ngIf=maxIsVisible><u>Maximum Proficiency Required</u>: {{max$}} </b>
 <b class = "display" *ngIf=minIsVisible><u>Minimum Proficiency Required</u>: {{min$}} </b>
 <b class = "display" *ngIf=avgIsVisible><u>Average Proficiency Required</u>: {{avg$}} </b>
+<b class = "display" *ngIf=easiestisVisible><u>Lowest Average Proficiency Required</u>: {{easiest$}} </b>
+<b class = "display" *ngIf=hardestisVisible><u>Highest Average Proficiency Required</u>: {{hardest$}} </b>
 </div>
 <hr>
 <ul>
@@ -18,6 +22,7 @@
             <li> Company: <strong>{{post.COMPANYNAME}}</strong> PostID: <strong>{{ post.ID}}</strong> </li>
             <li> Field: <strong> {{ post.FIELD}}</strong>      Position:<strong> {{ post.POSITIONTITLE }}</strong> </li>
             <li> {{ post.DESCRIPTION }} </li>
+            <li> {{ post.REQUIREDTECHNOLOGY}} </li>
             <hr>
         </ul>
     </li>

@@ -10,7 +10,9 @@ import { DataServiceService } from '../data-service.service';
 export class AResumeGeneratorPageComponent implements OnInit {
 
   jobPostingId:string = "";
-  generatedResume$:Object;
+  applicantInfo$:Object;
+  applicantHas$:Object;
+  applicantMissing$:Object;
   generatedHobbies$:Object;
   generatedAwards$:Object;
   generatedExperiences$:Object;
@@ -40,10 +42,11 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getHobbies(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
     this.serverService.getHobbies(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.generatedHobbies$ = serverService,
         (response) => console.log(response),
@@ -51,10 +54,11 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getExperiences(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeExperiences = !this.includeExperiences;
     console.log("exp: "+this.includeExperiences);
     this.serverService.getExperiences(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
@@ -62,22 +66,24 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getAwards(){
+        (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeAwards = !this.includeAwards;
     console.log("awards: "+this.includeAwards);
     this.serverService.getAwards(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
-        (response) => console.log(response),
-        serverService => this.generatedAwards$ = serverService
+         serverService => this.generatedAwards$ = serverService,
+         (response) => console.log(response),
       );
-
+      console.log(this.generatedAwards$);
   }
 
   getCodingProjects(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeCodingProjects = !this.includeCodingProjects;
     console.log("cp: "+this.includeCodingProjects);
     this.serverService.getCodingProjects(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.generatedCodingProjects$ = serverService,
         (response) => console.log(response),
@@ -85,13 +91,28 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   buildResume(){
-//send info to php
-  this.serverService.connectResumeGen(
-    JSON.stringify({EMAIL:this.email,JOBID:this.jobPostingId}))
-    .subscribe(
-      serverService => this.generatedResume$ = serverService,
-      (response) => console.log(response),
-    );
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted");
+    this.serverService.getApplicantInfo(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+        serverService => this.applicantInfo$ = serverService,
+        (response) => console.log(response),
+      );
+      // console.log(this.applicantInfo$);
+    this.serverService.getApplicantHas(
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
+      .subscribe(
+        serverService => this.applicantHas$ = serverService,
+        (response) => console.log(response),
+      );
+      console.log("applicant has: " +this.applicantHas$);
+    this.serverService.getApplicantMissing(
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
+      .subscribe(
+        serverService => this.applicantMissing$ = serverService,
+        (response) => console.log(response),
+      );
+      console.log("applicant missing: " +this.applicantMissing$);
     this.resumeGenerated=true;
   }
 

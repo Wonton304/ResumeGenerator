@@ -6,7 +6,7 @@
     <p>Our resume template creates a resume best matched for a certain job position. For it to work, we first need some information from you.</p>
     <ol>
       <li>If you haven't yet, please <a href="">provide us all the information</a> an employer should know about you.</li>
-      <li>Use our handy-dandy <a href="">job-search page</a> to find out the job ID of the position you are interested in.</li>
+      <li>Use our handy-dandy <a href="Posting">job-search page</a> to find out the job ID of the position you are interested in.</li>
       <li>Paste that job ID below and let us work our magic!</li>
     </ol>
   </div>
@@ -28,23 +28,32 @@
    <button type="button" class="btn btn-secondary" (click) = "getCodingProjects()">Include Your Coding Projects</button>
  </div>
 
- <div class = "vanillaapplicant"> <!--*ngIf="resumeGenerated"-->
+
+   <br>
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
-   <ul *ngFor="let applicant of generatedResume$" > <!---->
+   <ul class = "appHas" *ngFor="let hasReqs of applicantHas$">
+     <li> Technology Requirements you Have: <strong>{{hasReqs.TECHNOLOGYNAME}}</strong></li>
+     <hr>
+   </ul>
+   <ul *ngFor="let missingReqs of applicantMissing$">
+     <li> Technology Requirements you are Missing: <strong>{{missingReqs.TECHNOLOGYNAME}}</strong></li>
+     <hr>
+   </ul>
+   <div class = "vanillaapplicant" *ngIf="resumeGenerated"> <!---->
+   <ul *ngFor="let attribute of applicantInfo$">
        <li>
            <ul>
-               <li> Your Name: <strong>{{applicant.APPLICANTNAME}}</strong></li>
-               <li> Your Email: <strong>{{ applicant.APPLICANTEMAIL}}</strong> </li>
-               <li> Your Address: <strong> {{ applicant.APPLICANTADDRESS}}</strong> </li>
-               <li> Your City: <strong> {{ applicant.APPLICANTCITY}}</strong> </li>
-               <li> Your Province: <strong> {{ applicant.APPLICANTPROVINCE}}</strong> </li>
-               <li> Your GitHub Account: <strong> {{ applicant.GITHUBACCOUNT}}</strong> </li>
-               <li> Your Phone Number: <strong> {{ applicant.APPLICANTPHONENUMBER}}</strong> </li>
-               <li> Your Personal Description: <strong> {{ applicant.PERSONALDESCRIPTION}}</strong> </li>
+               <li> Your Name: <strong>{{attribute.APPLICANTNAME}}</strong></li>
+               <li> Your Email: <strong>{{ attribute.APPLICANTEMAIL}}</strong> </li>
+               <li> Your Address: <strong> {{ attribute.APPLICANTADDRESS}}</strong> </li>
+               <li> Your GitHub Account: <strong> {{ attribute.GITHUBACCOUNT}}</strong> </li>
+               <li> Your Phone Number: <strong> {{ attribute.APPLICANTPHONENUMBER}}</strong> </li>
+               <li> Your Personal Description: <strong> {{ attribute.PERSONALDESCRIPTION}}</strong> </li>
                <hr>
            </ul>
        </li>
    </ul>
+ </div>
  <div class = "codingproject" *ngIf="includeCodingProjects">
    <ul *ngFor="let project of generatedCodingProjects$"><!---->
        <li>
@@ -65,7 +74,7 @@
            <ul>
                <li> Experience Organization: <strong>{{experience.ORGANIZATION}}</strong></li>
                <li> Experience Role: <strong>{{ experience.EXPERIENCEROLE}}</strong> </li>
-               <li> Experience Description: <strong> {{ experience.EXPERIENCEDURATION}}</strong> </li>
+               <li> Experience Description: <strong> {{ experience.EXPERIENCEDESCRIPTION}}</strong> </li>
                <li> Experience Duration: <strong>{{ experience.DURATION}}</strong> </li>
                <li> Experience Type: <strong>{{ experience.EXPERIENCETYPE}}</strong> </li>
                <hr>
@@ -90,10 +99,8 @@
      <li>
          <ul>
              <li> Hobby Name: <strong>{{hobby.HOBBYNAME}}</strong></li>
-             <hr>
          </ul>
      </li>
  </ul>
 </div>
- </div>
 </body>

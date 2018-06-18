@@ -1,31 +1,14 @@
 <!-- <html> -->
       <body>
-        <h1> Please login with your user type:</h1>
-        <button class="applicantButton" (click)="revealHideApplicant()" >Applicant Login</button>
-        <button class="employerButton" (click)="revealHideEmployer()" >Employer Login</button>
-      <div class="applicant-login-box" *ngIf="applicantIsHidden">
-        <h1>Login Here</h1>
-              <form>
-              <p>Email</p>
-              <input type="text" name="applicantEmail" placeholder="Enter Applicant Email" >
-              <input type="submit" name="applicantSubmit" value="Login" >
+        <h1> Please select user category and create account:</h1>
+        <button class="applicantButton" (click)="revealHideApplicant()" >Applicant</button>
+        <button class="employerButton" (click)="revealHideEmployer()" >Employer</button>
+      
 
-              </form>
-          </div>
-
-    <div class="employer-login-box" *ngIf="employerIsHidden">
-      <h1>Login Here</h1>
-
-            <form>
-            <p>Company Name</p>
-            <input type="text" name="companyName" placeholder="Enter Company Name">
-            <input type="submit" name="companySubmit" value="Login" (click)="login()">
-
-            </form>
-        </div>
+   
 
         <div class="btn-group" role="group" aria-label="Basic example" *ngIf = "applicantIsHidden || employerIsHidden || firstTimeEmployer || firstTimeApplicant">
-          <button type="button" class="btn btn-secondary" autofocus="true" (click) = "hasAccount()">Existing account</button>
+     
           <button type="button" class="btn btn-secondary" (click) = "doesntHasAccount()">New account</button>
         </div>
 <div class="form-group" *ngIf="firstTimeEmployer">

@@ -16,6 +16,10 @@ form{
     top: 50px;
 }
 
+.appHas{
+  color:	#DA70D6;
+}
+
 .btn-group{
   margin:0 auto;
   display: block;
