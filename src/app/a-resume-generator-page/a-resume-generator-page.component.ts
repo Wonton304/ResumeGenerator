@@ -45,7 +45,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
     this.serverService.getHobbies(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({EMAIL:this.email}))
       .subscribe(
         serverService => this.generatedHobbies$ = serverService,
         (response) => console.log(response),
@@ -56,7 +56,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
     this.includeExperiences = !this.includeExperiences;
     console.log("exp: "+this.includeExperiences);
     this.serverService.getExperiences(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({EMAIL:this.email}))
       .subscribe(
         serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
@@ -67,19 +67,20 @@ export class AResumeGeneratorPageComponent implements OnInit {
     this.includeAwards = !this.includeAwards;
     console.log("awards: "+this.includeAwards);
     this.serverService.getAwards(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({EMAIL:this.email}))
       .subscribe(
          serverService => this.generatedAwards$ = serverService,
          (response) => console.log(response),
        
       );
+
   }
 
   getCodingProjects(){
     this.includeCodingProjects = !this.includeCodingProjects;
     console.log("cp: "+this.includeCodingProjects);
     this.serverService.getCodingProjects(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({EMAIL:this.email}))
       .subscribe(
         serverService => this.generatedCodingProjects$ = serverService,
         (response) => console.log(response),
@@ -87,25 +88,23 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   buildResume(){
-  // this.serverService.getApplicantAttributes(
-  //   JSON.stringify({APPLICANTEMAIL:this.email}))
-  //   .subscribe(
-  //     serverService => this.applicantInfo$ = serverService,
-  //     (response) => console.log(response),
-  //   );
+//send info to php
+console.log("building");
   this.serverService.getApplicantHas(
     JSON.stringify({APPLICANTEMAIL:this.email}))
     .subscribe(
       serverService => this.applicantHas$ = serverService,
       (response) => console.log(response),
     );
-  this.serverService.getApplicantHas(
+    console.log("ette" + this.applicantHas$);
+    this.serverService.getApplicantHas(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.applicantMissing$ = serverService,
         (response) => console.log(response),
       );
-  this.resumeGenerated=true;
+    this.resumeGenerated=true;
+      console.log("wat" + this.applicantMissing$);
   }
 
   // calls script
