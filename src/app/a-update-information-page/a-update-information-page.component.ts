@@ -171,8 +171,8 @@ export class AUpdateInformationPageComponent implements OnInit {
   $applicantEmail = $obj->APPLICANTEMAIL; */
 
   addItem(){
-  window.alert("Added to resume!");
    if( this.itemType==='Hobbies'){
+    (this.applicantEmail != null && this.title != "") ? alert("Submitted!") : alert("Please fill in all fields!");
     this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title, APPLICANTEMAIL:this.applicantEmail}))
     .subscribe(
       (response) =>console.log(response),
@@ -185,6 +185,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   $dateReceivedUpdate = $obj->DATERECEIVED;
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if( this.itemType === 'Awards'){
+     (this.applicantEmail != null && this.title != "" && this.overallDescription != "" && this.dateRecieved != "") ? alert("Submitted!") : alert("Please fill in all fields!");
     this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
     .subscribe(
       (response) =>console.log(response),
@@ -193,7 +194,7 @@ export class AUpdateInformationPageComponent implements OnInit {
    }
 
    if(this.itemType === "Experience"){
-
+     (this.applicantEmail != null && this.duration != "" && this.organization != "" && this.role != ""&& this.experienceType != ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
       DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,
     APPLICANTEMAIL:this.applicantEmail}))
@@ -221,7 +222,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === "CodingProjects"){
-
+     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language != ""&& this.complexity != "") ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createProjectInfo(JSON.stringify({
         CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,LANGUAGE:this.language,COMPLEXITY:this.complexity,
         APPLICANTEMAIL:this.applicantEmail
@@ -230,9 +231,7 @@ export class AUpdateInformationPageComponent implements OnInit {
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-
   }
-
   }
 
 }
