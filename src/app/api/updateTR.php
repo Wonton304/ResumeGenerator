@@ -9,32 +9,75 @@ $obj = json_decode($json);
 $json='';
 echo $json;
 
+
+$field = $obj->FIELD;
+$positionTitle = $obj->POSITIONTITLE;
+$id = $obj->ID;
+$description = $obj->DESCRIPTION;
+$companyName = $obj->COMPANYNAME;
+
+
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-$technologyName = $obj->TECHNOLOGYNAME;
-$technologyRole = $obj->TECHNOLOGYROLE;
-$minimumProficiency = $obj->MINIMUMPROFICIENCY;
-$technologyType = $obj->TECHNOLOGYTYPE;
+$update1 = "UPDATE JobPostingPosts
+            SET field = :field, positionTitle = :positionTitle, description = :description
+            WHERE id = :id and companyName = :companyName";
 
-$update1 = "UPDATE RequiredTechnology
-            SET technologyRole = :technologyRole, minimumProficiency = :minimumProficiency, technologyType = :technologyType
-            WHERE technologyName = :technologyName";
+// $update1 = "UPDATE JobPostingPosts
+//             SET field = 'Apple', positionTitle = 'Bobo', description = 'Coconut'
+//             WHERE id = '66666' and companyName = 'Banana'";
 
-// the Requires table will not be updated because both the ID and technologyNames are primary keys (cannot be updated)
+$find = "SELECT *
+         FROM JobPostingPosts
+         WHERE id = :id and companyName = :companyName and field = :field and positionTitle = :positionTitle and description = :description";
+
 
 $stid1 = oci_parse($conn, $update1);
-oci_bind_by_name($stid1, ':technologyName', $technologyName);
-oci_bind_by_name($stid1, ':technologyRole', $technologyRole);
-oci_bind_by_name($stid1, ':minimumProficiency', $minimumProficiency);
-oci_bind_by_name($stid1, ':technologyType', $technologyType);
+oci_bind_by_name($stid1, ':field', $field);
+oci_bind_by_name($stid1, ':positionTitle', $positionTitle);
+oci_bind_by_name($stid1, ':description', $description);
+oci_bind_by_name($stid1, ':id', $id);
+oci_bind_by_name($stid1, ':companyName', $companyName);
 $result = oci_execute($stid1);
+
+
+$stid2 = oci_parse($conn, $find);
+oci_bind_by_name($stid1, ':field', $field);
+oci_bind_by_name($stid1, ':positionTitle', $positionTitle);
+oci_bind_by_name($stid1, ':description', $description);
+oci_bind_by_name($stid1, ':id', $id);
+oci_bind_by_name($stid1, ':companyName', $companyName);
+$result2 = oci_fetch_array($stid2);
+if (!$result2) {
+    echo "Error";
+}
 
 if (!$result) {
     $error = oci_error($stid1);
 }
 
 echo $error;
+
+
+
+// //to remember the entire json string
+// $jsonresp = array();
+
+// // Fetch each row in an associative array
+// //print '<table border="1">'
+
+// while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
+
+//      //to concatenate a ',' after every json object. used to split before parsing.
+// 	    $jsonresp [] = $row ;
+
+// }
+
+// $response = (json_encode($jsonresp));
+
+
+// echo $response;
 
 OCICommit($conn);
 oci_close($conn);
