@@ -37,7 +37,7 @@ export class AJobPostingPageComponent implements OnInit {
    this.maxIsVisible = false;
    this.avgIsVisible = false;
    this.serverService.getMinimumProficiency().subscribe(
-    serverService => this.min$ = JSON.stringify(serverService).substring(29,30) ,
+    serverService => this.min$ = JSON.stringify(serverService).substring(29,30),
      (error) => console.log(error)
    );
    console.log(this.min$);
