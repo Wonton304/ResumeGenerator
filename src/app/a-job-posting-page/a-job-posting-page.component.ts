@@ -70,7 +70,7 @@ export class AJobPostingPageComponent implements OnInit {
    this.easiestisVisible = false;
    this.hardestisVisible = false;
    this.serverService.getAverageProficiency().subscribe(
-    serverService => this.avg$ = JSON.stringify(serverService).substring(29,33),
+    serverService => this.avg$ = JSON.stringify(serverService).substring(29,32),
      (error) => console.log(error)
    );
    console.log(this.avg$);
@@ -83,7 +83,7 @@ export class AJobPostingPageComponent implements OnInit {
    this.minIsVisible = false;
    this.avgIsVisible = false;
    this.serverService.getEasiestProficiency().subscribe(
-    serverService => this.easiest$ = JSON.stringify(serverService).substring(34,38),
+    serverService => this.easiest$ = JSON.stringify(serverService).substring(34,37),
      (error) => console.log(error)
    );
  }
@@ -95,7 +95,7 @@ export class AJobPostingPageComponent implements OnInit {
    this.minIsVisible = false;
    this.avgIsVisible = false;
    this.serverService.getHardestProficiency().subscribe(
-    serverService => this.hardest$ = JSON.stringify(serverService).substring(34,38),
+    serverService => this.hardest$ = JSON.stringify(serverService).substring(34,37),
      (error) => console.log(error)
    );
  }
