@@ -80,17 +80,10 @@
         </div>
 
   <div class="form-group" *ngIf="visibleComplexity">
-    <label for="exampleFormControlSelect1">Complexity of Project</label>
-  <select class="form-control" id="exampleFormControlSelect1" (input)="collectComplexity($event)">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
+    <label for="exampleFormControlSelect1">Complexity of Project  Enter a year</label>
+    <textarea class="form-control" id="exampleFormControlSelect1" rows="1" placeholder = "4" (input)="collectComplexity($event)"></textarea>
   </div>
-
-
+  
 
   </form>
 

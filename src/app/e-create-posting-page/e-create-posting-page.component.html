@@ -65,16 +65,10 @@
 </div>
 
 <div class="form-group" *ngIf="visibleProficiencyRequirements">
-  <label for="exampleFormControlTextarea1">Minimum Proficiency Requirement (Number of Years Experience)</label>
-  <select class="form-control" id="proficiencyRequirements" (input)="collectTechProficiency($event)">
-    <option>0</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5+</option>
-  </select>
+  <label for="exampleFormControlTextarea5">Minimum Proficiency Requirement (Number of Years Experience) Enter a year</label>
+  <textarea class="form-control" id="proficiencyRequirements" rows="1" placeholder = "4"(input)="collectTechProficiency($event)"></textarea>
 </div>
+
 
 <div class="form-group" *ngIf="visibleTechnologyType">
   <label for="exampleFormControlTextarea1">Type of Technology</label>
