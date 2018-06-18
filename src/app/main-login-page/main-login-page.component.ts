@@ -195,7 +195,9 @@ doesntHasAccount(){
 
 submitCompanyInfo(){
   (this.companyName != null && this.companyName != "" && this.eAddress != "" && this.eCity != "" && this.eProvince != "" && this.ePostalCode != ""
-   && this.companyName != "" && this.companyDescription != "" && this.companyDomain != "") ? alert("Submitted!") : alert("Please fill in all fields!");
+   && this.companyName != "" && this.companyDescription != "" && this.companyDomain != "") ?
+   ((this.companyName.length > 100 || this.eAddress.length > 100 || this.eCity.length > 100 || this.eProvince.length > 100 || this.ePostalCode.length >100 ||
+     this.companyName.length > 100 || this.companyDescription.length > 1000 || this.companyDomain.length > 100) ? alert("Input too long!") : alert("Submitted!")) : alert("Please fill in all fields!");
   this.serverService.insertNewCompany(
     JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode, COMPANYNAME: this.companyName,
     COMPANYDESCRIPTION: this.companyDescription, COMPANYDOMAIN: this.companyDomain}))
@@ -207,7 +209,10 @@ submitCompanyInfo(){
 
 submitApplicantInfo(){
   (this.applicantEmail != null && this.applicantName != "" && this.applicantEmail != "" && this.applicantAddress != "" && this.applicantCity != ""
-   && this.applicantProvince != "" && this.githubAccount != "" && this.personalDescription != ""&& this.phoneNumber != "") ? alert("Submitted!") : alert("Please fill in all fields!");
+   && this.applicantProvince != "" && this.githubAccount != "" && this.personalDescription != ""&& this.phoneNumber != "") ?
+   ((this.applicantEmail.length > 100 || this.applicantName.length > 100 || this.applicantEmail.length > 100 || this.applicantAddress.length > 100 ||
+     this.applicantCity.length > 100 || this.applicantProvince.length > 100 || this.githubAccount.length > 100 || this.personalDescription.length > 1000
+   || this.phoneNumber.length > 100) ? alert("Input too long!") : alert("Submitted!")) : alert("Please fill in all fields!");
   this.serverService.insertNewApplicant(
     JSON.stringify({APPLICANTNAME:this.applicantName, APPLICANTEMAIL:this.applicantEmail,
       APPLICANTADDRESS: this.applicantAddress, APPLICANTCITY: this.applicantCity, APPLICANTPROVINCE: this.applicantProvince,

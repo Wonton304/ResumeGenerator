@@ -116,37 +116,38 @@ collectCompanyName(event:any){
     updateInfo(){
       // awaiting for format decision
       if(this.itemType === "Technical Requirements"){
-        
-        if(this.jobId != "" && this.technologyName !="" && this.technologyRole !="" && this.proficiencyRequirements != null 
+
+        if(this.jobId != "" && this.technologyName !="" && this.technologyRole !="" && this.proficiencyRequirements != null
           && this.technologyType !=""){
              this.serverService.updateTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
           TECHNOLOGYTYPE:this.technologyType}),this.jobId)
-          .subscribe(  
+          .subscribe(
           (response) =>console.log(response),
           (error) => console.log(error)
         );
-        alert("submitted");
+        if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100 || this.proficiencyRequirements.length > 100){ alert("Input too long!");}
+        else{alert("submitted");}
         }else{
           alert("Please fill in everything!");
         }
 
-     
+
       }else{
-        if(this.jobId != "" && this.field !="" && this.positionTitle !="" && this.jobDescription != "" 
+        if(this.jobId != "" && this.field !="" && this.positionTitle !="" && this.jobDescription != ""
           && this.companyName !=""){
  this.serverService.updateJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
           DESCRIPTION:this.jobDescription,
           COMPANYNAME:this.companyName}),this.jobId)
-          .subscribe(  
+          .subscribe(
           (response) =>console.log(response),
           (error) => console.log(error)
         );
-        alert("submitted");
-
+        if(this.jobId.length > 100 || this.field.length > 100 || this.positionTitle.length > 100 || this.jobDescription.length > 1000 || this.companyName.length > 100){ alert("Input too long!");}
+        else{alert("submitted");}
           }else{
           alert("Please fill in everything!");
         }
-       
+
       }
     }
 
@@ -160,15 +161,16 @@ $technologyType = $obj->TECHNOLOGYTYPE;*/
     insertInfo(){
        if(this.itemType === "Technical Requirements"){
 
-        if(this.jobId != "" && this.technologyName !="" && this.technologyRole !="" && this.proficiencyRequirements != null 
+        if(this.jobId != "" && this.technologyName !="" && this.technologyRole !="" && this.proficiencyRequirements != null
           && this.technologyType !=""){
     this.serverService.createTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
       TECHNOLOGYTYPE:this.technologyType}))
-      .subscribe(  
+      .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-    alert("submitted");
+    if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100 || this.proficiencyRequirements.length > 100){ alert("Input too long!");}
+    else{alert("submitted");}
   }else{
       alert("Please fill in everything!");
     }
@@ -179,16 +181,17 @@ $positionTitle = $obj->POSITIONTITLE;
 $id = $obj->ID;
 $description = $obj->DESCRIPTION;
 $companyName = $obj->COMPANYNAME;
- */  if(this.jobId != "" && this.field !="" && this.positionTitle !="" && this.jobDescription != "" 
+ */  if(this.jobId != "" && this.field !="" && this.positionTitle !="" && this.jobDescription != ""
  && this.companyName !=""){
         this.serverService.createJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
           DESCRIPTION:this.jobDescription,
           COMPANYNAME:this.companyName}),this.companyName)
-          .subscribe(  
+          .subscribe(
           (response) =>console.log(response),
           (error) => console.log(error)
         );
-      alert("submitted");
+        if(this.jobId.length > 100 || this.field.length > 100 || this.positionTitle.length > 100 || this.jobDescription.length > 1000 || this.companyName.length > 100){ alert("Input too long!");}
+        else{alert("submitted");}
     }else{
           alert("Please fill in everything!");
         }

@@ -26,14 +26,14 @@ export class ESelectingApplicantPageComponent implements OnInit {
    selectApplicant (){
 
     if(this.jobPostingId != ''){
-      alert("Submitted!");
+      if(this.jobPostingId.length > 100){alert("Input too long!");}else{alert("Submitted!");}
   this.serverService.connectApplicants(JSON.stringify({JOBID:this.jobPostingId}))
         .subscribe(
           (serverService) => this.candidates$ = serverService,
           (error) => console.log(error)
         );
     }else{
-      alert("You need to input postID");
+      alert("Error: No inputs");
     }
 
   }
