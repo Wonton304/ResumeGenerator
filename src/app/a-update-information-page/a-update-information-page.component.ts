@@ -186,7 +186,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if( this.itemType === 'Awards'){
      (this.applicantEmail != null && this.title != "" && this.overallDescription != "" && this.dateRecieved != "") ? alert("Submitted!") : alert("Please fill in all fields!");
-    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
+    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECEIVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
     .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
@@ -222,7 +222,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === "CodingProjects"){
-     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language != ""&& this.complexity != "") ? alert("Submitted!") : alert("Please fill in all fields!");
+     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language != ""&& this.complexity != null) ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createProjectInfo(JSON.stringify({
         CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,LANGUAGE:this.language,COMPLEXITY:this.complexity,
         APPLICANTEMAIL:this.applicantEmail
