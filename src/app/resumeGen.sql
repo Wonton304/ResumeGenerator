@@ -58,14 +58,14 @@ create table SituatedIn(
 create table RequiredTechnology
 	(technologyName varchar(100),
 	technologyRole varchar(100),
-	minimumProficiency INTEGER,
+	minimumProficiency INTEGER CHECK (minimumProficiency >= 0),
 	technologyType varchar(100),
 	primary key(technologyName));
 
 create table CodingProject1
 	(language varchar(100),
 	projectName varchar(100),
-	complexity INTEGER,
+	complexity INTEGER CHECK (complexity >= 1),
 	projectDescription varchar(1000),
 	category varchar(100),
 	primary key(language, projectName));
@@ -73,7 +73,7 @@ create table CodingProject1
 create table Experience(
 	organization varchar(100),
 	experienceRole varchar(100),
-	duration varchar(100),
+	duration INTEGER CHECK (duration >= 0),
 	experienceType varchar(100),
 	experienceDescription varchar(1000),
 	primary key (organization, experienceRole)
