@@ -96,7 +96,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   buildResume(){
       (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
-      ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Submitted"));
+      ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.serverService.getApplicantInfo(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
