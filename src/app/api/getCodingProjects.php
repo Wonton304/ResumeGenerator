@@ -16,11 +16,11 @@ $applicantEmail = $obj->APPLICANTEMAIL;
 
 
 $get = "SELECT *
-        From CodingProject1 CP
-        Where CP.language in (SELECT H.language
+        FROM CodingProject1 CP
+        WHERE CP.language IN (SELECT H.language
                               FROM HaveProject H
                               WHERE H.applicantEmail = :applicantEmail)
-              and CP.projectName in (SELECT H.projectName
+              AND CP.projectName IN (SELECT H.projectName
                                  FROM HaveProject H
                                  WHERE H.applicantEmail = :applicantEmail)";
 

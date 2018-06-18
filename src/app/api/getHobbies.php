@@ -14,7 +14,9 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $applicantEmail = $obj->APPLICANTEMAIL;
 
-$get = "SELECT hobbyName from HaveHobby where applicantEmail = :applicantEmail";
+$get = "SELECT hobbyName 
+FROM HaveHobby
+WHERE applicantEmail = :applicantEmail";
 
 $stid = oci_parse($conn, $get);
 oci_bind_by_name($stid, ':applicantEmail', $applicantEmail);

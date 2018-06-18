@@ -14,8 +14,10 @@ echo $json;
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $get = "SELECT *
-        FROM (JobPostingPosts inner join Requires on JobPostingPosts.id = Requires.id) inner join RequiredTechnology
-        on RequiredTechnology.technologyName = Requires.technologyName";
+        FROM (JobPostingPosts
+        INNER JOIN Requires ON JobPostingPosts.id = Requires.id)
+        INNER JOIN RequiredTechnology
+        ON RequiredTechnology.technologyName = Requires.technologyName";
 
 $stid = oci_parse($conn, $get);
 oci_execute($stid);

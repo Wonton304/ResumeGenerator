@@ -22,15 +22,25 @@ $city = $obj->CITY;
 // Create connection to Oracle
 $conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-$insert1 = "INSERT INTO Company VALUES(:companyName, :companyDescription, :companyDomain)";
+$insert1 =
+"INSERT INTO Company
+VALUES(:companyName, :companyDescription, :companyDomain)";
 
-$insert2 = "INSERT INTO Location2 VALUES(:address, :postalCode)";
+$insert2 =
+"INSERT INTO Location2
+VALUES(:address, :postalCode)";
 
-$insert3 = "INSERT INTO Location1 VALUES(:city, :postalCode)";
+$insert3 =
+"INSERT INTO Location1
+VALUES(:city, :postalCode)";
 
-$insert4 = "INSERT INTO Location3 VALUES(:postalCode, :province)";
+$insert4 =
+"INSERT INTO Location3
+VALUES(:postalCode, :province)";
 
-$insert5 = "INSERT INTO SituatedIn VALUES(:postalCode, :address, :companyName)";
+$insert5 =
+"INSERT INTO SituatedIn
+VALUES(:postalCode, :address, :companyName)";
 
 // $select = "SELECT * FROM Company WHERE Company.companyName = 'Google'";
 

@@ -22,7 +22,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 $select= "SELECT DISTINCT Applicant2.applicantName, Applicant2.applicantEmail,
                             Applicant2.applicantAddress, Applicant2.githubAccount,
                             Applicant2.personalDescription, Applicant2.applicantPhoneNumber
-from Applicant2
+FROM Applicant2
 WHERE Applicant2.applicantEmail =: applicantEmail";
 
 
