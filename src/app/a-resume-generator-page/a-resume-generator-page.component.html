@@ -30,7 +30,7 @@
 
  <div class = "vanillaapplicant"> <!--*ngIf="resumeGenerated"-->
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
-   <ul > <!--*ngFor="let applicant of generatedResume$" -->
+   <ul *ngFor="let applicant of generatedResume$" > <!---->
        <li>
            <ul>
                <li> Your Name: <strong>{{applicant.APPLICANTNAME}}</strong></li>
@@ -46,7 +46,7 @@
        </li>
    </ul>
  <div class = "codingproject" *ngIf="includeCodingProjects">
-   <ul ><!--*ngFor="let project of generatedCodingProjects$"-->
+   <ul *ngFor="let project of generatedCodingProjects$"><!---->
        <li>
            <ul>
                <li> Project Name: <strong>{{project.PROJECTNAME}}</strong></li>
@@ -60,7 +60,7 @@
    </ul>
  </div>
  <div class = "experience" *ngIf="includeExperiences">
-   <ul ><!--*ngFor="let experience of generatedExperiences$"-->
+   <ul *ngFor="let experience of generatedExperiences$"><!---->
        <li>
            <ul>
                <li> Experience Organization: <strong>{{experience.ORGANIZATION}}</strong></li>
@@ -74,7 +74,7 @@
    </ul>
  </div>
  <div class = "award" *ngIf="includeAwards">
-   <ul ><!--*ngFor="let award of generatedAwards$"-->
+   <ul *ngFor="let award of generatedAwards$"><!---->
        <li>
            <ul>
                <li> Award Name: <strong>{{award.AWARDNAME}}</strong></li>
@@ -86,7 +86,7 @@
    </ul>
  </div>
  <div class = "hobby" *ngIf="includeHobbies">
- <ul > <!--*ngFor="let hobby of generatedHobbies$"-->
+ <ul *ngFor="let hobby of generatedHobbies$"> <!---->
      <li>
          <ul>
              <li> Hobby Name: <strong>{{hobby.HOBBYNAME}}</strong></li>
