@@ -37,9 +37,10 @@ export class AJobPostingPageComponent implements OnInit {
    this.maxIsVisible = false;
    this.avgIsVisible = false;
    this.serverService.getMinimumProficiency().subscribe(
-    serverService => this.min$ = serverService,
+    serverService => this.min$ = JSON.stringify(serverService).substring(29,30) ,
      (error) => console.log(error)
    );
+   console.log(this.min$);
  }
 
  calcMax(){
@@ -47,7 +48,7 @@ export class AJobPostingPageComponent implements OnInit {
    this.minIsVisible = false;
    this.avgIsVisible = false;
    this.serverService.getMaximumProficiency().subscribe(
-    serverService => this.max$ = serverService,
+    serverService => this.max$ = JSON.stringify(serverService).substring(29,30),
      (error) => console.log(error)
    );
    console.log(this.max$);
@@ -58,9 +59,10 @@ export class AJobPostingPageComponent implements OnInit {
    this.maxIsVisible = false;
    this.minIsVisible = false;
    this.serverService.getAverageProficiency().subscribe(
-    serverService => this.avg$ = serverService,
+    serverService => this.avg$ = JSON.stringify(serverService).substring(29,33),
      (error) => console.log(error)
    );
+   console.log(this.avg$);
  }
 
 

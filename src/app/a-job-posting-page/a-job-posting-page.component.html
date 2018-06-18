@@ -5,8 +5,10 @@
   <button type="button" class="btn btn-secondary" (click) = "calcMax()"> Maximum Proficiency Requirements</button>
   <button type="button" class="btn btn-secondary" (click) = "calcAvg()"> Average Proficiency Requirements</button>
 </div>
-<div *ngFor="let num of max$" >
-<b>Maximum Proficiency Required: {{num.MAX}}</b>
+<div>
+<b *ngIf=maxIsVisible>Maximum Proficiency Required: {{max$}}</b>
+<b *ngIf=minIsVisible>Minimum Proficiency Required: {{min$}}</b>
+<b *ngIf=avgIsVisible>Average Proficiency Required: {{avg$}}</b>
 </div>
 <hr>
 <ul>
