@@ -84,7 +84,7 @@ collectCompanyName(event:any){
     collectJobDescription(event:any){
       this.jobDescription = event.target.value;
       if(this.jobDescription.length >1000){
-        alert("character exceeding 100 char limit");
+        alert("character exceeding 1000 char limit");
         return;
       }
       console.log(this.jobDescription);
