@@ -48,7 +48,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   activityTypeChangedHandler(event:any){
     this.itemType=event.target.value;
 
-    if(this.itemType === "CodingProjects"){
+    if(this.itemType === "Coding Projects"){
       this.visibleEmail = true;
       this.visibleDuration = false;
       this.visibleDateRecieved = false;
