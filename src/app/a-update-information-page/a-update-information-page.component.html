@@ -24,15 +24,15 @@
       value="{{type}}"
       (change)="selectExperienceType($event)">
     <i>{{type}}</i></div>
-    <hr></div>
-
+   </div>
+ <hr>
   
   <div class="form-group2" *ngIf="visibleCategory">
     <p>You've selected {{category}}</p>
       <div *ngFor="let type of categoryArray">
         <input
         type="radio"
-        name = "ItemType"
+        name = "ItemType2"
         value="{{type}}"
         (change)="collectCategory($event)">
       <i>{{type}}</i></div>
