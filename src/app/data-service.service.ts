@@ -11,6 +11,10 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
   }
 
+  getApplicantAttributes(resumeInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getAllAppAttributes.php', resumeInfo);
+  }
+
   getApplicantHas(resumeInfo){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantHas.php', resumeInfo);
   }
