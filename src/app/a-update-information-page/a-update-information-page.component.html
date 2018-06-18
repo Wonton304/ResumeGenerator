@@ -2,7 +2,7 @@
 <body>
   <div class="container-fluid">
   <form>
-  <p>Select item type that you would like to add to your resume.</p>
+  <p>Select the item type that you would like to add to your resume:</p>
 
 
   <div *ngFor="let type of item">
@@ -15,18 +15,18 @@
 
 
   <hr>
- 
+
  <div class="form-group" *ngIf="visibleExperienceType">
     <label for="exampleFormControlSelect2">You've selected {{experienceType}}</label>
   <select class="form-control" id="exampleFormControlSelect2" (input)="selectExperienceType($event)">
-    <option>WorkExperience</option>
-    <option>VolunteerExperience</option>
+    <option>Work Experience</option>
+    <option>Volunteer Experience</option>
   </select>
-  </div> 
+  </div>
 
 
  <div class="form-group2" *ngIf="visibleCategory">
-    <label for="exampleFormControlSelect1">This is a project of category:</label>
+    <label for="exampleFormControlSelect1">This is a project of the category:</label>
   <select class="form-control" id="exampleFormControlSelect1" (input)="collectCategory($event)">
     <option>Personal</option>
     <option>Academic</option>
@@ -47,31 +47,31 @@
   </div>
 
   <div class="form-group" *ngIf="visibleDescription">
-    <label for="exampleFormControlTextarea1">ActivityDescription</label>
+    <label for="exampleFormControlTextarea1">Description</label>
     <textarea class="form-control"  id="activityDescription" (input)="collectDescription($event)" rows="3"></textarea>
   </div>
 
 
   <div class="form-group" *ngIf="visibleOrganization">
-    <label for="exampleFormControlInput1">organization</label>
+    <label for="exampleFormControlInput1">Organization</label>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google"
     (input)= "collectOrganization($event)">
   </div>
 
   <div class="form-group" *ngIf="visibleLanguage">
-      <label for="exampleFormControlInput1">One Main Language Used</label>
+      <label for="exampleFormControlInput1">Main Language Used</label>
       <input  class="form-control" id="exampleFormControlInput1" placeholder="Java"
       (input)= "collectLanguage($event)">
     </div>
 
     <div class="form-group" *ngIf="visibleDuration">
-        <label for="exampleFormControlInput1">Length of Involvment (Unit Months) </label>
+        <label for="exampleFormControlInput1">Length of Involvment (In Months) </label>
         <input  class="form-control" id="exampleFormControlInput1" placeholder="4"
         (input)= "collectDuration($event)">
       </div>
 
       <div class="form-group" *ngIf="visibleDateRecieved">
-          <label for="exampleFormControlInput1">Date of Reciving</label>
+          <label for="exampleFormControlInput1">Date Recieved</label>
           <input  class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY"
           (input)= "collectDateRecieved($event)">
         </div>
@@ -97,7 +97,7 @@
   </form>
 
   <button type="button" class="btn btn-primary btn-lg btn-block"
-  (click)="addItem()">Add to resume</button>
+  (click)="addItem()">Add to Resume</button>
 
   </div>
 
