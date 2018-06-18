@@ -22,11 +22,11 @@ export class AUpdateInformationPageComponent implements OnInit {
   language:string="";
   category:string="";
 
-  
+
   applicantEmail:string="";
 
   visibleEmail:boolean = false;
-  visibleTitle:boolean = false; 
+  visibleTitle:boolean = false;
   visibleDescription:boolean = false;
   visibleDateRecieved:boolean = false;
   visibleDuration:boolean = false;
@@ -41,7 +41,7 @@ export class AUpdateInformationPageComponent implements OnInit {
 
 
   ngOnInit() {
-  
+
    }
 
 
@@ -171,9 +171,10 @@ export class AUpdateInformationPageComponent implements OnInit {
   $applicantEmail = $obj->APPLICANTEMAIL; */
 
   addItem(){
+  window.alert("Added to resume!");
    if( this.itemType==='Hobbies'){
     this.serverService.createHobby(JSON.stringify({HOBBYNAME:this.title, APPLICANTEMAIL:this.applicantEmail}))
-    .subscribe(  
+    .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
     );
@@ -185,22 +186,22 @@ export class AUpdateInformationPageComponent implements OnInit {
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if( this.itemType === 'Awards'){
     this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECIEVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
-    .subscribe(  
+    .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
     );
    }
 
    if(this.itemType === "Experience"){
- 
+
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
-      DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription, 
+      DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,
     APPLICANTEMAIL:this.applicantEmail}))
-      .subscribe(  
+      .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-     
+
      /**
   $organizationUpdate =$obj->ORGANIZATION;
   $experienceRoleUpdate = $obj->EXPERIENCEROLE;
@@ -218,20 +219,20 @@ export class AUpdateInformationPageComponent implements OnInit {
   $languageUpdate = $obj->LANGUAGE;
   $complexityUpdate = $obj->COMPLEXITY;
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
-  
+
   if(this.itemType === "CodingProjects"){
-   
+
       this.serverService.createProjectInfo(JSON.stringify({
         CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,LANGUAGE:this.language,COMPLEXITY:this.complexity,
         APPLICANTEMAIL:this.applicantEmail
       }))
-      .subscribe(  
+      .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-  
+
   }
-    
+
   }
 
 }
