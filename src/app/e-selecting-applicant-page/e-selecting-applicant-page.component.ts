@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-e-selecting-applicant-page',
@@ -16,18 +15,15 @@ export class ESelectingApplicantPageComponent implements OnInit {
 
 
   ngOnInit() {
-
    }
 
-
+   
 
   collectId (event:any){
     this.jobPostingId=event.target.value;
-    console.log(this.jobPostingId);
   }
-
+  
    selectApplicant (){
-    (this.jobPostingId == "" || this.jobPostingId == null) ? alert("Invalid Job ID!") : alert("Selecting...");
     this.serverService.connectApplicants(JSON.stringify({JOBID:this.jobPostingId}))
         .subscribe(
           (serverService) => this.candidates$ = serverService,

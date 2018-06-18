@@ -11,8 +11,12 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
   }
 
-  connectResumeGen(resumeInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php', resumeInfo);
+  getApplicantHas(resumeInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantHas.php', resumeInfo);
+  }
+
+  getApplicantMissing(resumeInfo){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantMissing.php', resumeInfo);
   }
 
 //TODO: make these scripts
