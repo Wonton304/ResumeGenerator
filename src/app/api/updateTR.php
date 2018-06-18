@@ -14,7 +14,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $technologyName = $obj->TECHNOLOGYNAME;
 $technologyRole = $obj->TECHNOLOGYROLE;
-$minimumProficieny = $obj->MINIMUMPROFICIENCY;
+$minimumProficiency = $obj->MINIMUMPROFICIENCY;
 $technologyType = $obj->TECHNOLOGYTYPE;
 
 $update1 = "UPDATE RequiredTechnology
@@ -26,7 +26,7 @@ $update1 = "UPDATE RequiredTechnology
 $stid1 = oci_parse($conn, $update1);
 oci_bind_by_name($stid1, ':technologyName', $technologyName);
 oci_bind_by_name($stid1, ':technologyRole', $technologyRole);
-oci_bind_by_name($stid1, ':minimumProficiency', $minimumProficieny);
+oci_bind_by_name($stid1, ':minimumProficiency', $minimumProficiency);
 oci_bind_by_name($stid1, ':technologyType', $technologyType);
 oci_execute($stid1);
 
