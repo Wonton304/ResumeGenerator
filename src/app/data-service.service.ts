@@ -8,7 +8,7 @@ export class DataServiceService {
   constructor(private httpClient: HttpClient, private http: Http) { }
 
   connectJobPostings(){
-    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/ServerConnect.php');
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/getTechReqs.php');
   }
 
   getApplicantInfo(resumeInfo){
