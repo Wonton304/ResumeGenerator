@@ -107,7 +107,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
         serverService => this.applicantMissing$ = serverService,
         (response) => console.log(response),
       );
-      console.log(this.applicantMissing$);
     this.resumeGenerated=true;
   }
 
