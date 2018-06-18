@@ -65,7 +65,7 @@ create table RequiredTechnology
 create table CodingProject1
 	(language varchar(100),
 	projectName varchar(100),
-	complexity INTEGER CHECK (complexity >= 1),
+	complexity INTEGER CHECK (complexity <= 5 and complexity > 0),
 	projectDescription varchar(1000),
 	category varchar(100),
 	primary key(language, projectName));

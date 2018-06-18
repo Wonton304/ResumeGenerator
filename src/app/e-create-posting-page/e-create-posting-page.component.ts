@@ -129,7 +129,7 @@ collectCompanyName(event:any){
 
     collectTechProficiency(event:any){
       this.proficiencyRequirements = event.target.value;
-      
+
       console.log(this.proficiencyRequirements);
     }
 
@@ -155,6 +155,9 @@ collectCompanyName(event:any){
           (error) => console.log(error)
         );
         if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100){ alert("Input too long!");}
+        else if(this.proficiencyRequirements < 0 || this.proficiencyRequirements > 5|| isNaN(this.proficiencyRequirements)){
+          alert("Proficiency must be a number between 0 and 5");
+        }
         else{alert("submitted");}
         }else{
           alert("Please fill in everything!");
@@ -199,6 +202,9 @@ $technologyType = $obj->TECHNOLOGYTYPE;*/
       (error) => console.log(error)
     );
     if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100){ alert("Input too long!");}
+    else if(this.proficiencyRequirements < 0 || this.proficiencyRequirements > 5|| isNaN(this.proficiencyRequirements)){
+      alert("Proficiency must be a number between 0 and 5");
+    }
     else{alert("submitted");}
   }else{
       alert("Please fill in everything!");
