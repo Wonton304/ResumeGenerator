@@ -16,14 +16,13 @@ $applicantEmail = $obj->APPLICANTEMAIL;
 
 
 $get = "SELECT *
-        From Experience E
-        Where E.experienceRole in (SELECT H.experienceRole
-                                            FROM HaveExperience H
-                                            WHERE H.applicantEmail = :applicantEmail)
-             and E.organization in (SELECT H.organization
-                                    FROM HaveExperience H
-                                    WHERE H.applicantEmail = :applicantEmail)";
-
+        From Award A
+        Where A.awardName in (SELECT H.awardName
+                              FROM HaveAward H
+                              Where H.applicantEmail = :applicantEmail)
+              and A.dateReceived in (SELECT H.dateReceived
+                                     FROM HaveAward H
+                                     where H.applicantEmail = :applicantEmail)";
 
 $stid = oci_parse($conn, $get);
 oci_bind_by_name($stid, ':applicantEmail', $applicantEmail);
