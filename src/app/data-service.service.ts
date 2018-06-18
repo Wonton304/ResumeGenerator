@@ -91,6 +91,6 @@ export class DataServiceService {
   }
 
   deleteEmployerJobPosting(postingId){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/delete-JobPosting.php', postingId);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deleteJobPosting.php', postingId);
   }
 }

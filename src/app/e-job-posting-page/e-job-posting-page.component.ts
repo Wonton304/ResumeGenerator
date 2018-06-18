@@ -31,6 +31,8 @@ export class EJobPostingPageComponent implements OnInit {
       (response) => console.log(response),
       (error) => console.log(error),
     );
+
+  this.get();
  }
 
 }

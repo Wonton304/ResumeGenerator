@@ -116,15 +116,24 @@ collectCompanyName(event:any){
     updateInfo(){
       // awaiting for format decision
       if(this.itemType === "Technical Requirements"){
-        this.serverService.updateTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
+        
+        if(this.jobId != "" && this.technologyName !="" && this.technologyRole !="" && this.proficiencyRequirements != null 
+          && this.technologyType !=""){
+             this.serverService.updateTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
           TECHNOLOGYTYPE:this.technologyType}),this.jobId)
           .subscribe(  
           (response) =>console.log(response),
           (error) => console.log(error)
         );
+        }else{
+          alert("Please fill in everything!");
+        }
+
+     
       }else{
-        
-        this.serverService.updateJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
+        if(this.jobId != "" && this.field !="" && this.positionTitle !="" && this.jobDescription != "" 
+          && this.companyName !=""){
+ this.serverService.updateJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
           DESCRIPTION:this.jobDescription,
           COMPANYNAME:this.companyName}),this.jobId)
           .subscribe(  
@@ -132,6 +141,11 @@ collectCompanyName(event:any){
           (error) => console.log(error)
         );
 
+
+          }else{
+          alert("Please fill in everything!");
+        }
+       
       }
     }
 
@@ -144,26 +158,35 @@ $technologyType = $obj->TECHNOLOGYTYPE;*/
 
     insertInfo(){
        if(this.itemType === "Technical Requirements"){
+
+        if(this.jobId != "" && this.technologyName !="" && this.technologyRole !="" && this.proficiencyRequirements != null 
+          && this.technologyType !=""){
     this.serverService.createTechnicalRequirement(JSON.stringify({ID:this.jobId,TECHNOLOGYNAME:this.technologyName,TECHNOLOGYROLE:this.technologyRole,MINIMUMPROFICIENCY:this.proficiencyRequirements,
       TECHNOLOGYTYPE:this.technologyType}))
       .subscribe(  
       (response) =>console.log(response),
       (error) => console.log(error)
-    );
+    );}else{
+      alert("Please fill in everything!");
+    }
+
       }else{
         /*$field = $obj->FIELD;
 $positionTitle = $obj->POSITIONTITLE;
 $id = $obj->ID;
 $description = $obj->DESCRIPTION;
 $companyName = $obj->COMPANYNAME;
- */
+ */  if(this.jobId != "" && this.field !="" && this.positionTitle !="" && this.jobDescription != "" 
+ && this.companyName !=""){
         this.serverService.createJobPosting(JSON.stringify({FIELD:this.field,POSITIONTITLE:this.positionTitle,ID:this.jobId,
           DESCRIPTION:this.jobDescription,
           COMPANYNAME:this.companyName}),this.companyName)
           .subscribe(  
           (response) =>console.log(response),
           (error) => console.log(error)
-        );
+        );}else{
+          alert("Please fill in everything!");
+        }
 
 
       }
