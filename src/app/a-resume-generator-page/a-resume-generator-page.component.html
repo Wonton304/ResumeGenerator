@@ -29,7 +29,12 @@
  </div>
 
  <div class = "vanillaapplicant" *ngIf="resumeGenerated"> <!---->
+   <br>
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
+   <ul *ngFor="let hasReqs of applicantHas$">
+   </ul>
+   <ul *ngFor="let missingReqs of applicantMissing$">
+   </ul>
    <ul *ngFor="let attribute of applicantInfo$">
        <li>
            <ul>
@@ -42,8 +47,6 @@
                <hr>
            </ul>
        </li>
-   </ul>
-   <ul *ngFor="let hasReqs of applicantHas$">
    </ul>
  </div>
  <div class = "codingproject" *ngIf="includeCodingProjects">

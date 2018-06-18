@@ -114,5 +114,12 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateAvgProficiency.php');
   }
 
+  getEasiestProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMinAggregateProficiency.php');
+  }
+
+  getHardestProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMaxAggregateProficiency.php');
+  }
 
 }
