@@ -10,7 +10,9 @@ $json='';
 echo $json;
 
 
-$applicantEmail = $obj->APPLICANTEMAIL;
+// $applicantEmail = $obj->APPLICANTEMAIL;
+$applicantEmail = 'Vita_9610@alumni.ubc.ca';
+
 
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
@@ -20,10 +22,12 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 $select= "SELECT DISTINCT Applicant2.applicantName, Applicant2.applicantEmail,
                             Applicant2.applicantAddress, Applicant2.githubAccount,
                             Applicant2.personalDescription, Applicant2.applicantPhoneNumber
-from Applicant2" WHERE Applicant2.applicantEmail = '$applicantEmail';
+from Applicant2
+WHERE Applicant2.applicantEmail =: applicantEmail";
 
 
 $stid = oci_parse($conn, $select);
+oci_bind_by_name($stid, ':applicantEmail', $applicantEmail);
 $result = oci_execute($stid);
 // oci_bind_by_name($stid, ':jobidDiv', $jobidDiv);
 // oci_bind_by_name($stid, ':applicantEmailDiv', $applicantEmailDiv);

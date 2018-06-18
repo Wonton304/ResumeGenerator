@@ -1,4 +1,6 @@
 <?php
+
+
 header("Access-Control-Request-Method: *");
 header("Access-Control-Request-Headers: *");
 header("Access-Control-Allow-Origin: *");
@@ -18,7 +20,7 @@ $province = $obj->PROVINCE;
 $city = $obj->CITY;
 
 // Create connection to Oracle
-$conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$conn = oci_connect("ora_s3z0b", "a16599169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $insert1 = "INSERT INTO Company VALUES(:companyName, :companyDescription, :companyDomain)";
 
@@ -60,23 +62,23 @@ oci_bind_by_name($stid5, ':companyName', $companyName);
 oci_execute($stid5);
 
 
-// //to remember the entire json string
-// $jsonresp = array();
+//to remember the entire json string
+$jsonresp = array();
 
-// // Fetch each row in an associative array
-// //print '<table border="1">'
+// Fetch each row in an associative array
+//print '<table border="1">'
 
-// while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
+while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
 
-//      //to concatenate a ',' after every json object. used to split before parsing.
-// 	    $jsonresp [] = $row ;
+     //to concatenate a ',' after every json object. used to split before parsing.
+	    $jsonresp [] = $row ;
 
-// }
+}
 
-// $response = (json_encode($jsonresp));
+$response = (json_encode($jsonresp));
 
 
-// echo $response;
+echo $response;
 
 OCICommit($conn);
 oci_close($conn);
