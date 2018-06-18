@@ -20,7 +20,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   itemType:string="";
   organization:string="";
   role:string="";
-  complexity:Number= 0;
+  complexity:string= "";
   language:string="";
   category:string="";
 
@@ -202,7 +202,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.applicantEmail = event.target.value;
     if(this.applicantEmail.length > 100){
       alert("Character length exceeds 100");
-      this.applicantEmail="";
+      return;
     }
     console.log(this.applicantEmail);
   }
@@ -273,7 +273,7 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === 'Coding Projects'){
      (this.applicantEmail== null || this.applicantEmail == "" || this.category == "" || this.title == "" ||
-   this.overallDescription == "" || this.language == "" ||this.complexity == null) ?  alert("Please fill in all fields!") : alert("Submitted!");
+   this.overallDescription == "" || this.language == "" ||this.complexity == "") ?  alert("Please fill in all fields!") : alert("Submitted!");
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,
