@@ -76,6 +76,7 @@ export class MainLoginPageComponent implements OnInit {
       this.employerIsHidden = false;
     }
     this.firstTimeEmployer = false;
+    this.doesntHasAccount();
   }
 
   revealHideEmployer() {
@@ -86,6 +87,7 @@ export class MainLoginPageComponent implements OnInit {
       this.applicantIsHidden = false;
     }
     this.firstTimeApplicant = false;
+    this.doesntHasAccount();
   }
 
 login(){
