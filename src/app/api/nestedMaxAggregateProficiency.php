@@ -30,4 +30,7 @@ echo $response;
 // Fetch each row in an associative array
 
 //0cy27
+
+OCICommit($conn);
+oci_close($conn);
 ?>

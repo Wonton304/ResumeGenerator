@@ -10,24 +10,24 @@ $obj = json_decode($json);
 $json='';
 echo $json;
 
-// $applicantPhoneNumber = $obj->APPLICANTPHONENUMBER;
-// $applicantName = $obj->APPLICANTNAME;
-// $applicantEmail = $obj->APPLICANTEMAIL;
-// $applicantAddress = $obj->APPLICANTADDRESS;
-// $applicantCity = $obj->APPLICANTCITY;
-// $applicantProvince = $obj->APPLICANTPROVINCE;
-// $githubAccount = $obj->GITHUBACCOUNT;
-// $personalDescription = $obj->PERSONDESCRIPTION;
+$applicantPhoneNumber = $obj->APPLICANTPHONENUMBER;
+$applicantName = $obj->APPLICANTNAME;
+$applicantEmail = $obj->APPLICANTEMAIL;
+$applicantAddress = $obj->APPLICANTADDRESS;
+$applicantCity = $obj->APPLICANTCITY;
+$applicantProvince = $obj->APPLICANTPROVINCE;
+$githubAccount = $obj->GITHUBACCOUNT;
+$personalDescription = $obj->PERSONDESCRIPTION;
 
 
-$applicantPhoneNumber = 'flob';
-$applicantName = 'blob';
-$applicantEmail = 'blob';
-$applicantAddress = 'blob';
-$applicantCity = 'blob';
-$applicantProvince = 'blob';
-$githubAccount = 'blob';
-$personalDescription = 'blob';
+// $applicantPhoneNumber = 'flob';
+// $applicantName = 'blob';
+// $applicantEmail = 'blob';
+// $applicantAddress = 'blob';
+// $applicantCity = 'blob';
+// $applicantProvince = 'blob';
+// $githubAccount = 'blob';
+// $personalDescription = 'blob';
 
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
@@ -88,23 +88,23 @@ oci_execute($stid7);
 // oci_execute($stid5);
 
 
-//to remember the entire json string
-$jsonresp = array();
-
-// Fetch each row in an associative array
-//print '<table border="1">'
-
-while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
-
-     //to concatenate a ',' after every json object. used to split before parsing.
-	    $jsonresp [] = $row ;
-
-}
-
-$response = (json_encode($jsonresp));
-
-
-echo $response;
+// //to remember the entire json string
+// $jsonresp = array();
+//
+// // Fetch each row in an associative array
+// //print '<table border="1">'
+//
+// while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
+//
+//      //to concatenate a ',' after every json object. used to split before parsing.
+// 	    $jsonresp [] = $row ;
+//
+// }
+//
+// $response = (json_encode($jsonresp));
+//
+//
+// echo $response;
 
 OCICommit($conn);
 oci_close($conn);
