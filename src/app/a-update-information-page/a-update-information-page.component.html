@@ -3,6 +3,8 @@
   <div class="container-fluid">
   <form>
   <p>Select item type that you would like to add to your resume.</p>
+
+
   <div *ngFor="let type of item">
     <input
     type="radio"
@@ -10,6 +12,8 @@
     value="{{type}}"
     (change)="activityTypeChangedHandler($event)">
   <i>{{type}}</i></div>
+
+
   <hr>
   <div class="form-group" *ngIf="visibleExperienceType">
       <p>You've selected {{experienceType}}</p>
@@ -21,7 +25,9 @@
       (change)="selectExperienceType($event)">
     <i>{{type}}</i></div>
     <hr></div>
-  <div class="form-group" *ngIf="visibleCategory">
+
+  
+  <div class="form-group2" *ngIf="visibleCategory">
     <p>You've selected {{category}}</p>
       <div *ngFor="let type of categoryArray">
         <input

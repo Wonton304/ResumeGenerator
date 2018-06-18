@@ -41,7 +41,6 @@ export class AUpdateInformationPageComponent implements OnInit {
 
 
   ngOnInit() {
-
    }
 
 
