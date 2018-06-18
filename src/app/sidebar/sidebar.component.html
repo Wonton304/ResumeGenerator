@@ -17,7 +17,10 @@
         </a>
       </li>
     </ul>
-    <ul> 
+    
+     </div>
+   <ng-template template #notApplicant> 
+   <ul> 
       <li>
           <a routerLink="Post">
             <i class="material-icons">assignment_returned</i>
@@ -34,14 +37,11 @@
           </a>
         </li>
       </ul>
-     </div>
-   <ng-template template #notApplicant> 
-   
    
   </ng-template>
      <ul>    
        <li>
-        <a routerLink="">
+        <a routerLink="" (click)="switches()">
           <i class="material-icons">settings_power</i>
         </a>
       </li>

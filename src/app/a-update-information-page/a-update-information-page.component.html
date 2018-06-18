@@ -4,17 +4,16 @@
   <form>
   <p>Select the item type that you would like to add to your resume:</p>
 
-
   <div *ngFor="let type of item">
     <input
     type="radio"
     name = "ItemType3"
     value="{{type}}"
     (change)="activityTypeChangedHandler($event)">
-  <i>{{type}}</i></div>
+  <i>{{type}}</i>
+</div>
+<hr>
 
-
-  <hr>
 
  <div class="form-group" *ngIf="visibleExperienceType">
     <label for="exampleFormControlSelect2">You've selected {{experienceType}}</label>
