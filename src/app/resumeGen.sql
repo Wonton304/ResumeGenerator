@@ -22,32 +22,32 @@ drop table Applicant3 CASCADE CONSTRAINTS;
 
 
 create table Location1
-	(city varchar(50) not null,
-	postalCode varchar(50),
+	(city varchar(100) not null,
+	postalCode varchar(100),
 	primary key(postalCode)
 );
 
 create table Location2
-	(address varchar(50),
-	postalCode varchar(50),
+	(address varchar(100),
+	postalCode varchar(100),
 	primary key (address, postalCode));
 
 create table Location3
-	(postalCode varchar(50),
-	province varchar(50),
+	(postalCode varchar(100),
+	province varchar(100),
 	primary key(postalCode)
 );
 
 create table Company(
-	companyName varchar(30) primary key,
+	companyName varchar(100) primary key,
 	companyDescription varchar(1000),
-	companyDomain varchar(30)
+	companyDomain varchar(100)
 );
 
 create table SituatedIn(
-	postalCode varchar(50),
-	address varchar(50),
-	companyName varchar(30),
+	postalCode varchar(100),
+	address varchar(100),
+	companyName varchar(100),
 	primary key (postalCode, address, companyName),
 	foreign key (address, postalCode) REFERENCES Location2(address, postalCode)
 	ON DELETE CASCADE,
@@ -56,25 +56,25 @@ create table SituatedIn(
 );
 
 create table RequiredTechnology
-	(technologyName varchar(40),
-	technologyRole varchar(30),
+	(technologyName varchar(100),
+	technologyRole varchar(100),
 	minimumProficiency INTEGER,
-	technologyType varchar(40),
+	technologyType varchar(100),
 	primary key(technologyName));
 
 create table CodingProject1
-	(language varchar(50),
+	(language varchar(100),
 	projectName varchar(100),
 	complexity INTEGER,
-	projectDescription varchar(500),
-	category varchar(30),
+	projectDescription varchar(1000),
+	category varchar(100),
 	primary key(language, projectName));
 
 create table Experience(
 	organization varchar(100),
 	experienceRole varchar(100),
 	duration varchar(100),
-	experienceType varchar(50),
+	experienceType varchar(100),
 	experienceDescription varchar(1000),
 	primary key (organization, experienceRole)
 );
@@ -82,18 +82,18 @@ create table Experience(
 create table Award(
 	awardDescription varchar(1000),
 	awardName varchar(100),
-	dateReceived varchar(50),
+	dateReceived varchar(100),
 	primary key (awardName, dateReceived)
 );
 
 create table Hobby(
-	hobbyName varchar(50) primary key
+	hobbyName varchar(100) primary key
 );
 
 create table JobPostingPosts(
-	id varchar(50) NOT NULL,
-	companyName varchar(30) NOT NULL,
-	field varchar(30),
+	id varchar(100) NOT NULL,
+	companyName varchar(100) NOT NULL,
+	field varchar(100),
 	positionTitle varchar(100),
 	description varchar(1000),
 	primary key(id),
@@ -102,8 +102,8 @@ create table JobPostingPosts(
 );
 
 create table Requires(
-	id varchar(50),
-	technologyName varchar(40),
+	id varchar(100),
+	technologyName varchar(100),
 	primary key (id, technologyName),
 	foreign key (id) REFERENCES JobPostingPosts(id)
 	ON DELETE CASCADE,
@@ -112,27 +112,27 @@ create table Requires(
 );
 
 create table Applicant1(
-	applicantPhoneNumber varchar(30),
-	applicantCity varchar(30)
+	applicantPhoneNumber varchar(100),
+	applicantCity varchar(100)
 );
 
 create table Applicant2(
-	applicantName varchar(40),
-	applicantEmail varchar(60) primary key,
-	applicantAddress varchar(50),
-	githubAccount varchar(30),
+	applicantName varchar(100),
+	applicantEmail varchar(100) primary key,
+	applicantAddress varchar(100),
+	githubAccount varchar(100),
 	personalDescription varchar(1000),
-	applicantPhoneNumber varchar(50)
+	applicantPhoneNumber varchar(100)
 );
 
 create table Applicant3(
-	applicantPhoneNumber varchar(30),
-	applicantProvince varchar(30)
+	applicantPhoneNumber varchar(100),
+	applicantProvince varchar(100)
 );
 
 create table AppliesTo(
-	id varchar(50),
-	applicantEmail varchar(60),
+	id varchar(100),
+	applicantEmail varchar(100),
 	primary key (id, applicantEmail),
 	foreign key (id) REFERENCES JobPostingPosts(id)
 	ON DELETE CASCADE,
@@ -141,9 +141,9 @@ create table AppliesTo(
 );
 
 create table HaveProject(
-	applicantEmail varchar(60),
+	applicantEmail varchar(100),
 	projectName varchar(100),
-	language varchar(50),
+	language varchar(100),
 	primary key(applicantEmail, projectName, language),
 	foreign key(language, projectName) REFERENCES CodingProject1(language, projectName)
 	ON DELETE CASCADE,
@@ -152,7 +152,7 @@ create table HaveProject(
 );
 
 create table HaveExperience(
-	applicantEmail varchar(60),
+	applicantEmail varchar(100),
 	organization varchar(100),
 	experienceRole varchar(100),
 	primary key (organization, experienceRole, applicantEmail),
@@ -164,8 +164,8 @@ create table HaveExperience(
 
 create table HaveAward(
 	awardName varchar(100),
-	dateReceived varchar(50),
-	applicantEmail varchar(60),
+	dateReceived varchar(100),
+	applicantEmail varchar(100),
 	primary key (awardName, dateReceived, applicantEmail),
 	foreign key (awardName, dateReceived) REFERENCES Award(awardName, dateReceived)
 	ON DELETE CASCADE,
@@ -174,8 +174,8 @@ create table HaveAward(
 );
 
 create table HaveHobby(
-	applicantEmail varchar(60),
-	hobbyName varchar(50),
+	applicantEmail varchar(100),
+	hobbyName varchar(100),
 	primary key (hobbyName, applicantEmail),
 	foreign key (hobbyName) REFERENCES Hobby(hobbyName)
 	ON DELETE CASCADE,
