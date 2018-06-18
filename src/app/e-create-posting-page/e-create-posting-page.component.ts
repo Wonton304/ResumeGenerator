@@ -125,7 +125,7 @@ collectCompanyName(event:any){
           (response) =>console.log(response),
           (error) => console.log(error)
         );
-        if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100 || this.proficiencyRequirements.length > 100){ alert("Input too long!");}
+        if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100){ alert("Input too long!");}
         else{alert("submitted");}
         }else{
           alert("Please fill in everything!");
@@ -169,7 +169,7 @@ $technologyType = $obj->TECHNOLOGYTYPE;*/
       (response) =>console.log(response),
       (error) => console.log(error)
     );
-    if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100 || this.proficiencyRequirements.length > 100){ alert("Input too long!");}
+    if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100){ alert("Input too long!");}
     else{alert("submitted");}
   }else{
       alert("Please fill in everything!");
