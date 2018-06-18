@@ -93,7 +93,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
         serverService => this.applicantInfo$ = serverService,
         (response) => console.log(response),
       );
-      console.log(this.applicantInfo$);
+      // console.log(this.applicantInfo$);
     this.serverService.getApplicantHas(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
@@ -101,7 +101,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
         (response) => console.log(response),
       );
       console.log(this.applicantHas$);
-    this.serverService.getApplicantHas(
+    this.serverService.getApplicantMissing(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.applicantMissing$ = serverService,
