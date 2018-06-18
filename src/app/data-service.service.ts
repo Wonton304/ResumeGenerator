@@ -93,4 +93,18 @@ export class DataServiceService {
   deleteEmployerJobPosting(postingId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deleteJobPosting.php', postingId);
   }
+
+  getMinimumProficiency(postingId){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMinProficiency.php', postingId);
+  }
+
+  getMaximumProficiency(postingId){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMaxProficiency.php', postingId);
+  }
+
+  getAverageProficiency(postingId){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateAvgProficiency.php', postingId);
+  }
+
+
 }
