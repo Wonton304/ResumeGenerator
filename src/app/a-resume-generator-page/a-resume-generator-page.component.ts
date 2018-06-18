@@ -87,22 +87,28 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   buildResume(){
-//send info to php
-  this.serverService.getApplicantHas(
-    JSON.stringify({APPLICANTEMAIL:this.email}))
-    .subscribe(
-      serverService => this.applicantHas$ = serverService,
-      (response) => console.log(response),
-    );
-    console.log("ette" + this.applicantHas$);
+    this.serverService.getApplicantInfo(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+        serverService => this.applicantInfo$ = serverService,
+        (response) => console.log(response),
+      );
+      console.log(this.applicantInfo$);
+    this.serverService.getApplicantHas(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+        serverService => this.applicantHas$ = serverService,
+        (response) => console.log(response),
+      );
+      console.log(this.applicantHas$);
     this.serverService.getApplicantHas(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.applicantMissing$ = serverService,
         (response) => console.log(response),
       );
+      console.log(this.applicantMissing$);
     this.resumeGenerated=true;
-      console.log("wat" + this.applicantMissing$);
   }
 
   // calls script
