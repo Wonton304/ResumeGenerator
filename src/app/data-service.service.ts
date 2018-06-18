@@ -52,7 +52,7 @@ export class DataServiceService {
   }
 
   generateResume (postID){
-    //return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
   }
 
   createHobby(hobby){

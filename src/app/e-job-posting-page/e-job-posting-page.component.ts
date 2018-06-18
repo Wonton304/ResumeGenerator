@@ -24,8 +24,13 @@ export class EJobPostingPageComponent implements OnInit {
    );
  }
 
- delelete(){
-
+ delete(jobPostingId:any){
+  this.serverService.deleteEmployerJobPosting(
+    JSON.stringify({ID:jobPostingId}))
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error),
+    );
  }
 
 }
