@@ -61,7 +61,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
         serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
       );
-      console.log(this.generatedExperiences$);
   }
 
   getAwards(){
