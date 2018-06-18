@@ -43,7 +43,6 @@ export class AUpdateInformationPageComponent implements OnInit {
   ngOnInit() {
    }
 
-
   activityTypeChangedHandler(event:any){
     this.itemType=event.target.value;
 
@@ -184,16 +183,26 @@ export class AUpdateInformationPageComponent implements OnInit {
   $dateReceivedUpdate = $obj->DATERECEIVED;
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if( this.itemType === 'Awards'){
-     (this.applicantEmail != null && this.title != "" && this.overallDescription != "" && this.dateRecieved != "") ? alert("Submitted!") : alert("Please fill in all fields!");
-    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription, DATERECEIVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
+     (this.applicantEmail != null && this.title != "" && this.overallDescription != "" && this.dateRecieved != "") 
+     ? alert("Submitted!") : alert("Please fill in all fields!");
+    this.serverService.createAward(JSON.stringify({AWARDNAME:this.title,AWARDDESCRIPTION:this.overallDescription,
+       DATERECEIVED:this.dateRecieved, APPLICANTEMAIL:this.applicantEmail}))
     .subscribe(
       (response) =>console.log(response),
       (error) => console.log(error)
     );
    }
 
-   if(this.itemType === "Experience"){
-     (this.applicantEmail != null && this.duration != "" && this.organization != "" && this.role != ""&& this.experienceType != ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
+
+   /**$organizationUpdate =$obj->ORGANIZATION;
+$experienceRoleUpdate = $obj->EXPERIENCEROLE;
+$durationUpdate = $obj->DURATION;
+$experienceTypeUpdate = $obj->EXPERIENCETYPE;
+$experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
+$applicantEmailInsert = $obj->APPLICANTEMAIL; */
+   if(this.itemType === 'Experience'){
+     (this.applicantEmail != null && this.duration != "" && this.organization != "" && this.role != ""&& this.experienceType != 
+     ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
       DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,
     APPLICANTEMAIL:this.applicantEmail}))
@@ -220,10 +229,12 @@ export class AUpdateInformationPageComponent implements OnInit {
   $complexityUpdate = $obj->COMPLEXITY;
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
-  if(this.itemType === "CodingProjects"){
-     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language != ""&& this.complexity != null) ? alert("Submitted!") : alert("Please fill in all fields!");
+  if(this.itemType === 'CodingProjects'){
+     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language
+      != ""&& this.complexity != null) ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createProjectInfo(JSON.stringify({
-        CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,LANGUAGE:this.language,COMPLEXITY:this.complexity,
+        PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
+        LANGUAGE:this.language,COMPLEXITY:this.complexity,
         APPLICANTEMAIL:this.applicantEmail
       }))
       .subscribe(

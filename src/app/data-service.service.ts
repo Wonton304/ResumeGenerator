@@ -69,11 +69,11 @@ export class DataServiceService {
 
 
   createProjectInfo(codingProjectInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/Insert-CodingProject.php', codingProjectInfo);
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insertCodingProject.php', codingProjectInfo);
   }
 
   createExperienceInfo(experienceInfo){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insert-Experience.php', experienceInfo);
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insertExperience.php', experienceInfo);
   }
 
   // need updates
@@ -114,5 +114,24 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateAvgProficiency.php');
   }
 
+  getEasiestProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMinAggregateProficiency.php');
+  }
+
+  getHardestProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMaxAggregateProficiency.php');
+  }
+
+  getMinimumComplexity(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMinComplexity.php');
+  }
+
+  getEasiestComplexity(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMinAggregateComplexity.php');
+  }
+
+  getHardestComplexity(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMaxAggregateComplexity.php');
+  }
 
 }

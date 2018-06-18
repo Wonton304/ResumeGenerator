@@ -42,6 +42,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getHobbies(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
     this.serverService.getHobbies(
@@ -53,6 +54,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getExperiences(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeExperiences = !this.includeExperiences;
     console.log("exp: "+this.includeExperiences);
     this.serverService.getExperiences(
@@ -64,6 +66,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getAwards(){
+        (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeAwards = !this.includeAwards;
     console.log("awards: "+this.includeAwards);
     this.serverService.getAwards(
@@ -76,6 +79,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getCodingProjects(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted!");
     this.includeCodingProjects = !this.includeCodingProjects;
     console.log("cp: "+this.includeCodingProjects);
     this.serverService.getCodingProjects(
@@ -87,6 +91,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   buildResume(){
+      (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") : alert("Submitted");
     this.serverService.getApplicantInfo(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
@@ -95,19 +100,19 @@ export class AResumeGeneratorPageComponent implements OnInit {
       );
       // console.log(this.applicantInfo$);
     this.serverService.getApplicantHas(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
       .subscribe(
         serverService => this.applicantHas$ = serverService,
         (response) => console.log(response),
       );
-      console.log(this.applicantHas$);
+      console.log("applicant has: " +this.applicantHas$);
     this.serverService.getApplicantMissing(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
       .subscribe(
         serverService => this.applicantMissing$ = serverService,
         (response) => console.log(response),
       );
-      console.log(this.applicantMissing$);
+      console.log("applicant missing: " +this.applicantMissing$);
     this.resumeGenerated=true;
   }
 

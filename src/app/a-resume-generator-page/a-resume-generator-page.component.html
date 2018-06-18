@@ -28,8 +28,18 @@
    <button type="button" class="btn btn-secondary" (click) = "getCodingProjects()">Include Your Coding Projects</button>
  </div>
 
- <div class = "vanillaapplicant" *ngIf="resumeGenerated"> <!---->
+
+   <br>
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
+   <ul class = "appHas" *ngFor="let hasReqs of applicantHas$">
+     <li> Technology Requirements you Have: <strong>{{hasReqs.TECHNOLOGYNAME}}</strong></li>
+     <hr>
+   </ul>
+   <ul *ngFor="let missingReqs of applicantMissing$">
+     <li> Technology Requirements you are Missing: <strong>{{missingReqs.TECHNOLOGYNAME}}</strong></li>
+     <hr>
+   </ul>
+   <div class = "vanillaapplicant" *ngIf="resumeGenerated"> <!---->
    <ul *ngFor="let attribute of applicantInfo$">
        <li>
            <ul>
@@ -42,8 +52,6 @@
                <hr>
            </ul>
        </li>
-   </ul>
-   <ul *ngFor="let hasReqs of applicantHas$">
    </ul>
  </div>
  <div class = "codingproject" *ngIf="includeCodingProjects">
@@ -91,7 +99,6 @@
      <li>
          <ul>
              <li> Hobby Name: <strong>{{hobby.HOBBYNAME}}</strong></li>
-             <hr>
          </ul>
      </li>
  </ul>

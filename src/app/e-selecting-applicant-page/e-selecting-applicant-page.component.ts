@@ -17,18 +17,25 @@ export class ESelectingApplicantPageComponent implements OnInit {
   ngOnInit() {
    }
 
-   
+
 
   collectId (event:any){
     this.jobPostingId=event.target.value;
   }
-  
+
    selectApplicant (){
-    this.serverService.connectApplicants(JSON.stringify({JOBID:this.jobPostingId}))
+
+    if(this.jobPostingId != ''){
+      alert("Submitted!");
+  this.serverService.connectApplicants(JSON.stringify({JOBID:this.jobPostingId}))
         .subscribe(
           (serverService) => this.candidates$ = serverService,
           (error) => console.log(error)
         );
+    }else{
+      alert("You need to input postID");
+    }
+
   }
 
 }

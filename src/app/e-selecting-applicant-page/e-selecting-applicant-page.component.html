@@ -1,8 +1,10 @@
 
-<body><label>Input the Job ID here to find Applicants Suitable.</label>
+<body><label>Input the Job ID here to find all suitable applicants that have applied for the job:</label>
+  <br>
 <div class="input-group">
   <input (input)="collectId($event)" placeholder="Job ID eg. 123456" >
 </div>
+<br>
 <button type="submit" class="btn btn-primary" (click)="selectApplicant()">Find the applicants</button>
 
 <br>
