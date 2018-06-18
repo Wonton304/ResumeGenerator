@@ -10,8 +10,8 @@ $json='';
 echo $json;
 
 
-// $applicantEmail = $obj->APPLICANTEMAIL;
-$applicantEmail = 'Vita_9610@alumni.ubc.ca';
+$applicantEmail = $obj->APPLICANTEMAIL;
+// $applicantEmail = 'Vita_9610@alumni.ubc.ca';
 
 
 // Create connection to Oracle
