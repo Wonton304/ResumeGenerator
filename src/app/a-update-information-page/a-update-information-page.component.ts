@@ -273,7 +273,7 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === 'Coding Projects'){
      (this.applicantEmail== null || this.applicantEmail == "" || this.category == "" || this.title == "" ||
-   this.overallDescription == "" || this.language == "" ||this.complexity == "") ?  alert("Please fill in all fields!") : alert("Submitted!");
+   this.overallDescription == "" || this.language == "" ||this.complexity == null) ?  alert("Please fill in all fields!") : alert("Submitted!");
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,
