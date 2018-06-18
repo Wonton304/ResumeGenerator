@@ -44,4 +44,7 @@ $response = (json_encode($json));
 
 echo $response;
 
+OCICommit($conn);
+oci_close($conn);
+
 ?>

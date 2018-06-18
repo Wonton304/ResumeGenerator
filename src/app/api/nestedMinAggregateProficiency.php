@@ -7,7 +7,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 
-$maxProf= "SELECT max(avg(minimumProficiency)) FROM RequiredTechnology Group by technologyType";
+$maxProf= "SELECT min(avg(minimumProficiency)) FROM RequiredTechnology Group by technologyType";
 $stid = oci_parse($conn, $maxProf);
 $result = oci_execute($stid);
 //to remember the entire json string
@@ -30,4 +30,7 @@ echo $response;
 // Fetch each row in an associative array
 
 //0cy27
+
+OCICommit($conn);
+oci_close($conn);
 ?>
