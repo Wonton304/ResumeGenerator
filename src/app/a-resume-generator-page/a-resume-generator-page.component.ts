@@ -45,7 +45,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
     this.serverService.getHobbies(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.generatedHobbies$ = serverService,
         (response) => console.log(response),
@@ -56,31 +56,31 @@ export class AResumeGeneratorPageComponent implements OnInit {
     this.includeExperiences = !this.includeExperiences;
     console.log("exp: "+this.includeExperiences);
     this.serverService.getExperiences(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
       );
+      console.log(this.generatedExperiences$);
   }
 
   getAwards(){
     this.includeAwards = !this.includeAwards;
     console.log("awards: "+this.includeAwards);
     this.serverService.getAwards(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
          serverService => this.generatedAwards$ = serverService,
          (response) => console.log(response),
-       
       );
-
+      console.log(this.generatedAwards$);
   }
 
   getCodingProjects(){
     this.includeCodingProjects = !this.includeCodingProjects;
     console.log("cp: "+this.includeCodingProjects);
     this.serverService.getCodingProjects(
-      JSON.stringify({EMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
         serverService => this.generatedCodingProjects$ = serverService,
         (response) => console.log(response),
@@ -89,7 +89,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   buildResume(){
 //send info to php
-console.log("building");
   this.serverService.getApplicantHas(
     JSON.stringify({APPLICANTEMAIL:this.email}))
     .subscribe(
