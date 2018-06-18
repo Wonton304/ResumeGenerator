@@ -125,6 +125,7 @@ collectCompanyName(event:any){
           (response) =>console.log(response),
           (error) => console.log(error)
         );
+        alert("submitted");
         }else{
           alert("Please fill in everything!");
         }
@@ -140,7 +141,7 @@ collectCompanyName(event:any){
           (response) =>console.log(response),
           (error) => console.log(error)
         );
-
+        alert("submitted");
 
           }else{
           alert("Please fill in everything!");
@@ -166,7 +167,9 @@ $technologyType = $obj->TECHNOLOGYTYPE;*/
       .subscribe(  
       (response) =>console.log(response),
       (error) => console.log(error)
-    );}else{
+    );
+    alert("submitted");
+  }else{
       alert("Please fill in everything!");
     }
 
@@ -184,7 +187,9 @@ $companyName = $obj->COMPANYNAME;
           .subscribe(  
           (response) =>console.log(response),
           (error) => console.log(error)
-        );}else{
+        );
+      alert("submitted");
+    }else{
           alert("Please fill in everything!");
         }
 
