@@ -95,18 +95,19 @@ export class AResumeGeneratorPageComponent implements OnInit {
       );
       // console.log(this.applicantInfo$);
     this.serverService.getApplicantHas(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
       .subscribe(
         serverService => this.applicantHas$ = serverService,
         (response) => console.log(response),
       );
-      console.log(this.applicantHas$);
+      console.log("applicant has: " +this.applicantHas$);
     this.serverService.getApplicantMissing(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
       .subscribe(
         serverService => this.applicantMissing$ = serverService,
         (response) => console.log(response),
       );
+      console.log("applicant missing: " +this.applicantMissing$);
     this.resumeGenerated=true;
   }
 
