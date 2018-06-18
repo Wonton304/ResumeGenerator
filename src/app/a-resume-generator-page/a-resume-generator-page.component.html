@@ -19,7 +19,9 @@
     <div class="input-group">
       <input (input)="collectEmail($event)" placeholder="jameskan@gmail.com" >
     </div>
+    <br>
  <button type="submit" class="btn btn-primary" (click)="buildResume()">Build My Resume</button>
+ <button type="button" class="btn btn-danger" (click)="apply()">Apply</button>
 <br>
  <div class="btn-group" role="group" aria-label="Basic example">
    <button type="button" class="btn btn-secondary" (click) = "getHobbies()">Include Your Hobbies</button>
@@ -28,8 +30,6 @@
    <button type="button" class="btn btn-secondary" (click) = "getCodingProjects()">Include Your Coding Projects</button>
  </div>
 
-
-   <br>
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
    <ul class = "appHas" *ngFor="let hasReqs of applicantHas$">
      <li> Technology Requirements you Have: <strong>{{hasReqs.TECHNOLOGYNAME}}</strong></li>

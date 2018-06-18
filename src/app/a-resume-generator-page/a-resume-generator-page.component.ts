@@ -42,7 +42,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getHobbies(){
-      (this.email == "" || this.email == null) ? alert("Please input all fields!") :
+      (this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
@@ -119,6 +119,18 @@ export class AResumeGeneratorPageComponent implements OnInit {
       );
       console.log("applicant missing: " +this.applicantMissing$);
     this.resumeGenerated=true;
+  }
+
+  apply(){
+    (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
+    ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+    this.serverService.applyApplicant(
+      JSON.stringify({APPLICANTEMAIL:this.email, JOBID:this.jobPostingId}))
+      .subscribe(
+        (response) => console.log(response),
+      );
+      console.log("applied");
+      alert("You Have Applied!");
   }
 
   // calls script
