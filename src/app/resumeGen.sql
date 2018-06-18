@@ -3,7 +3,6 @@ drop table Location3 CASCADE CONSTRAINTS;
 
 drop table SituatedIn CASCADE CONSTRAINTS;
 drop table Location2 CASCADE CONSTRAINTS;
-drop table Requires CASCADE CONSTRAINTS;
 drop table RequiredTechnology CASCADE CONSTRAINTS;
 drop table Applicant1 CASCADE CONSTRAINTS;
 drop table HaveProject CASCADE CONSTRAINTS;
@@ -55,13 +54,6 @@ create table SituatedIn(
 	ON DELETE CASCADE
 );
 
-create table RequiredTechnology
-	(technologyName varchar(100),
-	technologyRole varchar(100),
-	minimumProficiency INTEGER CHECK (minimumProficiency >= 0 and minimumProficiency <= 5),
-	technologyType varchar(100),
-	primary key(technologyName));
-
 create table CodingProject1
 	(language varchar(100),
 	projectName varchar(100),
@@ -101,15 +93,15 @@ create table JobPostingPosts(
 	ON DELETE CASCADE
 );
 
-create table Requires(
+create table RequiredTechnology
+	(technologyName varchar(100),
+	technologyRole varchar(100),
+	minimumProficiency INTEGER CHECK (minimumProficiency >= 0 and minimumProficiency <= 5),
+	technologyType varchar(100),
 	id varchar(100),
-	technologyName varchar(100),
-	primary key (id, technologyName),
-	foreign key (id) REFERENCES JobPostingPosts(id)
-	ON DELETE CASCADE,
-	foreign key (technologyName) REFERENCES  RequiredTechnology
-	ON DELETE CASCADE
-);
+	primary key(technologyName, id),
+	foreign key(id) references JobPostingPosts(id)
+	ON DELETE CASCADE);
 
 create table Applicant1(
 	applicantPhoneNumber varchar(100),
@@ -440,131 +432,6 @@ values('T4H 2E2', '5038 50 St', 'Avigilon Corporation');
 insert into SituatedIn
 values('V8A 2G1', '4943 Kiwanis Ave', 'Ayogo');
 
-insert into RequiredTechnology
-values('C++', 'Web', '2', 'IDE');
-
-insert into RequiredTechnology
-values('C', 'Frontend', '3', 'Other');
-
-insert into RequiredTechnology
-values('Java', 'Firmware', '2', 'Other');
-
-insert into RequiredTechnology
-values('jQuery', 'Other', '2', 'Other');
-
-insert into RequiredTechnology
-values('MySQL', 'Web', '4', 'IDE');
-
-insert into RequiredTechnology
-values('NoSQL', 'Network', '1', 'Other');
-
-insert into RequiredTechnology
-values('JavaScript', 'Network', '0', 'Framework');
-
-insert into RequiredTechnology
-values('NodeJS', 'Network', '5', 'Language');
-
-insert into RequiredTechnology
-values('AngularJS', 'Web', '2', 'Other');
-
-insert into RequiredTechnology
-values('HTML', 'Network', '5', 'Framework');
-
-insert into RequiredTechnology
-values('CSS', 'Web', '1', 'IDE');
-
-insert into RequiredTechnology
-values('IntelliJ', 'Web', '0', 'Other');
-
-insert into RequiredTechnology
-values('Android Studio', 'Firmware', '1', 'Other');
-
-insert into RequiredTechnology
-values('Bootstrap', 'Network', '3', 'Framework');
-
-insert into RequiredTechnology
-values('Kotlin', 'Firmware', '5', 'IDE');
-
-insert into RequiredTechnology
-values('jUnit', 'Web', '3', 'Framework');
-
-insert into RequiredTechnology
-values('C#', 'Network', '0', 'Language');
-
-insert into RequiredTechnology
-values('Python', 'Firmware', '4', 'IDE');
-
-insert into RequiredTechnology
-values('R', 'Frontend', '0', 'Other');
-
-insert into RequiredTechnology
-values('MATLAB', 'Network', '2', 'Framework');
-
-insert into RequiredTechnology
-values('ABAP', 'Other', '2', 'Language');
-
-insert into RequiredTechnology
-values('Assembly', 'Firmware', '2', 'IDE');
-
-insert into RequiredTechnology
-values('JSON', 'Firmware', '0', 'Other');
-
-insert into RequiredTechnology
-values('REST', 'Web', '1', 'IDE');
-
-insert into RequiredTechnology
-values('MVC', 'Other', '5', 'IDE');
-
-insert into RequiredTechnology
-values('.Net', 'Other', '0', 'IDE');
-
-insert into RequiredTechnology
-values('Unity', 'Other', '5', 'Framework');
-
-insert into RequiredTechnology
-values('Mongo', 'Web', '2', 'Framework');
-
-insert into RequiredTechnology
-values('CosmosDb', 'Frontend', '3', 'Language');
-
-insert into RequiredTechnology
-values('ASP.NET', 'Other', '4', 'Framework');
-
--- insert into RequiredTechnology
--- values('.Net', 'Network', '1', 'Framework');
-
-insert into RequiredTechnology
-values('Git', 'Network', '1', 'Language');
-
-insert into RequiredTechnology
-values('Bitbucket', 'Backend', '0', 'Language');
-
-insert into RequiredTechnology
-values('Sourcetree', 'Web', '2', 'Framework');
-
-insert into RequiredTechnology
-values('Ruby', 'Firmware', '4', 'Other');
-
-insert into RequiredTechnology
-values('PHP', 'Backend', '0', 'IDE');
-
-insert into RequiredTechnology
-values('Vue', 'Frontend', '5', 'Framework');
-
-insert into RequiredTechnology
-values('SASS', 'Firmware', '3', 'Other');
-
-insert into RequiredTechnology
-values('React', 'Backend', '0', 'Framework');
-
-insert into RequiredTechnology
-values('Linux', 'Other', '1', 'Framework');
-
-insert into RequiredTechnology
-values('Typescript', 'Other', '2', 'Other');
-
-insert into RequiredTechnology
-values('MSSQL', 'Frontend', '4', 'Framework');
 
 insert into JobPostingPosts
 values('2tz51', 'Intel', 'Software', 'Team Lead', 'Sit sint magnam sit ut fugiat. Totam pariatur vel modi eaque nobis. Qui quasi iste et dolorem laborum ducimus voluptas. Voluptatibus qui quia dicta aut aperiam veritatis ut. Beatae culpa fugit cumque non totam est. Voluptatem incidunt optio ad perferendis sapiente. Quia ut porro et. Recusandae maiores fuga dolorem aut enim. Alias hic nulla aut quisquam sunt sapiente atque. Laborum repellendus deserunt est nihil modi. Enim dolorem quasi aut officia quia. Deleniti et explicabo dicta consequatur repudiandae ipsum. Ut eaque ut deleniti beatae laboriosam. Et repudiandae nulla quasi consequatur. Accusamus architecto et consequuntur ut quasi. Ut tempore voluptas odio. Totam animi illo praesentium nihil assumenda. Tempore vero vel laudantium minus at. Qui omnis occaecati quisquam illum et non suscipit.');
@@ -716,290 +583,455 @@ values('5pu05', 'Trulioo', 'Hardware', 'Full Stack Developer', 'Ut est qui natus
 insert into JobPostingPosts
 values('6xn53', 'Splunk', 'Firmware', 'Full Stack Developer', 'Et error eum aut. Et perferendis dolorem aut mollitia excepturi. Qui ut adipisci at consequatur qui architecto et. Eaque voluptates officiis quibusdam. Est rerum inventore sed explicabo. Neque qui accusamus repudiandae soluta. Recusandae et recusandae quis nihil. Omnis sequi qui qui odio ipsa veniam laboriosam. Sapiente rem dolorem illo unde. Iure rerum facilis ut fuga est non porro. Provident voluptatum beatae consectetur dolor architecto aut iure sint. Provident nam itaque eius illum. Dolor alias unde nisi tempore. Voluptate tenetur et voluptatem sunt. A magni odit necessitatibus error dolorem facilis neque. Ad et et at ipsam. Dolor repudiandae qui itaque similique accusamus eos. Dolorem facilis culpa explicabo et. Tenetur inventore pariatur eum reprehenderit occaecati. Reiciendis quia non exercitationem excepturi molestiae iste. Dolor et voluptas odio. Beatae ut laudantium autem.');
 
-insert into Requires
-values('5cd07', 'C++');
+insert into RequiredTechnology
+values('C++', 'Firmware', '4', 'IDE', '2tz51');
 
-insert into Requires
-values('0cy27', 'C');
+insert into RequiredTechnology
+values('C', 'Firmware', '4', 'Language', '5fo52');
 
-insert into Requires
-values('1st75', 'Java');
+insert into RequiredTechnology
+values('Java', 'Backend', '4', 'Language', '0nc05');
 
-insert into Requires
-values('8rm09', 'jQuery');
+insert into RequiredTechnology
+values('jQuery', 'Backend', '2', 'Other', '7er93');
 
-insert into Requires
-values('2tz51', 'MySQL');
+insert into RequiredTechnology
+values('MySQL', 'Web', '2', 'Other', '8oo50');
 
-insert into Requires
-values('6hu22', 'NoSQL');
+insert into RequiredTechnology
+values('NoSQL', 'Frontend', '2', 'Language', '1gv16');
 
-insert into Requires
-values('6wu40', 'JavaScript');
+insert into RequiredTechnology
+values('JavaScript', 'Frontend', '1', 'Language', '7xq30');
 
-insert into Requires
-values('5in26', 'NodeJS');
+insert into RequiredTechnology
+values('NodeJS', 'Web', '1', 'Language', '6id12');
 
-insert into Requires
-values('1sq51', 'AngularJS');
+insert into RequiredTechnology
+values('AngularJS', 'Web', '3', 'Language', '5gi34');
 
-insert into Requires
-values('5cd07', 'HTML');
+insert into RequiredTechnology
+values('HTML', 'Other', '4', 'Other', '4om22');
 
-insert into Requires
-values('5pu05', 'CSS');
+insert into RequiredTechnology
+values('CSS', 'Frontend', '2', 'IDE', '6hu22');
 
-insert into Requires
-values('2nh99', 'IntelliJ');
+insert into RequiredTechnology
+values('IntelliJ', 'Network', '5', 'Framework', '8an91');
 
-insert into Requires
-values('2ox78', 'Android Studio');
+insert into RequiredTechnology
+values('Android Studio', 'Web', '0', 'Other', '1st75');
 
-insert into Requires
-values('9qg47', 'Bootstrap');
+insert into RequiredTechnology
+values('Bootstrap', 'Web', '0', 'Other', '7ki72');
 
-insert into Requires
-values('2ox78', 'Kotlin');
+insert into RequiredTechnology
+values('Kotlin', 'Frontend', '0', 'Framework', '4uj53');
 
-insert into Requires
-values('1vz66', 'jUnit');
+insert into RequiredTechnology
+values('jUnit', 'Network', '4', 'IDE', '4cq37');
 
-insert into Requires
-values('6id12', 'C#');
+insert into RequiredTechnology
+values('C#', 'Web', '0', 'Other', '5cd07');
 
-insert into Requires
-values('9ag71', 'Python');
+insert into RequiredTechnology
+values('Python', 'Firmware', '3', 'Framework', '2js33');
 
-insert into Requires
-values('5et30', 'R');
+insert into RequiredTechnology
+values('R', 'Web', '2', 'Other', '8ob06');
 
-insert into Requires
-values('6wu40', 'MATLAB');
+insert into RequiredTechnology
+values('MATLAB', 'Backend', '3', 'Other', '2xs18');
 
-insert into Requires
-values('0cy27', 'ABAP');
+insert into RequiredTechnology
+values('ABAP', 'Web', '0', 'IDE', '2qb13');
 
-insert into Requires
-values('5pu05', 'Assembly');
+insert into RequiredTechnology
+values('Assembly', 'Backend', '4', 'IDE', '6ra55');
 
-insert into Requires
-values('6xn53', 'JSON');
+insert into RequiredTechnology
+values('JSON', 'Firmware', '1', 'Framework', '5fg14');
 
-insert into Requires
-values('2tz51', 'REST');
+insert into RequiredTechnology
+values('REST', 'Firmware', '2', 'Framework', '6wu40');
 
-insert into Requires
-values('8rm09', 'MVC');
+insert into RequiredTechnology
+values('MVC', 'Backend', '2', 'IDE', '1vz66');
 
-insert into Requires
-values('1st75', '.Net');
+insert into RequiredTechnology
+values('.Net', 'Other', '1', 'Other', '5df81');
 
-insert into Requires
-values('0cy27', 'Unity');
+insert into RequiredTechnology
+values('Unity', 'Other', '1', 'IDE', '5in26');
 
-insert into Requires
-values('8er49', 'Mongo');
+insert into RequiredTechnology
+values('Mongo', 'Other', '4', 'Framework', '9ri86');
 
-insert into Requires
-values('5hv85', 'CosmosDb');
+insert into RequiredTechnology
+values('CosmosDb', 'Other', '2', 'Framework', '1sq51');
 
-insert into Requires
-values('8oo50', 'ASP.NET');
+insert into RequiredTechnology
+values('ASP.NET', 'Frontend', '3', 'Other', '8er49');
 
-insert into Requires
-values('1rj01', '.Net');
+insert into RequiredTechnology
+values('.Net', 'Network', '0', 'IDE', '6bo14');
 
-insert into Requires
-values('2ee35', 'Git');
+insert into RequiredTechnology
+values('Git', 'Network', '1', 'Framework', '2ox78');
 
-insert into Requires
-values('6id12', 'Bitbucket');
+insert into RequiredTechnology
+values('Bitbucket', 'Backend', '3', 'Other', '9ez37');
 
-insert into Requires
-values('0cy27', 'Sourcetree');
+insert into RequiredTechnology
+values('Sourcetree', 'Frontend', '5', 'IDE', '5wi76');
 
-insert into Requires
-values('5pu05', 'Ruby');
+insert into RequiredTechnology
+values('Ruby', 'Network', '5', 'Other', '5hv85');
 
-insert into Requires
-values('5cd07', 'PHP');
+insert into RequiredTechnology
+values('PHP', 'Backend', '2', 'Framework', '7ma03');
 
-insert into Requires
-values('1gv16', 'Vue');
+insert into RequiredTechnology
+values('Vue', 'Backend', '1', 'Other', '1rj01');
 
-insert into Requires
-values('4yv88', 'SASS');
+insert into RequiredTechnology
+values('SASS', 'Other', '3', 'IDE', '5et30');
 
-insert into Requires
-values('2tz51', 'React');
+insert into RequiredTechnology
+values('React', 'Other', '5', 'IDE', '9qk53');
 
-insert into Requires
-values('6id12', 'Linux');
+insert into RequiredTechnology
+values('Linux', 'Other', '1', 'Language', '4cu97');
 
-insert into Requires
-values('1sq51', 'Typescript');
+insert into RequiredTechnology
+values('Typescript', 'Web', '0', 'IDE', '9ag71');
 
-insert into Requires
-values('1sq51', 'MSSQL');
+insert into RequiredTechnology
+values('MSSQL', 'Frontend', '3', 'Other', '4yv88');
 
-insert into Requires
-values('2nh99', 'C++');
+insert into RequiredTechnology
+values('C++', 'Backend', '0', 'IDE', '2ee35');
 
-insert into Requires
-values('9ag71', 'C');
+insert into RequiredTechnology
+values('C', 'Network', '1', 'IDE', '0cy27');
 
-insert into Requires
-values('7xq30', 'Java');
+insert into RequiredTechnology
+values('Java', 'Backend', '4', 'IDE', '9qg47');
 
-insert into Requires
-values('9ri86', 'jQuery');
+insert into RequiredTechnology
+values('jQuery', 'Other', '5', 'Framework', '2nh99');
 
-insert into Requires
-values('9ri86', 'MySQL');
+insert into RequiredTechnology
+values('MySQL', 'Firmware', '2', 'Other', '8rm09');
 
-insert into Requires
-values('9ez37', 'NoSQL');
+insert into RequiredTechnology
+values('NoSQL', 'Web', '1', 'Framework', '4be08');
 
-insert into Requires
-values('4cu97', 'JavaScript');
+insert into RequiredTechnology
+values('JavaScript', 'Backend', '4', 'IDE', '5pu05');
 
-insert into Requires
-values('4yv88', 'NodeJS');
+insert into RequiredTechnology
+values('NodeJS', 'Network', '4', 'Framework', '6xn53');
 
-insert into Requires
-values('6xn53', 'AngularJS');
+insert into RequiredTechnology
+values('AngularJS', 'Firmware', '4', 'IDE', '2tz51');
 
-insert into Requires
-values('6id12', 'HTML');
+insert into RequiredTechnology
+values('HTML', 'Web', '5', 'IDE', '5fo52');
 
-insert into Requires
-values('1sq51', 'CSS');
+insert into RequiredTechnology
+values('CSS', 'Firmware', '4', 'Framework', '0nc05');
 
-insert into Requires
-values('7ki72', 'IntelliJ');
+insert into RequiredTechnology
+values('IntelliJ', 'Network', '4', 'IDE', '7er93');
 
-insert into Requires
-values('2xs18', 'Android Studio');
+insert into RequiredTechnology
+values('Android Studio', 'Network', '3', 'Other', '8oo50');
 
-insert into Requires
-values('5df81', 'Bootstrap');
+insert into RequiredTechnology
+values('Bootstrap', 'Firmware', '4', 'IDE', '1gv16');
 
-insert into Requires
-values('8an91', 'Kotlin');
+insert into RequiredTechnology
+values('Kotlin', 'Frontend', '4', 'Framework', '7xq30');
 
-insert into Requires
-values('5df81', 'jUnit');
+insert into RequiredTechnology
+values('jUnit', 'Frontend', '2', 'IDE', '6id12');
 
-insert into Requires
-values('7ki72', 'C#');
+insert into RequiredTechnology
+values('C#', 'Backend', '0', 'Other', '5gi34');
 
-insert into Requires
-values('5pu05', 'Python');
+insert into RequiredTechnology
+values('Python', 'Network', '2', 'IDE', '4om22');
 
-insert into Requires
-values('8ob06', 'R');
+insert into RequiredTechnology
+values('R', 'Firmware', '3', 'Language', '6hu22');
 
-insert into Requires
-values('9ez37', 'MATLAB');
+insert into RequiredTechnology
+values('MATLAB', 'Firmware', '0', 'Other', '8an91');
 
-insert into Requires
-values('6hu22', 'ABAP');
+insert into RequiredTechnology
+values('ABAP', 'Web', '1', 'Other', '1st75');
 
-insert into Requires
-values('4yv88', 'Assembly');
+insert into RequiredTechnology
+values('Assembly', 'Network', '0', 'Framework', '7ki72');
 
-insert into Requires
-values('7xq30', 'JSON');
+insert into RequiredTechnology
+values('JSON', 'Frontend', '1', 'IDE', '4uj53');
 
-insert into Requires
-values('6xn53', 'REST');
+insert into RequiredTechnology
+values('REST', 'Network', '5', 'Other', '4cq37');
 
-insert into Requires
-values('7ma03', 'MVC');
+insert into RequiredTechnology
+values('MVC', 'Firmware', '4', 'Other', '5cd07');
 
-insert into Requires
-values('6hu22', '.Net');
+insert into RequiredTechnology
+values('.Net', 'Other', '4', 'IDE', '2js33');
 
-insert into Requires
-values('5in26', 'Unity');
+insert into RequiredTechnology
+values('Unity', 'Backend', '0', 'Language', '8ob06');
 
-insert into Requires
-values('2ox78', 'Mongo');
+insert into RequiredTechnology
+values('Mongo', 'Other', '3', 'IDE', '2xs18');
 
-insert into Requires
-values('5pu05', 'CosmosDb');
+insert into RequiredTechnology
+values('CosmosDb', 'Web', '5', 'Language', '2qb13');
 
-insert into Requires
-values('9qk53', 'ASP.NET');
+insert into RequiredTechnology
+values('ASP.NET', 'Backend', '5', 'IDE', '6ra55');
 
-insert into Requires
-values('9ri86', '.Net');
+insert into RequiredTechnology
+values('.Net', 'Frontend', '0', 'Language', '5fg14');
 
-insert into Requires
-values('2ox78', 'Git');
+insert into RequiredTechnology
+values('Git', 'Other', '1', 'Language', '6wu40');
 
-insert into Requires
-values('2ox78', 'Bitbucket');
+insert into RequiredTechnology
+values('Bitbucket', 'Frontend', '1', 'Framework', '1vz66');
 
-insert into Requires
-values('7er93', 'Sourcetree');
+insert into RequiredTechnology
+values('Sourcetree', 'Firmware', '1', 'Other', '5df81');
 
-insert into Requires
-values('4uj53', 'Ruby');
+insert into RequiredTechnology
+values('Ruby', 'Frontend', '5', 'IDE', '5in26');
 
-insert into Requires
-values('6wu40', 'PHP');
+insert into RequiredTechnology
+values('PHP', 'Web', '5', 'Language', '9ri86');
 
-insert into Requires
-values('5gi34', 'Vue');
+insert into RequiredTechnology
+values('Vue', 'Other', '0', 'Language', '1sq51');
 
-insert into Requires
-values('4cu97', 'SASS');
+insert into RequiredTechnology
+values('SASS', 'Web', '5', 'Other', '8er49');
 
-insert into Requires
-values('1st75', 'React');
+insert into RequiredTechnology
+values('React', 'Web', '5', 'Language', '6bo14');
 
-insert into Requires
-values('0cy27', 'Linux');
+insert into RequiredTechnology
+values('Linux', 'Firmware', '2', 'IDE', '2ox78');
 
-insert into Requires
-values('5fg14', 'Typescript');
+insert into RequiredTechnology
+values('Typescript', 'Network', '4', 'Language', '9ez37');
 
-insert into Requires
-values('9qg47', 'MSSQL');
+insert into RequiredTechnology
+values('MSSQL', 'Other', '2', 'Framework', '5wi76');
 
-insert into Requires
-values('9ri86', 'C++');
+insert into RequiredTechnology
+values('C++', 'Frontend', '3', 'Other', '5hv85');
 
-insert into Requires
-values('5pu05', 'C');
+insert into RequiredTechnology
+values('C', 'Web', '1', 'IDE', '7ma03');
 
-insert into Requires
-values('1vz66', 'Java');
+insert into RequiredTechnology
+values('Java', 'Firmware', '3', 'IDE', '1rj01');
 
-insert into Requires
-values('4cu97', 'jQuery');
+insert into RequiredTechnology
+values('jQuery', 'Frontend', '5', 'Framework', '5et30');
 
-insert into Requires
-values('8er49', 'MySQL');
+insert into RequiredTechnology
+values('MySQL', 'Frontend', '2', 'Other', '9qk53');
 
-insert into Requires
-values('2tz51', 'NoSQL');
+insert into RequiredTechnology
+values('NoSQL', 'Frontend', '2', 'Other', '4cu97');
 
-insert into Requires
-values('5fg14', 'JavaScript');
+insert into RequiredTechnology
+values('JavaScript', 'Network', '3', 'Framework', '9ag71');
 
-insert into Requires
-values('7xq30', 'NodeJS');
+insert into RequiredTechnology
+values('NodeJS', 'Backend', '1', 'IDE', '4yv88');
 
-insert into Requires
-values('5pu05', 'AngularJS');
+insert into RequiredTechnology
+values('AngularJS', 'Network', '5', 'Language', '2ee35');
 
-insert into Requires
-values('2xs18', 'HTML');
+insert into RequiredTechnology
+values('HTML', 'Network', '4', 'Language', '0cy27');
 
-insert into Requires
-values('6id12', 'CSS');
+insert into RequiredTechnology
+values('CSS', 'Other', '5', 'Framework', '9qg47');
+
+insert into RequiredTechnology
+values('IntelliJ', 'Network', '4', 'IDE', '2nh99');
+
+insert into RequiredTechnology
+values('Android Studio', 'Backend', '4', 'Framework', '8rm09');
+
+insert into RequiredTechnology
+values('Bootstrap', 'Frontend', '0', 'IDE', '4be08');
+
+insert into RequiredTechnology
+values('Kotlin', 'Frontend', '2', 'Other', '5pu05');
+
+insert into RequiredTechnology
+values('jUnit', 'Backend', '0', 'Language', '6xn53');
+
+insert into RequiredTechnology
+values('C#', 'Web', '2', 'Framework', '2tz51');
+
+insert into RequiredTechnology
+values('Python', 'Other', '4', 'IDE', '5fo52');
+
+insert into RequiredTechnology
+values('R', 'Backend', '3', 'IDE', '0nc05');
+
+insert into RequiredTechnology
+values('MATLAB', 'Other', '0', 'Language', '7er93');
+
+insert into RequiredTechnology
+values('ABAP', 'Network', '0', 'IDE', '8oo50');
+
+insert into RequiredTechnology
+values('Assembly', 'Backend', '2', 'Framework', '1gv16');
+
+insert into RequiredTechnology
+values('JSON', 'Web', '3', 'Framework', '7xq30');
+
+insert into RequiredTechnology
+values('REST', 'Other', '4', 'Other', '6id12');
+
+insert into RequiredTechnology
+values('MVC', 'Network', '2', 'Other', '5gi34');
+
+insert into RequiredTechnology
+values('.Net', 'Other', '2', 'Other', '4om22');
+
+insert into RequiredTechnology
+values('Unity', 'Network', '2', 'IDE', '6hu22');
+
+insert into RequiredTechnology
+values('Mongo', 'Frontend', '1', 'Other', '8an91');
+
+insert into RequiredTechnology
+values('CosmosDb', 'Firmware', '5', 'Other', '1st75');
+
+insert into RequiredTechnology
+values('ASP.NET', 'Backend', '5', 'Language', '7ki72');
+
+insert into RequiredTechnology
+values('.Net', 'Firmware', '2', 'Other', '4uj53');
+
+insert into RequiredTechnology
+values('Git', 'Web', '2', 'Framework', '4cq37');
+
+insert into RequiredTechnology
+values('Bitbucket', 'Backend', '0', 'Framework', '5cd07');
+
+insert into RequiredTechnology
+values('Sourcetree', 'Network', '2', 'Other', '2js33');
+
+insert into RequiredTechnology
+values('Ruby', 'Other', '2', 'Other', '8ob06');
+
+insert into RequiredTechnology
+values('PHP', 'Network', '5', 'Framework', '2xs18');
+
+insert into RequiredTechnology
+values('Vue', 'Other', '4', 'Other', '2qb13');
+
+insert into RequiredTechnology
+values('SASS', 'Backend', '2', 'Language', '6ra55');
+
+insert into RequiredTechnology
+values('React', 'Other', '1', 'Framework', '5fg14');
+
+insert into RequiredTechnology
+values('Linux', 'Other', '2', 'Framework', '6wu40');
+
+insert into RequiredTechnology
+values('Typescript', 'Network', '0', 'Framework', '1vz66');
+
+insert into RequiredTechnology
+values('MSSQL', 'Backend', '4', 'Other', '5df81');
+
+insert into RequiredTechnology
+values('C++', 'Frontend', '1', 'Framework', '5in26');
+
+insert into RequiredTechnology
+values('C', 'Frontend', '2', 'Framework', '9ri86');
+
+insert into RequiredTechnology
+values('Java', 'Network', '0', 'Other', '1sq51');
+
+insert into RequiredTechnology
+values('jQuery', 'Firmware', '2', 'Framework', '8er49');
+
+insert into RequiredTechnology
+values('MySQL', 'Firmware', '1', 'Language', '6bo14');
+
+insert into RequiredTechnology
+values('NoSQL', 'Backend', '3', 'Language', '2ox78');
+
+insert into RequiredTechnology
+values('JavaScript', 'Network', '2', 'IDE', '9ez37');
+
+insert into RequiredTechnology
+values('NodeJS', 'Web', '4', 'Framework', '5wi76');
+
+insert into RequiredTechnology
+values('AngularJS', 'Web', '4', 'Other', '5hv85');
+
+insert into RequiredTechnology
+values('HTML', 'Backend', '3', 'Other', '7ma03');
+
+insert into RequiredTechnology
+values('CSS', 'Frontend', '5', 'Language', '1rj01');
+
+insert into RequiredTechnology
+values('IntelliJ', 'Backend', '0', 'Framework', '5et30');
+
+insert into RequiredTechnology
+values('Android Studio', 'Backend', '5', 'Other', '9qk53');
+
+insert into RequiredTechnology
+values('Bootstrap', 'Firmware', '4', 'Other', '4cu97');
+
+insert into RequiredTechnology
+values('Kotlin', 'Network', '1', 'IDE', '9ag71');
+
+insert into RequiredTechnology
+values('jUnit', 'Network', '5', 'Framework', '4yv88');
+
+insert into RequiredTechnology
+values('C#', 'Frontend', '4', 'Language', '2ee35');
+
+insert into RequiredTechnology
+values('Python', 'Web', '0', 'Other', '0cy27');
+
+insert into RequiredTechnology
+values('R', 'Network', '2', 'IDE', '9qg47');
+
+insert into RequiredTechnology
+values('MATLAB', 'Network', '3', 'IDE', '2nh99');
+
+insert into RequiredTechnology
+values('ABAP', 'Web', '5', 'IDE', '8rm09');
+
+insert into RequiredTechnology
+values('Assembly', 'Other', '2', 'Language', '4be08');
+
+insert into RequiredTechnology
+values('JSON', 'Firmware', '1', 'Language', '5pu05');
+
+insert into RequiredTechnology
+values('REST', 'Frontend', '4', 'Framework', '6xn53');
 
 
 INSERT INTO Hobby VALUES('playing flute');
