@@ -10,6 +10,13 @@ import { DataServiceService } from '../data-service.service';
 export class AJobPostingPageComponent implements OnInit {
 
   posting$:Object;
+  min$:Object;
+  max$:Object;
+  avg$:Object;
+
+  minIsVisible:boolean=false;
+  maxIsVisible:boolean=false;
+  avgIsVisible:boolean=false;
 
   constructor(private serverService: DataServiceService ) {
   }
@@ -24,6 +31,38 @@ export class AJobPostingPageComponent implements OnInit {
      (error) => console.log(error)
    );
  }
+
+ calcMin(){
+   this.minIsVisible = !this.minIsVisible;
+   this.maxIsVisible = false;
+   this.avgIsVisible = false;
+   this.serverService.getMinimumProficiency().subscribe(
+    serverService => this.min$ = serverService,
+     (error) => console.log(error)
+   );
+ }
+
+ calcMax(){
+   this.maxIsVisible = !this.maxIsVisible;
+   this.minIsVisible = false;
+   this.avgIsVisible = false;
+   this.serverService.getMaximumProficiency().subscribe(
+    serverService => this.max$ = serverService,
+     (error) => console.log(error)
+   );
+   console.log(this.max$);
+ }
+
+ calcAvg(){
+   this.avgIsVisible = !this.avgIsVisible;
+   this.maxIsVisible = false;
+   this.minIsVisible = false;
+   this.serverService.getAverageProficiency().subscribe(
+    serverService => this.avg$ = serverService,
+     (error) => console.log(error)
+   );
+ }
+
 
 
 }

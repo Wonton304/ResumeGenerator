@@ -67,9 +67,10 @@ export class AResumeGeneratorPageComponent implements OnInit {
     this.serverService.getAwards(
       JSON.stringify({EMAIL:this.email}))
       .subscribe(
-        serverService => this.generatedAwards$ = serverService,
         (response) => console.log(response),
+        serverService => this.generatedAwards$ = serverService
       );
+
   }
 
   getCodingProjects(){

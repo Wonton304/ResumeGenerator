@@ -34,10 +34,10 @@ export class DataServiceService {
   }
 
 // up to here
-
+/**
   updateJobDescription(description){
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
-  }
+  } */
 
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
@@ -52,7 +52,7 @@ export class DataServiceService {
   }
 
   generateResume (postID){
-    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php', postID);
   }
 
   createHobby(hobby){
@@ -91,6 +91,20 @@ export class DataServiceService {
   }
 
   deleteEmployerJobPosting(postingId){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deleteJobPosting.php', postingId);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deleteJobPosting.php',postingId);
   }
+
+  getMinimumProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMinProficiency.php');
+  }
+
+  getMaximumProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMaxProficiency.php');
+  }
+
+  getAverageProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateAvgProficiency.php');
+  }
+
+
 }
