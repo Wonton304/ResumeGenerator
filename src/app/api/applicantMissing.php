@@ -27,9 +27,9 @@ where H.applicantEmail = :applicantEmailDiv";
 
 
 $stid = oci_parse($conn, $division);
-$result = oci_execute($stid);
 oci_bind_by_name($stid, ':jobidDiv', $jobidDiv);
 oci_bind_by_name($stid, ':applicantEmailDiv', $applicantEmailDiv);
+oci_execute($stid);
 
 
 while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
