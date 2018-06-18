@@ -73,24 +73,24 @@ export class DataServiceService {
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/Insert-Awards.php', award);
   }
 
-  // must include id to select individual !
+
   updateJobPosting(content, id){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/updateJP.php', content);
   }
-// update needed
+
   updateTechnicalRequirement(content, id){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/updateTR.php', content);
   }
-// update needed
+
   createJobPosting(content, id){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insertJP.php', content);
   }
-// update needed
+
   createTechnicalRequirement(content){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insertTR.php', content);
   }
 
   deleteEmployerJobPosting(postingId){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deletePosting.php', postingId);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/delete-JobPosting.php', postingId);
   }
 }
