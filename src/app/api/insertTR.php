@@ -18,9 +18,7 @@ $technologyRole = $obj->TECHNOLOGYROLE;
 $minimumProficiency = $obj->MINIMUMPROFICIENCY;
 $technologyType = $obj->TECHNOLOGYTYPE;
 
-$insert1 = "INSERT INTO RequiredTechnology VALUES(:technologyName, :technologyRole, :minimumProficiency, :technologyType)";
-
-$insert2 = "INSERT INTO Requires VALUES(:id, :technologyName)";
+$insert1 = "INSERT INTO RequiredTechnology VALUES(:technologyName, :technologyRole, :minimumProficiency, :technologyType, :id)";
 
 $stid1 = oci_parse($conn, $insert1);
 oci_bind_by_name($stid1, ':technologyName', $technologyName);
