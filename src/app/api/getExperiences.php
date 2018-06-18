@@ -17,11 +17,11 @@ $applicantEmail = $obj->APPLICANTEMAIL;
 
 
 $get = "SELECT *
-        From Experience E
-        Where E.experienceRole in (SELECT H.experienceRole
+        FROM Experience E
+        WHERE E.experienceRole IN (SELECT H.experienceRole
                                             FROM HaveExperience H
                                             WHERE H.applicantEmail = :applicantEmail)
-             and E.organization in (SELECT H.organization
+             AND E.organization IN (SELECT H.organization
                                     FROM HaveExperience H
                                     WHERE H.applicantEmail = :applicantEmail)";
 

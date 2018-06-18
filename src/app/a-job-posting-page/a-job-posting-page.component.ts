@@ -37,6 +37,7 @@ export class AJobPostingPageComponent implements OnInit {
  }
 
  calcMin(){
+    console.log(this.posting$);
    this.minIsVisible = !this.minIsVisible;
    this.maxIsVisible = false;
    this.avgIsVisible = false;

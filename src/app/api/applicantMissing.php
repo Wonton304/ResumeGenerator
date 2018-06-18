@@ -17,13 +17,13 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 
-$division= "SELECT distinct R.technologyName
-from Requires R
-where R.id = :jobidDiv
-minus
-select distinct H.language
-from HaveProject H
-where H.applicantEmail = :applicantEmailDiv";
+$division= "SELECT DISTINCT R.technologyName
+FROM Requires R
+WHERE R.id = :jobidDiv
+MINUS
+SELECT DISTINCT H.language
+FROM HaveProject H
+WHERE H.applicantEmail = :applicantEmailDiv";
 
 
 $stid = oci_parse($conn, $division);
