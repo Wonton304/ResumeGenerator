@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
+//import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import { Response } from '@angular/http';
 
 @Component({
@@ -8,6 +9,9 @@ import { Response } from '@angular/http';
   styleUrls: ['./main-login-page.component.css']
 })
 export class MainLoginPageComponent implements OnInit {
+
+//private visibleSidebar = new BehaviorSubject<boolean>(false);
+
   hideSidebar:boolean = true;
   applicantIsHidden:boolean = false;
   employerIsHidden:boolean = false;

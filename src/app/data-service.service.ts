@@ -34,10 +34,10 @@ export class DataServiceService {
   }
 
 // up to here
-
+/**
   updateJobDescription(description){
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
-  }
+  } */
 
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
@@ -52,7 +52,7 @@ export class DataServiceService {
   }
 
   generateResume (postID){
-    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php', postID);
   }
 
   createHobby(hobby){
