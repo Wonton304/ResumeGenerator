@@ -13,9 +13,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 
-$delete= "SELECT min(avg(minimumProficiency))
-FROM RequiredTechnology
-Group by techologyType";
+$delete= "SELECT min(avg(complexity)) FROM CodingProject1 Group by category";
 $stid = oci_parse($conn, $delete);
 $result = oci_execute($stid);
 //to remember the entire json string

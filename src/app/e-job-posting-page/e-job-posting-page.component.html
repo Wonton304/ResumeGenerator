@@ -1,5 +1,16 @@
-<u><h1>Employer Job Postings</h1></u><br>
+<h1>Employer Job Postings</h1>
+<b> Calculate: </b><br>
+<button type="button" class="btn btn-secondary" (click) = "calcMin()"> Minimum Project Complexity</button>
+<button type="button" class="btn btn-secondary" (click) = "getEasiest()"> Lowest Average Project Complexity </button>
+<button type="button" class="btn btn-secondary" (click) = "getHardest()"> Highest Average Project Complexity </button>
 <ul>
+  <div>
+    <br>
+  <b class = "display" *ngIf=minIsVisible><u>Minimum Project Complexity</u>: {{min$}} </b>
+  <b class = "display" *ngIf=easiestisVisible><u>Lowest Average Project Complexity</u>: {{easiest$}} </b>
+  <b class = "display" *ngIf=hardestisVisible><u>Highest Average Project Complexity</u>: {{hardest$}} </b>
+  </div>
+  <hr>
     <li *ngFor='let post of posting$'>
         <ul>
             <li> Company: <strong>{{post.COMPANYNAME}}</strong> PostID: <strong>{{ post.ID}}</strong> </li>

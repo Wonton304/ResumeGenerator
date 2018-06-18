@@ -33,9 +33,11 @@
    <!-- this one will show applicant information as well as matching, missing requirements for the job -->
    <ul class = "appHas" *ngFor="let hasReqs of applicantHas$">
      <li> Technology Requirements you Have: <strong>{{hasReqs.TECHNOLOGYNAME}}</strong></li>
+     <hr>
    </ul>
    <ul *ngFor="let missingReqs of applicantMissing$">
      <li> Technology Requirements you are Missing: <strong>{{missingReqs.TECHNOLOGYNAME}}</strong></li>
+     <hr>
    </ul>
    <div class = "vanillaapplicant" *ngIf="resumeGenerated"> <!---->
    <ul *ngFor="let attribute of applicantInfo$">
@@ -97,7 +99,6 @@
      <li>
          <ul>
              <li> Hobby Name: <strong>{{hobby.HOBBYNAME}}</strong></li>
-             <hr>
          </ul>
      </li>
  </ul>

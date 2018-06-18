@@ -122,4 +122,16 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMaxAggregateProficiency.php');
   }
 
+  getMinimumComplexity(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMinComplexity.php');
+  }
+
+  getEasiestComplexity(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMinAggregateComplexity.php');
+  }
+
+  getHardestComplexity(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/nestedMaxAggregateComplexity.php');
+  }
+
 }
