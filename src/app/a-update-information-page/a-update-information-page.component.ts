@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
+import { stringify } from '@angular/core/src/util';
+import { isNumber } from 'util';
 
 @Component({
   selector: 'app-a-update-information-page',
@@ -110,28 +112,50 @@ export class AUpdateInformationPageComponent implements OnInit {
   }
 
   collectCategory(event:any){
+
+  
     this.category = event.target.value;
+    if(this.category.length > 100){
+      alert("Character length exceeds 100");
+      this.category="";
+    }
     console.log(event.target.value);
   }
 
   selectExperienceType(event:any){
     this.experienceType = event.target.value;
+    if(this.experienceType.length > 100){
+      alert("Character length exceeds 100");
+      this.experienceType="";
+    }
     console.log(event.target.value);
   }
 
   collectOrganization(event:any){
     this.organization=event.target.value;
+    if(this.organization.length > 100){
+      alert("Character length exceeds 100");
+      this.organization="";
+    }
     console.log(this.organization);
   }
 
   collectDescription(event:any){
     this.overallDescription= event.target.value;
+    if(this.overallDescription.length > 1000){
+      alert("Character length exceeds 1000");
+      this.overallDescription="";
+    }
     console.log(this.overallDescription);
   }
 
   collectName(event:any){
     console.log(event);
     this.title = event.target.value;
+    if(this.title.length > 100){
+      alert("Character length exceeds 100");
+      this.title="";
+    }
     console.log(this.title);
   }
 
@@ -142,10 +166,19 @@ export class AUpdateInformationPageComponent implements OnInit {
 
   collectLanguage(event:any){
     this.language = event.target.value;
+    if(this.language.length > 100){
+      alert("Character length exceeds 100");
+      this.language="";
+    }
     console.log(this.language);
   }
 
   collectDuration(event:any){
+   /**if(isNumber(event)){
+      this.duration = event.target.value;
+    }else{
+      alert("input not number ")
+    }  */
     this.duration = event.target.value;
     console.log(this.duration);
   }
@@ -156,12 +189,21 @@ export class AUpdateInformationPageComponent implements OnInit {
   }
 
   collectRole(event:any){
+    
     this.role = event.target.value;
+    if(this.role.length > 100){
+      alert("Character length exceeds 100");
+      this.role="";
+    }
     console.log(this.role);
   }
 
   collectApplicantEmail(event:any){
     this.applicantEmail = event.target.value;
+    if(this.applicantEmail.length > 100){
+      alert("Character length exceeds 100");
+      this.applicantEmail="";
+    }
     console.log(this.applicantEmail);
   }
 
@@ -201,7 +243,7 @@ $experienceTypeUpdate = $obj->EXPERIENCETYPE;
 $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
 $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if(this.itemType === 'Experience'){
-     (this.applicantEmail != null && this.duration != "" && this.organization != "" && this.role != ""&& this.experienceType !=
+     (this.applicantEmail != null && this.duration != null && this.organization != "" && this.role != ""&& this.experienceType !=
      ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
       DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,

@@ -26,8 +26,8 @@
 
 
  <div class="form-group2" *ngIf="visibleCategory">
-    <label for="exampleFormControlSelect1">This is a project of the category:</label>
-  <select class="form-control" id="exampleFormControlSelect1" (input)="collectCategory($event)">
+    <label for="exampleFormControlSelect3">This is a project of the category: {{category}}</label>
+  <select class="form-control" id="exampleFormControlSelect3" (input)="collectCategory($event)">
     <option>Personal</option>
     <option>Academic</option>
   </select>
