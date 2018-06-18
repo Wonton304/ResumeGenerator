@@ -117,7 +117,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.category = event.target.value;
     if(this.category.length > 100){
       alert("Character length exceeds 100");
-      this.category="";
+      return;
     }
     console.log(event.target.value);
   }
@@ -126,7 +126,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.experienceType = event.target.value;
     if(this.experienceType.length > 100){
       alert("Character length exceeds 100");
-      this.experienceType="";
+      return;
     }
     console.log(event.target.value);
   }
@@ -135,7 +135,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.organization=event.target.value;
     if(this.organization.length > 100){
       alert("Character length exceeds 100");
-      this.organization="";
+      return;
     }
     console.log(this.organization);
   }
@@ -144,7 +144,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.overallDescription= event.target.value;
     if(this.overallDescription.length > 1000){
       alert("Character length exceeds 1000");
-      this.overallDescription="";
+      return;
     }
     console.log(this.overallDescription);
   }
@@ -154,7 +154,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.title = event.target.value;
     if(this.title.length > 100){
       alert("Character length exceeds 100");
-      this.title="";
+      return;
     }
     console.log(this.title);
   }
@@ -168,7 +168,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.language = event.target.value;
     if(this.language.length > 100){
       alert("Character length exceeds 100");
-      this.language="";
+      return;
     }
     console.log(this.language);
   }
@@ -193,7 +193,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.role = event.target.value;
     if(this.role.length > 100){
       alert("Character length exceeds 100");
-      this.role="";
+      return;
     }
     console.log(this.role);
   }
@@ -273,7 +273,7 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === 'Coding Projects'){
      (this.applicantEmail== null || this.applicantEmail == "" || this.category == "" || this.title == "" ||
-   this.overallDescription == "" || this.language == "" ||this.complexity == "") ?  alert("Please fill in all fields!") : alert("Submitted!");
+   this.overallDescription == "" || this.language == "" ||this.complexity == "" || this.complexity ==null) ?  alert("Please fill in all fields!") : alert("Submitted!");
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,
