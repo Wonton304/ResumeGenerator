@@ -69,7 +69,7 @@
       </div>
 
       <div class="form-group" *ngIf="visibleDateRecieved">
-          <label for="exampleFormControlInput1">Date Recieved</label>
+          <label for="exampleFormControlInput1">Date Received</label>
           <input  class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY"
           (input)= "collectDateRecieved($event)">
         </div>
@@ -80,7 +80,7 @@
         </div>
 
   <div class="form-group" *ngIf="visibleComplexity">
-    <label for="exampleFormControlSelect1">Complexity of Project  Enter a year</label>
+    <label for="exampleFormControlSelect1">Complexity of Project ( Enter a number value ) </label>
     <textarea class="form-control" id="exampleFormControlSelect1" rows="1" placeholder = "4" (input)="collectComplexity($event)"></textarea>
   </div>
   
