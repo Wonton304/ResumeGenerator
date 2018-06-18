@@ -15,6 +15,13 @@ $experienceTypeUpdate = $obj->EXPERIENCETYPE;
 $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
 $applicantEmailInsert = $obj->APPLICANTEMAIL;
 
+// $organizationUpdate = 'Yelp';
+// $experienceRoleUpdate = 'Project Manager';
+// $durationUpdate = '5';
+// $experienceTypeUpdate = 'Work Experience';
+// $experienceDescriptionUpdate = 'asdfasdfasdfas';
+// $applicantEmailInsert = 'Charlotte_8850@alumni.ubc.ca';
+
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
@@ -23,7 +30,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 $insertExperience = "INSERT INTO Experience VALUES(:organizationUpdate,
                           :experienceRoleUpdate, :durationUpdate, :experienceTypeUpdate,
                           :experienceDescriptionUpdate)";
-$insertHaveExperience = "INSERT INTO HaveProject VALUES(:applicantEmailInsert, :organizationUpdate,
+$insertHaveExperience = "INSERT INTO HaveExperience VALUES(:applicantEmailInsert, :organizationUpdate,
                           :experienceRoleUpdate)";
 
 // $select= "SELECT hobbyName from Hobby where Hobby.hobbyName = 'booooo'"; //testing
