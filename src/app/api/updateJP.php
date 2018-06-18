@@ -31,7 +31,14 @@ oci_bind_by_name($stid1, ':positionTitle', $positionTitle);
 oci_bind_by_name($stid1, ':description', $description);
 oci_bind_by_name($stid1, ':id', $id);
 oci_bind_by_name($stid1, ':companyName', $companyName);
-oci_execute($stid1);
+$result = oci_execute($stid1);
+
+if (!$result) {
+    $error = oci_error($stid1);
+}
+
+echo $error;
+
 
 
 // //to remember the entire json string

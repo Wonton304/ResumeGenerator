@@ -28,7 +28,13 @@ oci_bind_by_name($stid1, ':technologyName', $technologyName);
 oci_bind_by_name($stid1, ':technologyRole', $technologyRole);
 oci_bind_by_name($stid1, ':minimumProficiency', $minimumProficiency);
 oci_bind_by_name($stid1, ':technologyType', $technologyType);
-oci_execute($stid1);
+$result = oci_execute($stid1);
+
+if (!$result) {
+    $error = oci_error($stid1);
+}
+
+echo $error;
 
 OCICommit($conn);
 oci_close($conn);
