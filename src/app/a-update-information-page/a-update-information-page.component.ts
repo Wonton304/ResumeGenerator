@@ -244,7 +244,8 @@ $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
 $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if(this.itemType === 'Experience'){
      (this.applicantEmail != null && this.duration != null && this.organization != "" && this.role != ""&& this.experienceType !=
-     ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
+     ""&& this.overallDescription != "") ?
+     ((parseInt(this.duration) < 0 || parseInt(this.duration) > 1000 || isNaN(parseInt(this.duration))) ? alert("Length of involvement must be a number greater than or equal to 0") : alert("Submitted!")) : alert("Please fill in all fields!");
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
       DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,
     APPLICANTEMAIL:this.applicantEmail}))
@@ -273,7 +274,8 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === 'Coding Projects'){
      (this.applicantEmail== null || this.applicantEmail == "" || this.category == "" || this.title == "" ||
-   this.overallDescription == "" || this.language == "" ||this.complexity == "" || this.complexity ==null) ?  alert("Please fill in all fields!") : alert("Submitted!");
+   this.overallDescription == "" || this.language == "" ||this.complexity == "" || this.complexity ==null) ?  alert("Please fill in all fields!") :
+   ((parseInt(this.complexity) < 1 || parseInt(this.complexity) > 5 || isNaN(parseInt(this.complexity))) ? alert("Complexity must be a number between 1 and 5") : alert("Submitted!"));
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,
