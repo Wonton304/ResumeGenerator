@@ -24,6 +24,14 @@ $update1 = "UPDATE JobPostingPosts
             SET field = :field, positionTitle = :positionTitle, description = :description
             WHERE id = :id and companyName = :companyName";
 
+// $update1 = "UPDATE JobPostingPosts
+//             SET field = 'Apple', positionTitle = 'Bobo', description = 'Coconut'
+//             WHERE id = '66666' and companyName = 'Banana'";
+
+$find = "SELECT *
+         FROM JobPostingPosts
+         WHERE id = :id and companyName = :companyName and field = :field and positionTitle = :positionTitle and description = :description";
+
 
 $stid1 = oci_parse($conn, $update1);
 oci_bind_by_name($stid1, ':field', $field);
@@ -32,6 +40,18 @@ oci_bind_by_name($stid1, ':description', $description);
 oci_bind_by_name($stid1, ':id', $id);
 oci_bind_by_name($stid1, ':companyName', $companyName);
 $result = oci_execute($stid1);
+
+
+$stid2 = oci_parse($conn, $find);
+oci_bind_by_name($stid1, ':field', $field);
+oci_bind_by_name($stid1, ':positionTitle', $positionTitle);
+oci_bind_by_name($stid1, ':description', $description);
+oci_bind_by_name($stid1, ':id', $id);
+oci_bind_by_name($stid1, ':companyName', $companyName);
+$result2 = oci_fetch_array($stid2);
+if (!$result2) {
+    echo "Error";
+}
 
 if (!$result) {
     $error = oci_error($stid1);
