@@ -43,7 +43,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   getHobbies(){
       (this.email == "" || this.email == null) ? alert("Please input all fields!") :
-((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Submitted"));
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
     this.serverService.getHobbies(
@@ -56,7 +56,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   getExperiences(){
       ( this.email == "" || this.email == null) ? alert("Please input email!") :
-((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Submitted"));
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeExperiences = !this.includeExperiences;
     console.log("exp: "+this.includeExperiences);
     this.serverService.getExperiences(
@@ -69,7 +69,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   getAwards(){
         ( this.email == "" || this.email == null) ? alert("Please input email!") :
-((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Submitted"));
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeAwards = !this.includeAwards;
     console.log("awards: "+this.includeAwards);
     this.serverService.getAwards(
@@ -83,7 +83,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   getCodingProjects(){
       ( this.email == "" || this.email == null) ? alert("Please input email!") :
-((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Submitted"));
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeCodingProjects = !this.includeCodingProjects;
     console.log("cp: "+this.includeCodingProjects);
     this.serverService.getCodingProjects(
@@ -96,7 +96,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   buildResume(){
       (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
-      ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Submitted"));
+      ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.serverService.getApplicantInfo(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
