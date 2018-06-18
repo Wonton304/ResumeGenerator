@@ -5,14 +5,14 @@
 </div>
 <button type="submit" class="btn btn-primary" (click)="selectApplicant()">Find the applicants</button>
 
+<br>
 <ul>
   <li *ngFor='let applicant of candidates$'>
+    <p> Candidates </p>
       <ul>
-        <p> Candidate Name </p>
-         <li>{{ applicant.APPLICANTNAME }}</li>
-         <li>{{ applicant.LANGUAGE }}</li>
+        <li> Applicant Name: <strong> {{applicant.APPLICANTNAME}} </strong> </li>
+        <li> Matching Language: <strong> {{ applicant.LANGUAGE }}</strong></li>
       </ul>
   </li>
 </ul>
 </body>
-
