@@ -9,19 +9,15 @@ $obj = json_decode($json);
 $json='';
 echo $json;
 
-$id = $obj->ID;
 
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-$get = "SELECT * 
-        FROM RequiredTechnology R
-        WHERE R.technologyName in (SELECT RE.technologyName
-                                   FROM Requires RE
-                                   WHERE RE.id = :id)";
+$get = "SELECT *
+        FROM (JobPostingPosts inner join Requires on JobPostingPosts.id = Requires.id) inner join RequiredTechnology
+        on RequiredTechnology.technologyName = Requires.technologyName";
 
 $stid = oci_parse($conn, $get);
-oci_bind_by_name($stid, ':id', $id);
 oci_execute($stid);
 
 //to remember the entire json string
