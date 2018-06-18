@@ -19,7 +19,7 @@ $join = "SELECT DISTINCT HaveProject.language, HaveProject.projectName
                                             FROM AppliesTo AP
                                             WHERE AP.id = :jobid)
      AND HaveProject.language in (SELECT R.technologyName
-                                  FROM Requires R
+                                  FROM RequiredTechnology R
                                   WHERE R.id = :jobid)";
 
 $stid = oci_parse($conn, $join);

@@ -15,9 +15,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $get = "SELECT *
         FROM (JobPostingPosts
-        INNER JOIN Requires ON JobPostingPosts.id = Requires.id)
-        INNER JOIN RequiredTechnology
-        ON RequiredTechnology.technologyName = Requires.technologyName";
+        INNER JOIN RequiredTechnology on JobPostingPosts.id = RequiredTechnology.id)";
 
 $stid = oci_parse($conn, $get);
 oci_execute($stid);

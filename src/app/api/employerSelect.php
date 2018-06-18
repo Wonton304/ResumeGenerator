@@ -18,7 +18,7 @@ WHERE Applicant2.applicantEmail IN (SELECT AP.applicantEmail
                                     FROM AppliesTo AP
                                     WHERE AP.id = :jobid)
      AND HaveProject.language IN (SELECT R.technologyName
-                                  FROM Requires R
+                                  FROM RequiredTechnology R
                                   WHERE R.id = :jobid)";
 
 $stid = oci_parse($conn, $join);
