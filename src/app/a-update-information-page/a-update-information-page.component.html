@@ -15,20 +15,18 @@
 
 
   <hr>
-  <div class="form-group" *ngIf="visibleExperienceType">
-      <p>You've selected {{experienceType}}</p>
-    <div *ngFor="let type of experienceTypeArray">
-      <input
-      type="radio"
-      name = "ItemType"
-      value="{{type}}"
-      (change)="selectExperienceType($event)">
-    <i>{{type}}</i></div>
-   </div>
- <hr>
-  
+ 
+ <div class="form-group" *ngIf="visibleExperienceType">
+    <label for="exampleFormControlSelect2">You've selected {{experienceType}}</label>
+  <select class="form-control" id="exampleFormControlSelect2" (input)="selectExperienceType($event)">
+    <option>WorkExperience</option>
+    <option>VolunteerExperience</option>
+  </select>
+  </div> 
+
+
  <div class="form-group2" *ngIf="visibleCategory">
-    <label for="exampleFormControlSelect1">You've selected {{experienceType}}</label>
+    <label for="exampleFormControlSelect1">This is a project of category:</label>
   <select class="form-control" id="exampleFormControlSelect1" (input)="collectCategory($event)">
     <option>Personal</option>
     <option>Academic</option>
