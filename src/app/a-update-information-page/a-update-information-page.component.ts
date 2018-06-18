@@ -20,7 +20,7 @@ export class AUpdateInformationPageComponent implements OnInit {
   itemType:string="";
   organization:string="";
   role:string="";
-  complexity:Number= 0;
+  complexity:string= "";
   language:string="";
   category:string="";
 
@@ -113,11 +113,11 @@ export class AUpdateInformationPageComponent implements OnInit {
 
   collectCategory(event:any){
 
-  
+
     this.category = event.target.value;
     if(this.category.length > 100){
       alert("Character length exceeds 100");
-      this.category="";
+      return;
     }
     console.log(event.target.value);
   }
@@ -126,7 +126,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.experienceType = event.target.value;
     if(this.experienceType.length > 100){
       alert("Character length exceeds 100");
-      this.experienceType="";
+      return;
     }
     console.log(event.target.value);
   }
@@ -135,7 +135,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.organization=event.target.value;
     if(this.organization.length > 100){
       alert("Character length exceeds 100");
-      this.organization="";
+      return;
     }
     console.log(this.organization);
   }
@@ -144,7 +144,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.overallDescription= event.target.value;
     if(this.overallDescription.length > 1000){
       alert("Character length exceeds 1000");
-      this.overallDescription="";
+      return;
     }
     console.log(this.overallDescription);
   }
@@ -154,7 +154,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.title = event.target.value;
     if(this.title.length > 100){
       alert("Character length exceeds 100");
-      this.title="";
+      return;
     }
     console.log(this.title);
   }
@@ -168,7 +168,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.language = event.target.value;
     if(this.language.length > 100){
       alert("Character length exceeds 100");
-      this.language="";
+      return;
     }
     console.log(this.language);
   }
@@ -189,11 +189,11 @@ export class AUpdateInformationPageComponent implements OnInit {
   }
 
   collectRole(event:any){
-    
+
     this.role = event.target.value;
     if(this.role.length > 100){
       alert("Character length exceeds 100");
-      this.role="";
+      return;
     }
     console.log(this.role);
   }
@@ -202,7 +202,7 @@ export class AUpdateInformationPageComponent implements OnInit {
     this.applicantEmail = event.target.value;
     if(this.applicantEmail.length > 100){
       alert("Character length exceeds 100");
-      this.applicantEmail="";
+      return;
     }
     console.log(this.applicantEmail);
   }
@@ -244,7 +244,8 @@ $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
 $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if(this.itemType === 'Experience'){
      (this.applicantEmail != null && this.duration != null && this.organization != "" && this.role != ""&& this.experienceType !=
-     ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
+     ""&& this.overallDescription != "") ?
+     ((parseInt(this.duration) < 0 || parseInt(this.duration) > 1000 || isNaN(parseInt(this.duration))) ? alert("Length of involvement must be a number greater than or equal to 0") : alert("Submitted!")) : alert("Please fill in all fields!");
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
       DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,
     APPLICANTEMAIL:this.applicantEmail}))
@@ -271,9 +272,10 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
   $complexityUpdate = $obj->COMPLEXITY;
   $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
-  if(this.itemType === 'CodingProjects'){
-     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language
-      != ""&& this.complexity != null) ? alert("Submitted!") : alert("Please fill in all fields!");
+  if(this.itemType === 'Coding Projects'){
+     (this.applicantEmail== null || this.applicantEmail == "" || this.category == "" || this.title == "" ||
+   this.overallDescription == "" || this.language == "" ||this.complexity == "" || this.complexity ==null) ?  alert("Please fill in all fields!") :
+   ((parseInt(this.complexity) < 1 || parseInt(this.complexity) > 5 || isNaN(parseInt(this.complexity))) ? alert("Complexity must be a number between 1 and 5") : alert("Submitted!"));
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,

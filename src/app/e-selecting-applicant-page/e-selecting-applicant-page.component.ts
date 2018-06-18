@@ -20,7 +20,12 @@ export class ESelectingApplicantPageComponent implements OnInit {
 
 
   collectId (event:any){
+    
     this.jobPostingId=event.target.value;
+    if ( this.jobPostingId.length>100){
+      alert("character exceeding 100 char limit");
+      return;
+    }
   }
 
    selectApplicant (){

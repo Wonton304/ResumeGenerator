@@ -74,42 +74,71 @@ collectCompanyName(event:any){
 
     collectJobID(event:any){
       this.jobId = event.target.value;
+      if(this.jobId.length > 100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
       console.log(this.jobId);
     }
 
     collectJobDescription(event:any){
       this.jobDescription = event.target.value;
+      if(this.jobDescription.length >1000){
+        alert("character exceeding 1000 char limit");
+        return;
+      }
       console.log(this.jobDescription);
     }
 
     collectJobField(event:any){
       this.field = event.target.value;
+      if(this.field.length> 100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
       console.log(this.field);
     }
 
     collectJobTitle(event:any){
       this.positionTitle = event.target.value;
+      if(this.positionTitle.length >100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
       console.log(this.positionTitle);
     }
 
 //Collectors for Technologies
     collectTechName(event:any){
       this.technologyName = event.target.value;
+      if(this.technologyName.length>100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
       console.log(this.technologyName);
     }
 
     collectTechRole(event:any){
       this.technologyRole = event.target.value;
+      if (this.technologyRole.length >100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
       console.log(this.technologyRole);
     }
 
     collectTechProficiency(event:any){
       this.proficiencyRequirements = event.target.value;
+
       console.log(this.proficiencyRequirements);
     }
 
     collectTechnologyType(event:any){
       this.technologyType = event.target.value;
+      if(this.technologyType.length>100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
       console.log(this.technologyType);
     }
 
@@ -126,6 +155,9 @@ collectCompanyName(event:any){
           (error) => console.log(error)
         );
         if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100){ alert("Input too long!");}
+        else if(this.proficiencyRequirements < 0 || this.proficiencyRequirements > 5|| isNaN(this.proficiencyRequirements)){
+          alert("Proficiency must be a number between 0 and 5");
+        }
         else{alert("submitted");}
         }else{
           alert("Please fill in everything!");
@@ -170,6 +202,9 @@ $technologyType = $obj->TECHNOLOGYTYPE;*/
       (error) => console.log(error)
     );
     if(this.jobId.length > 100 || this.technologyName.length > 100 || this.technologyRole.length > 100){ alert("Input too long!");}
+    else if(this.proficiencyRequirements < 0 || this.proficiencyRequirements > 5|| isNaN(this.proficiencyRequirements)){
+      alert("Proficiency must be a number between 0 and 5");
+    }
     else{alert("submitted");}
   }else{
       alert("Please fill in everything!");

@@ -1,4 +1,5 @@
 <h1> Applicant Information </h1>
+<hr>
 <body>
   <div class="container-fluid">
   <form>
@@ -69,7 +70,7 @@
       </div>
 
       <div class="form-group" *ngIf="visibleDateRecieved">
-          <label for="exampleFormControlInput1">Date Recieved</label>
+          <label for="exampleFormControlInput1">Date Received</label>
           <input  class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY"
           (input)= "collectDateRecieved($event)">
         </div>
@@ -80,16 +81,9 @@
         </div>
 
   <div class="form-group" *ngIf="visibleComplexity">
-    <label for="exampleFormControlSelect1">Complexity of Project</label>
-  <select class="form-control" id="exampleFormControlSelect1" (input)="collectComplexity($event)">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
+    <label for="exampleFormControlSelect1">Complexity of Project (Between 1-5) </label>
+    <textarea class="form-control" id="exampleFormControlSelect1" rows="1" placeholder = "4" (input)="collectComplexity($event)"></textarea>
   </div>
-
 
 
   </form>
