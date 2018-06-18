@@ -95,76 +95,136 @@ login(){
   //Collectors for Company Information
       collectCompanyAddress(event:any){
         this.eAddress = event.target.value;
+        if(this.eAddress.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.eAddress);
       }
 
       collectCompanyCity(event:any){
         this.eCity = event.target.value;
+        if(this.eCity.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.eCity);
       }
 
       collectCompanyProvince(event:any){
         this.eProvince = event.target.value;
+        if(this.eProvince.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.eProvince);
       }
 
       collectCompanyPostalCode(event:any){
         this.ePostalCode = event.target.value;
+        if(this.ePostalCode.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.ePostalCode);
       }
 
       collectCompanyName(event:any){
         this.companyName = event.target.value;
+        if(this.companyName.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.companyName);
       }
 
       collectCompanyDescription(event:any){
         this.companyDescription = event.target.value;
+        if(this.companyDescription.length>1000){
+          alert("character exceeding 1000 char limit");
+          return;
+        }
         console.log(this.companyDescription);
       }
 
       collectCompanyDomain(event:any){
         this.companyDomain = event.target.value;
+        if(this.companyDomain.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.companyDomain);
       }
 
       collectApplicantName(event:any){
         this.applicantName = event.target.value;
+        if(this.applicantName.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.applicantName);
       }
 
       collectApplicantEmail(event:any){
         this.applicantEmail = event.target.value;
+        if(this.applicantEmail.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.applicantEmail);
       }
 
       collectApplicantAddress(event:any){
         this.applicantAddress = event.target.value;
+        if(this.applicantEmail.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.applicantAddress);
       }
 
       collectApplicantCity(event:any){
         this.applicantCity = event.target.value;
+        if(this.applicantCity.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.applicantCity);
       }
 
       collectApplicantProvince(event:any){
         this.applicantProvince = event.target.value;
+        if(this.applicantProvince.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.applicantProvince);
       }
 
       collectGithubAccount(event:any){
         this.githubAccount = event.target.value;
+        if(this.githubAccount.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.githubAccount);
       }
 
       collectPersonalDescription(event:any){
         this.personalDescription = event.target.value;
+        if(this.personalDescription.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.personalDescription);
       }
 
       collectPhoneNumber(event:any){
         this.phoneNumber = event.target.value;
+        if(this.phoneNumber.length>100){
+          alert("character exceeding 100 char limit");
+          return;
+        }
         console.log(this.phoneNumber);
       }
 
