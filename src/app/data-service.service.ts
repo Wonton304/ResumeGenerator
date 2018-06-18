@@ -11,6 +11,10 @@ export class DataServiceService {
     return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/getTechReqs.php');
   }
 
+  applyApplicant(jobAndEmail){
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/InsertAppliesTo.php', jobAndEmail);
+  }
+
   getApplicantInfo(resumeInfo){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/getAllAppAttributes.php', resumeInfo);
   }

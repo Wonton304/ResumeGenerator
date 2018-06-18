@@ -14,13 +14,13 @@ $jobid = $obj->JOBID;
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 $join = "SELECT DISTINCT Applicant2.applicantName, HaveProject.language
-from Applicant2 inner join HaveProject on Applicant2.applicantEmail = HaveProject.applicantEmail
-where Applicant2.applicantEmail in (select AP.applicantEmail
-                                    from AppliesTo AP
-                                    where AP.id = :jobid)
-     and HaveProject.language in (select R.technologyName
-                                  from Requires R
-                                  where R.id = :jobid)";
+FROM Applicant2 INNER JOIN HaveProject ON Applicant2.applicantEmail = HaveProject.applicantEmail
+WHERE Applicant2.applicantEmail IN (SELECT AP.applicantEmail
+                                    FROM AppliesTo AP
+                                    WHERE AP.id = :jobid)
+     AND HaveProject.language IN (SELECT R.technologyName
+                                  FROM Requires R
+                                  WHERE R.id = :jobid)";
 
 $stid = oci_parse($conn, $join);
 oci_bind_by_name($stid, ':jobid', $jobid);

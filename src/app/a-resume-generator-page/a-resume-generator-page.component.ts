@@ -31,18 +31,27 @@ export class AResumeGeneratorPageComponent implements OnInit {
   ngOnInit() {
   }
 
+
   collectId (event:any){
     this.jobPostingId=event.target.value;
+    if(this.jobPostingId.length > 100){
+      alert("character exceeds 100");
+      return;
+    }
     console.log("id: "+this.jobPostingId);
   }
 
   collectEmail(event:any){
     this.email=event.target.value;
+    if(this.email.length>100){
+      alert("character exceeds 100");
+      return;
+    }
     console.log("email: "+this.email);
   }
 
   getHobbies(){
-      (this.email == "" || this.email == null) ? alert("Please input all fields!") :
+      (this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeHobbies = !this.includeHobbies;
     console.log("hobbie: "+this.includeHobbies);
@@ -55,33 +64,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getExperiences(){
-      ( this.email == "" || this.email == null) ? alert("Please input email!") :
-((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
-    this.includeExperiences = !this.includeExperiences;
-    console.log("exp: "+this.includeExperiences);
-    this.serverService.getExperiences(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
-      .subscribe(
-        serverService => this.generatedExperiences$ = serverService,
-        (response) => console.log(response),
-      );
-  }
-
-  getAwards(){
-        ( this.email == "" || this.email == null) ? alert("Please input email!") :
-((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
-    this.includeAwards = !this.includeAwards;
-    console.log("awards: "+this.includeAwards);
-    this.serverService.getAwards(
-      JSON.stringify({APPLICANTEMAIL:this.email}))
-      .subscribe(
-         serverService => this.generatedAwards$ = serverService,
-         (response) => console.log(response),
-      );
-      console.log(this.generatedAwards$);
-  }
-
-  getCodingProjects(){
       ( this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeCodingProjects = !this.includeCodingProjects;
@@ -119,6 +101,18 @@ export class AResumeGeneratorPageComponent implements OnInit {
       );
       console.log("applicant missing: " +this.applicantMissing$);
     this.resumeGenerated=true;
+  }
+
+  apply(){
+    (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
+    ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+    this.serverService.applyApplicant(
+      JSON.stringify({APPLICANTEMAIL:this.email, JOBID:this.jobPostingId}))
+      .subscribe(
+        (response) => console.log(response),
+      );
+      console.log("applied");
+      alert("You Have Applied!");
   }
 
   // calls script
