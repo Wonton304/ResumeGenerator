@@ -18,7 +18,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 $division= "SELECT DISTINCT R.technologyName
-FROM Requires R
+FROM RequiredTechnology R
 WHERE R.id = :jobidDiv
 MINUS
 SELECT DISTINCT H.language
