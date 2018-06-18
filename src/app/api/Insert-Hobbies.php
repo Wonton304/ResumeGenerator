@@ -12,7 +12,7 @@ echo $json;
   // $applicantEmail = $obj->APPLICANTEMAIL;
 
   $hobbyNameUpdate =$obj->HOBBYNAME;
-  $applicantEmail = 'meowow@outlook.com';
+  $applicantEmail = $obj->APPLICANTEMAIL;
 
   // $hobbyNameUpdate ='booooo'; //testing
 // Create connection to Oracle
@@ -23,7 +23,7 @@ $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 $insert1 = "INSERT INTO Hobby VALUES('$hobbyNameUpdate')";
 $insert2 = "INSERT INTO HaveHobby VALUES('$applicantEmail', '$hobbyNameUpdate')";
 
-$select= "SELECT hobbyName from Hobby where Hobby.hobbyName = 'meowow'"; //testing
+// $select= "SELECT hobbyName from Hobby where Hobby.hobbyName = 'meowow'"; //testing
 
 $stid1 = oci_parse($conn, $insert1);
 // oci_bind_by_name($stid1, ':hobbyNameUpdate', $hobbyNameUpdate);

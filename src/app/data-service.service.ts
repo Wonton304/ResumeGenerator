@@ -34,10 +34,10 @@ export class DataServiceService {
   }
 
 // up to here
-
+/**
   updateJobDescription(description){
     return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/test.php', description);
-  }
+  } */
 
   connectApplicants(postId){
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/applicantSelecting.php', postId);
@@ -52,7 +52,7 @@ export class DataServiceService {
   }
 
   generateResume (postID){
-    //return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/.php', postID);
+    return this.http.post('http://www.ugrad.cs.ubc.ca/~s3z0b/resumeGenerator.php', postID);
   }
 
   createHobby(hobby){
@@ -73,24 +73,38 @@ export class DataServiceService {
     return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/Insert-Awards.php', award);
   }
 
-  // must include id to select individual !
+
   updateJobPosting(content, id){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/updateJP.php', content);
   }
-// update needed
+
   updateTechnicalRequirement(content, id){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/updateTR.php', content);
   }
-// update needed
+
   createJobPosting(content, id){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insertJP.php', content);
   }
-// update needed
+
   createTechnicalRequirement(content){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/codingProjectInfo.php', content);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/insertTR.php', content);
   }
 
   deleteEmployerJobPosting(postingId){
-    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deletePosting.php', postingId);
+    return this.httpClient.post('http://www.ugrad.cs.ubc.ca/~s3z0b/deleteJobPosting.php',postingId);
   }
+
+  getMinimumProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMinProficiency.php');
+  }
+
+  getMaximumProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateMaxProficiency.php');
+  }
+
+  getAverageProficiency(){
+    return this.httpClient.get('http://www.ugrad.cs.ubc.ca/~s3z0b/aggregateAvgProficiency.php');
+  }
+
+
 }

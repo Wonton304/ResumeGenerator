@@ -6,7 +6,7 @@
             <li> Field: <strong> {{ post.FIELD}}</strong>      Position:<strong> {{ post.POSITIONTITLE }}</strong> </li>
             <li> {{ post.DESCRIPTION }}</li>
         </ul>
-        <button (click)="delete()"> Delete Posting </button>
+        <button (click)="delete(post.ID)"> Delete Posting </button>
         <hr>
     </li>
 </ul>

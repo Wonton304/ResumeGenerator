@@ -1,4 +1,17 @@
-<p>Job Postings</p>
+<h1>Job Postings</h1>
+<b> Calculate: </b><br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" (click) = "calcMin()"> Minimum Proficiency Requirements</button>
+  <button type="button" class="btn btn-secondary" (click) = "calcMax()"> Maximum Proficiency Requirements</button>
+  <button type="button" class="btn btn-secondary" (click) = "calcAvg()"> Average Proficiency Requirements</button>
+</div>
+<div>
+  <br>
+<b class = "display" *ngIf=maxIsVisible><u>Maximum Proficiency Required</u>: {{max$}} </b>
+<b class = "display" *ngIf=minIsVisible><u>Minimum Proficiency Required</u>: {{min$}} </b>
+<b class = "display" *ngIf=avgIsVisible><u>Average Proficiency Required</u>: {{avg$}} </b>
+</div>
+<hr>
 <ul>
     <li *ngFor='let post of posting$'>
         <ul>

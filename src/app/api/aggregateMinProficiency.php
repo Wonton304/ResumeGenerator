@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Request-Method: *");
+ header("Access-Control-Request-Method: *");
  header("Access-Control-Request-Headers: *");
  header("Access-Control-Allow-Origin: *");
 

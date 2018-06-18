@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
+//import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import { Response } from '@angular/http';
 
 @Component({
@@ -8,6 +9,9 @@ import { Response } from '@angular/http';
   styleUrls: ['./main-login-page.component.css']
 })
 export class MainLoginPageComponent implements OnInit {
+
+//private visibleSidebar = new BehaviorSubject<boolean>(false);
+
   hideSidebar:boolean = true;
   applicantIsHidden:boolean = false;
   employerIsHidden:boolean = false;
@@ -190,6 +194,8 @@ doesntHasAccount(){
 }
 
 submitCompanyInfo(){
+  (this.companyName != null && this.companyName != "" && this.eAddress != "" && this.eCity != "" && this.eProvince != "" && this.ePostalCode != ""
+   && this.companyName != "" && this.companyDescription != "" && this.companyDomain != "") ? alert("Submitted!") : alert("Please fill in all fields!");
   this.serverService.insertNewCompany(
     JSON.stringify({ADDRESS:this.eAddress, CITY:this.eCity, PROVINCE: this.eProvince, POSTALCODE: this.ePostalCode, COMPANYNAME: this.companyName,
     COMPANYDESCRIPTION: this.companyDescription, COMPANYDOMAIN: this.companyDomain}))
@@ -200,6 +206,8 @@ submitCompanyInfo(){
 }
 
 submitApplicantInfo(){
+  (this.applicantEmail != null && this.applicantName != "" && this.applicantEmail != "" && this.applicantAddress != "" && this.applicantCity != ""
+   && this.applicantProvince != "" && this.githubAccount != "" && this.personalDescription != ""&& this.phoneNumber != "") ? alert("Submitted!") : alert("Please fill in all fields!");
   this.serverService.insertNewApplicant(
     JSON.stringify({APPLICANTNAME:this.applicantName, APPLICANTEMAIL:this.applicantEmail,
       APPLICANTADDRESS: this.applicantAddress, APPLICANTCITY: this.applicantCity, APPLICANTPROVINCE: this.applicantProvince,

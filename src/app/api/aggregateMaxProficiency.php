@@ -8,13 +8,14 @@ $json = $HTTP_RAW_POST_DATA;
 $obj = json_decode($json);
 $json='';
 echo $json;
+
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 
 
-$maxProf= "SELECT min(avg(minimumProficiency)) FROM RequiredTechnology Group by technologyType";
-$stid = oci_parse($conn, $maxProf);
+$proficiency= 'SELECT max(minimumProficiency) FROM RequiredTechnology';
+$stid = oci_parse($conn, $proficiency);
 $result = oci_execute($stid);
 //to remember the entire json string
 $json = array(); //hailin

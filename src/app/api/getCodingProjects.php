@@ -1,13 +1,13 @@
 <?php
-
 header("Access-Control-Request-Method: *");
 header("Access-Control-Request-Headers: *");
 header("Access-Control-Allow-Origin: *");
 
 $json = $HTTP_RAW_POST_DATA;
-echo $json;
-$obj = json_decode($json);
 
+$obj = json_decode($json);
+$json='';
+echo $json;
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
@@ -17,7 +17,7 @@ $applicantEmail = $obj->APPLICANTEMAIL;
 
 $get = "SELECT *
         From CodingProject1 CP
-        Where CP.language in (SELECT H.language 
+        Where CP.language in (SELECT H.language
                               FROM HaveProject H
                               WHERE H.applicantEmail = :applicantEmail)
               and CP.projectName in (SELECT H.projectName
