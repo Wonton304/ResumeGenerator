@@ -202,7 +202,7 @@ $experienceTypeUpdate = $obj->EXPERIENCETYPE;
 $experienceDescriptionUpdate = $obj->EXPERIENCEDESCRIPTION;
 $applicantEmailInsert = $obj->APPLICANTEMAIL; */
    if(this.itemType === 'Experience'){
-    
+     (this.applicantEmail != null && this.duration != "" && this.organization != "" && this.role != ""&& this.experienceType != ""&& this.overallDescription != "") ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createExperienceInfo(JSON.stringify({ORGANIZATION:this.organization, EXPERIENCEROLE:this.role,
       DURATION:this.duration, EXPERIENCETYPE:this.experienceType, EXPERIENCEDESCRIPTION:this.overallDescription,
     APPLICANTEMAIL:this.applicantEmail}))
@@ -231,7 +231,8 @@ $applicantEmailInsert = $obj->APPLICANTEMAIL; */
 
   if(this.itemType === 'CodingProjects'){
   
-    
+     (this.applicantEmail != null && this.category != "" && this.overallDescription != "" && this.language
+      != ""&& this.complexity != null) ? alert("Submitted!") : alert("Please fill in all fields!");
       this.serverService.createProjectInfo(JSON.stringify({
         PROJECTNAME:this.title, CATEGORY:this.category, PROJECTDESCRIPTION:this.overallDescription,
         LANGUAGE:this.language,COMPLEXITY:this.complexity,
