@@ -48,7 +48,9 @@ oci_bind_by_name($stid1, ':positionTitle', $positionTitle);
 oci_bind_by_name($stid1, ':description', $description);
 oci_bind_by_name($stid1, ':id', $id);
 oci_bind_by_name($stid1, ':companyName', $companyName);
+oci_execute($stid2);
 $result2 = oci_fetch_array($stid2);
+
 if (!$result2) {
     echo "Error";
 }
