@@ -153,14 +153,13 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
   apply(){
     (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
-    ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+    ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : alert("Application Analyzed!"));
     this.serverService.applyApplicant(
       JSON.stringify({APPLICANTEMAIL:this.email, JOBID:this.jobPostingId}))
       .subscribe(
         (response) => console.log(response),
       );
       console.log("applied");
-      alert("Application Analyzed!");
   }
 
 

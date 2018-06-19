@@ -1,5 +1,5 @@
 
-<h1>Find Applicants</h1>
+<h1>Find Candidates</h1>
 <hr>
 <body><label>Input the Job ID here to find all suitable applicants that have applied for the job:</label>
 <div class="input-group">
@@ -11,7 +11,7 @@
 <br>
 <ul>
   <li *ngFor='let applicant of candidates$'>
-    <p> Candidates </p>
+    <p> Candidate </p>
       <ul>
         <li> Applicant Name: <strong> {{applicant.APPLICANTNAME}} </strong> </li>
         <li> Matching Language: <strong> {{ applicant.LANGUAGE }}</strong></li>

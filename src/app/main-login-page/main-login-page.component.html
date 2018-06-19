@@ -3,7 +3,7 @@
         <h1> Please select user category and create account:</h1>
         <button class="applicantButton" (click)="revealHideApplicant()" >Applicant</button>
         <button class="employerButton" (click)="revealHideEmployer()" >Employer</button>
-      
+
 <hr>
 <div class="form-group" *ngIf="firstTimeEmployer">
   <br>
@@ -45,6 +45,7 @@
     </div>
     <button type="button" title="Submit company info to database" class="btn btn-primary btn-lg btn-block" *ngIf="firstTimeEmployer"
     (click)="submitCompanyInfo()">Submit Form</button>
+    <br><b> Note: Your information will not be added if your company already exists in the database!</b>
 </div>
 
 <div class="form-group" *ngIf="firstTimeApplicant">
@@ -86,6 +87,7 @@
     </div>
     <button type="button" title="Submit applicant info to database" class="btn btn-primary btn-lg btn-block" *ngIf="firstTimeApplicant"
     (click)="submitApplicantInfo()">Submit Form</button>
+    <br><b> Note: Your information will not be added if your email already exists in the database!</b>
 </div>
 
 
