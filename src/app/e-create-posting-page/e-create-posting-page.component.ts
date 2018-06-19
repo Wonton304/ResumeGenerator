@@ -67,10 +67,14 @@ export class ECreatePostingPageComponent implements OnInit {
   }
 
 //Collectors for Job Posting
-collectCompanyName(event:any){
-  this.companyName = event.target.value;
-  console.log(this.companyName);
-}
+    collectCompanyName(event:any){
+      this.companyName = event.target.value;
+      if(this.companyName.length >100){
+        alert("character exceeding 100 char limit");
+        return;
+      }
+      console.log(this.companyName);
+    }
 
     collectJobID(event:any){
       this.jobId = event.target.value;
@@ -129,7 +133,10 @@ collectCompanyName(event:any){
 
     collectTechProficiency(event:any){
       this.proficiencyRequirements = event.target.value;
-
+      if (this.technologyRole.length >5){
+        alert("Proficiency must be a number between 0 and 5");
+        return;
+      }
       console.log(this.proficiencyRequirements);
     }
 

@@ -24,7 +24,6 @@ export class AUpdateInformationPageComponent implements OnInit {
   language:string="";
   category:string="";
 
-
   applicantEmail:string="";
 
   visibleEmail:boolean = false;
@@ -161,6 +160,10 @@ export class AUpdateInformationPageComponent implements OnInit {
 
   collectComplexity(event:any){
     this.complexity = event.target.value;
+    if (this.complexity.length >5){
+      alert("Comeplexity must be a number between 1 and 5");
+      return;
+    }
     console.log(this.complexity);
   }
 
@@ -180,11 +183,19 @@ export class AUpdateInformationPageComponent implements OnInit {
       alert("input not number ")
     }  */
     this.duration = event.target.value;
+    if (this.duration.length >6){
+      alert("Are you even human?");
+      return;
+    }
     console.log(this.duration);
   }
 
   collectDateRecieved(event:any){
     this.dateRecieved = event.target.value;
+    if(this.dateRecieved.length > 20){
+      alert("Follow the date format please!");
+      return;
+    }
     console.log(this.dateRecieved);
   }
 

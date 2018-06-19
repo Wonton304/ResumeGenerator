@@ -58,6 +58,8 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getAwards(){
+    (this.email == "" || this.email == null) ? alert("Please input email!") :
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeAwards = !this.includeAwards;
     console.log("awards: "+this.includeAwards);
     this.serverService.getAwards(
@@ -70,6 +72,8 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
   getCodingProjects(){
+    (this.email == "" || this.email == null) ? alert("Please input email!") :
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.includeCodingProjects = !this.includeCodingProjects;
     console.log("cp: "+this.includeCodingProjects);
     this.serverService.getCodingProjects(
@@ -162,6 +166,10 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
 collectAttribute(event:any){
   this.attribute=event.target.value;
+  if(this.dateRecieved.length > 20){
+    alert("Please follow the input guidelines above!");
+    return;
+  }
   console.log("attribute: "+this.attribute);
 }
 
@@ -225,4 +233,4 @@ getAttributes(){
         console.log("thisisresult:" + this.generatedResume$);
   }
 */
-}
+// }
