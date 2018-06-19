@@ -96,12 +96,12 @@ export class AResumeGeneratorPageComponent implements OnInit {
   getExperiences(){
       ( this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
-    this.includeCodingProjects = !this.includeCodingProjects;
-    console.log("cp: "+this.includeCodingProjects);
-    this.serverService.getCodingProjects(
+    this.includeExperiences = !this.includeExperiences;
+    console.log("cp: "+this.includeExperiences);
+    this.serverService.getExperiences(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
-        serverService => this.generatedCodingProjects$ = serverService,
+        serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
       );
   }
