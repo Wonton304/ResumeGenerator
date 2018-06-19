@@ -166,7 +166,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
 
 collectAttribute(event:any){
   this.attribute=event.target.value;
-  if(this.dateRecieved.length > 20){
+  if(this.attribute.length > 20){
     alert("Please follow the input guidelines above!");
     return;
   }
