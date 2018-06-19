@@ -22,6 +22,46 @@
     <br>
  <button type="submit" class="btn btn-primary" (click)="buildResume()">Build My Resume</button>
  <button type="button" class="btn btn-danger" (click)="apply()">Apply</button>
+ <br>
+ <b> Note: your application will only be submitted if <strong>both the job id and your email</strong> exist in the database! You may only apply to a job <strong> 1 time! </strong></b>
+
+ <hr>
+ <div>
+<b> Select an attribute <strong>(role, name, minimum proficiency, type)</strong> of a required technology of this job posting to view: </b><br>
+<b> Note: currently buggy! If nothing happens, please re-input the same thing again, and it should work! </b>
+</div>
+<div>
+<input (input)="collectAttribute($event)">
+<button type="button" class="btn btn-info" (click) = "getAttributes()">View Information</button>
+</div>
+<div>
+<ul>
+    <li *ngFor='let role of roles$'>
+        <ul>
+            <li> Technology Role: <strong>{{role.TECHNOLOGYROLE}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+    <li *ngFor='let name of names$'>
+        <ul>
+            <li> Technology Name: <strong>{{name.TECHNOLOGYNAME}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+    <li *ngFor='let prof of proficiencies$'>
+        <ul>
+            <li> Minimum Proficiency: <strong>{{prof.MINIMUMPROFICIENCY}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+    <li *ngFor='let type of types$'>
+        <ul>
+            <li> Technology Type: <strong>{{type.TECHNOLOGYTYPE}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+</ul>
+</div>
 <br>
  <div class="btn-group" role="group" aria-label="Basic example">
    <button type="button" class="btn btn-secondary" (click) = "getHobbies()">Include Your Hobbies</button>

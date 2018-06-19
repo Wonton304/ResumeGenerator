@@ -19,6 +19,13 @@ export class AResumeGeneratorPageComponent implements OnInit {
   generatedCodingProjects$:Object;
   email:string="";
 
+  attribute:string="";
+  roles$:Object;
+  names$:Object;
+  proficiencies$:Object;
+  types$:Object;
+  returnAtts$:Object;
+
   resumeGenerated:boolean=false;
 
   includeHobbies:boolean=false;
@@ -50,6 +57,33 @@ export class AResumeGeneratorPageComponent implements OnInit {
     console.log("email: "+this.email);
   }
 
+  getAwards(){
+    (this.email == "" || this.email == null) ? alert("Please input email!") :
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+    this.includeAwards = !this.includeAwards;
+    console.log("awards: "+this.includeAwards);
+    this.serverService.getAwards(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+         serverService => this.generatedAwards$ = serverService,
+         (response) => console.log(response),
+      );
+      console.log(this.generatedAwards$);
+  }
+
+  getCodingProjects(){
+    (this.email == "" || this.email == null) ? alert("Please input email!") :
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+    this.includeCodingProjects = !this.includeCodingProjects;
+    console.log("cp: "+this.includeCodingProjects);
+    this.serverService.getCodingProjects(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+        serverService => this.generatedCodingProjects$ = serverService,
+        (response) => console.log(response),
+      );
+  }
+
   getHobbies(){
       (this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
@@ -66,15 +100,29 @@ export class AResumeGeneratorPageComponent implements OnInit {
   getExperiences(){
       ( this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
-    this.includeCodingProjects = !this.includeCodingProjects;
-    console.log("cp: "+this.includeCodingProjects);
-    this.serverService.getCodingProjects(
+    this.includeExperiences = !this.includeExperiences;
+    console.log("cp: "+this.includeExperiences);
+    this.serverService.getExperiences(
       JSON.stringify({APPLICANTEMAIL:this.email}))
       .subscribe(
-        serverService => this.generatedCodingProjects$ = serverService,
+        serverService => this.generatedExperiences$ = serverService,
         (response) => console.log(response),
       );
   }
+
+  getCodingProject(){
+    ( this.email == "" || this.email == null) ? alert("Please input email!") :
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+  this.includeCodingProjects = !this.includeCodingProjects;
+  console.log("cp: "+this.includeCodingProjects);
+  this.serverService.getCodingProjects(
+    JSON.stringify({APPLICANTEMAIL:this.email}))
+    .subscribe(
+      serverService => this.generatedCodingProjects$ = serverService,
+      (response) => console.log(response),
+    );
+}
+
 
   buildResume(){
       (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
@@ -112,9 +160,67 @@ export class AResumeGeneratorPageComponent implements OnInit {
         (response) => console.log(response),
       );
       console.log("applied");
-      alert("You Have Applied!");
+      alert("Application Analyzed!");
   }
 
+
+collectAttribute(event:any){
+  this.attribute=event.target.value;
+  if(this.attribute.length > 20){
+    alert("Please follow the input guidelines above!");
+    return;
+  }
+  console.log("attribute: "+this.attribute);
+}
+
+getAttributes(){
+  if(this.attribute == "" || this.jobPostingId == ""){
+    alert("Please fill in all fields!");
+    return;
+  }
+  else if(this.attribute === 'role' || this.attribute === 'name' || this.attribute === 'minimum proficiency'
+|| this.attribute === 'type'){
+  alert("Submitted");
+  }
+  else{
+    alert("Bad input, please match the input guidelines above!");
+    return;
+  }
+  if(this.attribute === 'role'){
+    this.attribute = 'technologyRole';
+  }
+  if(this.attribute === 'name'){
+    this.attribute = 'technologyName';
+  }
+  if(this.attribute === 'minimum proficiency'){
+    this.attribute = 'minimumProficiency';
+  }
+  if(this.attribute === 'type'){
+    this.attribute = 'technologyType';
+  }
+  this.serverService.findJobAttributes(
+    JSON.stringify({CATEGORY:this.attribute, JOBID:this.jobPostingId}))
+    .subscribe(
+      serverService =>this.returnAtts$ = serverService,
+      (response) => console.log(response),
+    );
+    console.log("returned : "+this.returnAtts$ + "attribute: "+this.attribute);
+    if(this.attribute === 'technologyRole'){
+      this.roles$ = this.returnAtts$;
+    }
+    if(this.attribute === 'technologyName'){
+      this.names$ = this.returnAtts$;
+    }
+    if(this.attribute === 'minimumProficiency'){
+      this.proficiencies$ = this.returnAtts$;
+    }
+    if(this.attribute === 'technologyType'){
+      this.types$ = this.returnAtts$;
+    }
+
+}
+
+}
   // calls script
   /*resumeGen (){
     this.serverService.generateResume(JSON.stringify({JOBID:this.jobPostingId}))
@@ -127,4 +233,4 @@ export class AResumeGeneratorPageComponent implements OnInit {
         console.log("thisisresult:" + this.generatedResume$);
   }
 */
-}
+// }
