@@ -159,10 +159,12 @@ getAttributes(){
     .subscribe(
       serverService => this.returnAtt$ = serverService,
       (response) => console.log(response),
+      console.log("return att: " + this.returnAtt$);
     );
     console.log(this.returnAtt$);
     if(this.attribute === 'role'){
       this.roles$ = this.returnAtt$;
+      console.log("role" + this.roles$);
     }
     if(this.attribute === 'name'){
       this.names$ = this.returnAtt$;
