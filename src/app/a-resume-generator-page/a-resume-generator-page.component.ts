@@ -50,6 +50,29 @@ export class AResumeGeneratorPageComponent implements OnInit {
     console.log("email: "+this.email);
   }
 
+  getAwards(){
+    this.includeAwards = !this.includeAwards;
+    console.log("awards: "+this.includeAwards);
+    this.serverService.getAwards(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+         serverService => this.generatedAwards$ = serverService,
+         (response) => console.log(response),
+      );
+      console.log(this.generatedAwards$);
+  }
+
+  getCodingProjects(){
+    this.includeCodingProjects = !this.includeCodingProjects;
+    console.log("cp: "+this.includeCodingProjects);
+    this.serverService.getCodingProjects(
+      JSON.stringify({APPLICANTEMAIL:this.email}))
+      .subscribe(
+        serverService => this.generatedCodingProjects$ = serverService,
+        (response) => console.log(response),
+      );
+  }
+
   getHobbies(){
       (this.email == "" || this.email == null) ? alert("Please input email!") :
 ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
@@ -75,6 +98,20 @@ export class AResumeGeneratorPageComponent implements OnInit {
         (response) => console.log(response),
       );
   }
+
+  getCodingProject(){
+    ( this.email == "" || this.email == null) ? alert("Please input email!") :
+((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
+  this.includeCodingProjects = !this.includeCodingProjects;
+  console.log("cp: "+this.includeCodingProjects);
+  this.serverService.getCodingProjects(
+    JSON.stringify({APPLICANTEMAIL:this.email}))
+    .subscribe(
+      serverService => this.generatedCodingProjects$ = serverService,
+      (response) => console.log(response),
+    );
+}
+
 
   buildResume(){
       (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
