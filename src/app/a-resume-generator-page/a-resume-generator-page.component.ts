@@ -156,7 +156,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
         (response) => console.log(response),
       );
       console.log("applied");
-      alert("You Have Applied!");
+      alert("Application Analyzed!");
   }
 
 
