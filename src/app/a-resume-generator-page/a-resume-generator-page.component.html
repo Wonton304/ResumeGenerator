@@ -22,6 +22,41 @@
     <br>
  <button type="submit" class="btn btn-primary" (click)="buildResume()">Build My Resume</button>
  <button type="button" class="btn btn-danger" (click)="apply()">Apply</button>
+
+ <hr>
+ <div>
+<b> Select an attribute (role, name, minimum proficiency, type) of a required technology of this job posting to view: </b>
+</div>
+<div>
+<input (input)="collectAttribute($event)">
+<button type="button" class="btn btn-info" (click) = "getAttributes()">View Information</button>
+<ul>
+    <li *ngFor='let role of roles$'>
+        <ul>
+            <li> Technology Role: <strong>{{role.technologyRole}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+    <li *ngFor='let name of names$'>
+        <ul>
+            <li> Technology Name: <strong>{{name.technologyName}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+    <li *ngFor='let prof of proficiencies$'>
+        <ul>
+            <li> Minimum Proficiency: <strong>{{prof.minimumProficiency}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+    <li *ngFor='let type of types$'>
+        <ul>
+            <li> Technology Type: <strong>{{type.technologyType}}</strong></li>
+            <hr>
+        </ul>
+    </li>
+</ul>
+</div>
 <br>
  <div class="btn-group" role="group" aria-label="Basic example">
    <button type="button" class="btn btn-secondary" (click) = "getHobbies()">Include Your Hobbies</button>

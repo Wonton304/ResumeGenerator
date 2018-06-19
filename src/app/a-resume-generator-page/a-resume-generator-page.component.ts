@@ -19,6 +19,13 @@ export class AResumeGeneratorPageComponent implements OnInit {
   generatedCodingProjects$:Object;
   email:string="";
 
+  attribute:string="";
+  roles$:Object;
+  names$:Object;
+  proficiencies$:Object;
+  types$:Object;
+  returnAtt$:Object;
+
   resumeGenerated:boolean=false;
 
   includeHobbies:boolean=false;
@@ -115,6 +122,60 @@ export class AResumeGeneratorPageComponent implements OnInit {
       alert("You Have Applied!");
   }
 
+
+collectAttribute(){
+  this.attribute=event.target.value;
+  console.log("attribute: "+this.attribute);
+}
+
+getAttributes(){
+  if(this.attribute == "" || this.jobPostingId == ""){
+    alert("Please fill in all fields!");
+    return;
+  }
+  else if(this.attribute === 'role' || this.attribute === 'name' || this.attribute === 'minimum proficiency'
+|| this.attribute === 'type'){
+  alert("Submitted");
+  }
+  else{
+    alert("Bad input, please match the input guidelines above!");
+    return;
+  }
+  if(this.attribute === 'role'){
+    this.attribute = 'technologyRole';
+  }
+  if(this.attribute === 'name'){
+    this.attribute = 'technologyName';
+  }
+  if(this.attribute === 'minimum proficiency'){
+    this.attribute = 'minimumProficiency';
+  }
+  if(this.attribute === 'type'){
+    this.attribute = 'technologyType';
+  }
+
+  this.serverService.findJobAttributes(
+    JSON.stringify({CATEGORY:this.attribute, JOBID:this.jobPostingId}))
+    .subscribe(
+      serverService => this.returnAtt$ = serverService,
+      (response) => console.log(response),
+    );
+    console.log(this.returnAtt$);
+    if(this.attribute === 'role'){
+      this.roles$ = this.returnAtt$;
+    }
+    if(this.attribute === 'name'){
+      this.names$ = this.returnAtt$;
+    }
+    if(this.attribute === 'minimum proficiency'){
+      this.proficiencies$ = this.returnAtt$;
+    }
+    if(this.attribute === 'type'){
+      this.types$ = this.returnAtt$;
+    }
+}
+
+}
   // calls script
   /*resumeGen (){
     this.serverService.generateResume(JSON.stringify({JOBID:this.jobPostingId}))
