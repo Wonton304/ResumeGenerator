@@ -10,7 +10,7 @@ import { isNumber } from 'util';
 })
 export class AUpdateInformationPageComponent implements OnInit {
   item:string[] = ["Hobbies","Awards","Coding Projects","Experience"];
-  experienceTypeArray:string[] = ["Work Experience","Volunteer Experience"];
+  experienceTypeArray:string[] = ["Work Experience","Volunteer Experience", "Extracurricular Experience"];
   categoryArray:string[] = ["Personal","Academic"];
   experienceType:string ="";
   title:string="";
