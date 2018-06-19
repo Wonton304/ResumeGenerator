@@ -24,6 +24,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   names$:Object;
   proficiencies$:Object;
   types$:Object;
+  returnAtts$:Object;
 
   resumeGenerated:boolean=false;
 
@@ -192,24 +193,22 @@ getAttributes(){
   this.serverService.findJobAttributes(
     JSON.stringify({CATEGORY:this.attribute, JOBID:this.jobPostingId}))
     .subscribe(
-      serverService =>
-      {if(this.attribute === 'role'){
-        this.roles$ = serverService;
-        console.log("role" + this.roles$);
-      }
-      if(this.attribute === 'name'){
-        this.names$ = serverService;
-      }
-      if(this.attribute === 'minimum proficiency'){
-        this.proficiencies$ = serverService;
-      }
-      if(this.attribute === 'type'){
-        this.types$ = serverService;
-      }
-    }
-    ,(response) => console.log(response),
+      serverService =>this.returnAtts$ = serverService,
+      (response) => console.log(response),
     );
-    console.log(this.roles$);
+    console.log("returned : "+this.returnAtts$ + "attribute: "+this.attribute);
+    if(this.attribute === 'technologyRole'){
+      this.roles$ = this.returnAtts$;
+    }
+    if(this.attribute === 'technologyName'){
+      this.names$ = this.returnAtts$;
+    }
+    if(this.attribute === 'minimumProficiency'){
+      this.proficiencies$ = this.returnAtts$;
+    }
+    if(this.attribute === 'technologyType'){
+      this.types$ = this.returnAtts$;
+    }
 
 }
 
@@ -226,3 +225,4 @@ getAttributes(){
         console.log("thisisresult:" + this.generatedResume$);
   }
 */
+}

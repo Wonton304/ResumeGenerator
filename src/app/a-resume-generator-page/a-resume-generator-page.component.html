@@ -30,6 +30,8 @@
 <div>
 <input (input)="collectAttribute($event)">
 <button type="button" class="btn btn-info" (click) = "getAttributes()">View Information</button>
+</div>
+<div>
 <ul>
     <li *ngFor='let role of roles$'>
         <ul>
