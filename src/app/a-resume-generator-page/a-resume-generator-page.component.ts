@@ -193,7 +193,7 @@ getAttributes(){
     JSON.stringify({CATEGORY:this.attribute, JOBID:this.jobPostingId}))
     .subscribe(
       serverService =>
- /**     if(this.attribute === 'role'){
+      {if(this.attribute === 'role'){
         this.roles$ = serverService;
         console.log("role" + this.roles$);
       }
@@ -205,8 +205,9 @@ getAttributes(){
       }
       if(this.attribute === 'type'){
         this.types$ = serverService;
-      }, */
-      (response) => console.log(response),
+      }
+    }
+    ,(response) => console.log(response),
     );
     console.log(this.roles$);
 
@@ -225,4 +226,3 @@ getAttributes(){
         console.log("thisisresult:" + this.generatedResume$);
   }
 */
-}
