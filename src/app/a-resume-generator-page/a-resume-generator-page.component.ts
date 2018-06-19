@@ -159,7 +159,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
   }
 
 
-collectAttribute(){
+collectAttribute(event:any){
   this.attribute=event.target.value;
   console.log("attribute: "+this.attribute);
 }
@@ -193,7 +193,7 @@ getAttributes(){
     JSON.stringify({CATEGORY:this.attribute, JOBID:this.jobPostingId}))
     .subscribe(
       serverService =>
-      if(this.attribute === 'role'){
+ /**     if(this.attribute === 'role'){
         this.roles$ = serverService;
         console.log("role" + this.roles$);
       }
@@ -205,7 +205,7 @@ getAttributes(){
       }
       if(this.attribute === 'type'){
         this.types$ = serverService;
-      },
+      }, */
       (response) => console.log(response),
     );
     console.log(this.roles$);
