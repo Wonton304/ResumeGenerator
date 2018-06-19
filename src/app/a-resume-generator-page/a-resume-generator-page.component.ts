@@ -24,7 +24,6 @@ export class AResumeGeneratorPageComponent implements OnInit {
   names$:Object;
   proficiencies$:Object;
   types$:Object;
-  returnAtt$:Object;
 
   resumeGenerated:boolean=false;
 
@@ -151,7 +150,7 @@ export class AResumeGeneratorPageComponent implements OnInit {
     (this.jobPostingId == null || this.jobPostingId == "" || this.email == "" || this.email == null) ? alert("Please input all fields!") :
     ((this.email.length > 100 || this.jobPostingId.length > 100) ? alert("Input too long!") : null);
     this.serverService.applyApplicant(
-      JSON.stringify({APPLICANTEMAIL:this.email, JOBID:this.jobPostingId}))
+      JSON.stringify({APPLICANTEMAIL:this.email, ID:this.jobPostingId}))
       .subscribe(
         (response) => console.log(response),
       );
@@ -190,28 +189,27 @@ getAttributes(){
   if(this.attribute === 'type'){
     this.attribute = 'technologyType';
   }
-
   this.serverService.findJobAttributes(
     JSON.stringify({CATEGORY:this.attribute, JOBID:this.jobPostingId}))
     .subscribe(
-      serverService => this.returnAtt$ = serverService,
+      serverService =>
+      if(this.attribute === 'role'){
+        this.roles$ = serverService;
+        console.log("role" + this.roles$);
+      }
+      if(this.attribute === 'name'){
+        this.names$ = serverService;
+      }
+      if(this.attribute === 'minimum proficiency'){
+        this.proficiencies$ = serverService;
+      }
+      if(this.attribute === 'type'){
+        this.types$ = serverService;
+      },
       (response) => console.log(response),
-      console.log("return att: " + this.returnAtt$);
     );
-    console.log(this.returnAtt$);
-    if(this.attribute === 'role'){
-      this.roles$ = this.returnAtt$;
-      console.log("role" + this.roles$);
-    }
-    if(this.attribute === 'name'){
-      this.names$ = this.returnAtt$;
-    }
-    if(this.attribute === 'minimum proficiency'){
-      this.proficiencies$ = this.returnAtt$;
-    }
-    if(this.attribute === 'type'){
-      this.types$ = this.returnAtt$;
-    }
+    console.log(this.roles$);
+
 }
 
 }
