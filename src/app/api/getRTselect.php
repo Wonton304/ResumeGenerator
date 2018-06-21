@@ -14,19 +14,23 @@ $selectCategory = $obj->CATEGORY;
 $jobID = $obj->JOBID;
 
 // $selectCategory = 'technologyName';
-// $jobID = '7er93';
+// $jobID = '5fo52';
+
+// $applicantEmail = 'Korra_6170@alumni.ubc.ca';
+// $selectCategory = 'Award';
 
 
 
 // Create connection to Oracle
 $conn = oci_connect("ora_f5x0b", "a40858169", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-$get = "SELECT '$selectCategory'
+$get = "SELECT $selectCategory
         FROM RequiredTechnology
         WHERE RequiredTechnology.id = '$jobID'";
 
 
 $stid = oci_parse($conn, $get);
+// oci_bind_by_name($stid, ':applicantEmail', $applicantEmail);
 oci_execute($stid);
 
 //to remember the entire json string
